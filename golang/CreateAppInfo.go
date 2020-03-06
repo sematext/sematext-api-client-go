@@ -11,8 +11,8 @@ type CreateAppInfo struct {
 	Name          string      `json:"name"`
 }
 
-// Create TODO Doc comment
-func (createAppInfo *CreateAppInfo) Create(client *Client) (*App, error) {
+// Persist TODO Doc comment
+func (createAppInfo *CreateAppInfo) Persist(client *Client) (*App, error) {
 
 	path := "/spm-reports/api/v3/apps"
 
@@ -32,4 +32,12 @@ func (createAppInfo *CreateAppInfo) Create(client *Client) (*App, error) {
 	}
 
 	return &apps[0], nil
+}
+
+// IsValid TODO Doc comment
+func (createAppInfo *CreateAppInfo) IsValid() bool {
+
+	// TODO - test minimum viable
+
+	return true
 }

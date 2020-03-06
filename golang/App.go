@@ -22,7 +22,7 @@ type App struct {
 	LoggedInUserAppRole   string               `json:"loggedInUserAppRole"`
 	MonthlyInvoiceAccount bool                 `json:"monthlyInvoiceAccount"`
 	Name                  string               `json:"name"`
-	OwnerEmail            string               `json:"ownerEmail"` // TODO - Check owner email for inclusion into resource
+	OwnerEmail            string               `json:"ownerEmail"` // TODO - Check owner email present for inclusion into resource
 	OwningOrganization    BasicOrganizationDto `json:"owningOrganization"`
 	PageLoadThreshold     int64                `json:"pageLoadThreshold"`
 	PaymentMethodID       int64                `json:"paymentMethodId"`
@@ -35,8 +35,8 @@ type App struct {
 	UserRoles             []UserRole           `json:"userRoles"` // TODO - Check userroles for inclusion into resource
 }
 
-// Retrieve TODO Doc comment
-func (app *App) Retrieve(id string, client *Client) (*App, error) { // TODO Rework once API has a route for GET by id
+// Load TODO Doc comment
+func (app *App) Load(id string, client *Client) (*App, error) { // TODO Rework once API has a route for GET by id
 
 	path := "/spm-reports/api/v3/apps"
 	genericAPIResponse, err := client.GetJSON(path, nil)
@@ -63,16 +63,21 @@ func (app *App) Exists(id string, client *Client) (bool, error) { // TODO Rework
 	}
 
 	app, err = genericAPIResponse.ExtractAppByID(id)
-	result := app != nil
-	return result, nil
+	if err != nil {
+		return false, err
+	}
+	exists := app != nil && app.Status == "ACTIVE"
+	return exists, nil
 
 }
 
-// Update TODO Doc comment
-func (app *App) Update(id string, client *Client, dto Dto) (*App, error) {
+// Persist TODO Doc comment
+func (app *App) Persist(id string, client *Client, updateAppInfo UpdateAppInfo) (*App, error) {
+
+	// TODO - you cannot
 
 	path := fmt.Sprintf("/spm-reports/api/v3/apps/%s", id)
-	genericAPIResponse, err := client.PutJSON(path, dto)
+	genericAPIResponse, err := client.PutJSON(path, updateAppInfo)
 	if err != nil {
 		return nil, err
 	}
@@ -83,17 +88,6 @@ func (app *App) Update(id string, client *Client, dto Dto) (*App, error) {
 	}
 
 	return app, nil
-}
-
-// Delete TODO Doc comment
-func (app *App) Delete(id string, client *Client) error {
-
-	path := fmt.Sprintf("/spm-reports/api/v3/apps/%s", id)
-	err := client.Delete(path)
-	if err != nil {
-		return err
-	}
-	return nil
 }
 
 // IsArchived TODO Doc comment
