@@ -1,19 +1,21 @@
 package api
 
-// TODO - The API Key needs to be passed as Header parameter with name Authorization and value should be in the format apiKey <Value>. e.g. apiKey e5f18450-205a-48eb-8589-7d49edaea813
-
 import (
 	"bytes"
 	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
+	"io/ioutil"
 	"net"
 	"net/http"
 	"net/url"
-	"regexp"
 	"runtime"
+	"strings"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 // Client TODO Doc Comment
@@ -27,6 +29,9 @@ type Client struct {
 
 // Init TODO Doc Comment
 func (client *Client) Init(region string, terraformVersion string) error {
+
+	fmt.Println("Client.Init Called")
+	fmt.Println("-----------------------------")
 
 	baseURL, err := url.Parse("https://apps.sematext.com")
 	if err != nil {
@@ -69,20 +74,23 @@ func (client *Client) Init(region string, terraformVersion string) error {
 
 // SetAuthorization TODO Doc Comment
 func (client *Client) SetAuthorization(token string) error {
-	re := regexp.MustCompile(`[0-9]{8}-[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{8}`)
-	if re.Match([]byte(token)) {
-		client.CachedToken = fmt.Sprintf("apiKey %s", token)
+
+	if IsValidUUID(token) {
+		client.CachedToken = token
 		return nil
 	}
+
 	client.CachedToken = ""
-	return errors.New("Bad or missing Token")
+	return errors.New("Bad or missing Sematext API Token")
 }
 
 // GetJSON TODO Doc Comment
 func (client *Client) GetJSON(path string, object interface{}) (*GenericAPIResponse, error) {
 
+	fmt.Println("GetJSON Called")
+
 	if client.CachedToken == "" {
-		panic("Code error : method called without setting token")
+		return nil, errors.New("coding error - method called without setting API token")
 	}
 
 	route := client.BaseURL
@@ -94,7 +102,7 @@ func (client *Client) GetJSON(path string, object interface{}) (*GenericAPIRespo
 	}
 
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
-	req.Header.Add("Authorization", client.CachedToken)
+	req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
 
 	res, err := client.httpClient.Do(req)
 	if err != nil {
@@ -102,25 +110,21 @@ func (client *Client) GetJSON(path string, object interface{}) (*GenericAPIRespo
 	}
 
 	defer res.Body.Close()
+	return handleAPIResponse(res)
 
-	if res.StatusCode == 200 {
-		genericAppResponse := &GenericAPIResponse{}
-		err = json.NewDecoder(res.Body).Decode(genericAppResponse)
-		if err != nil {
-			return nil, err
-
-		}
-		return genericAppResponse, nil
-	}
-
-	return nil, fmt.Errorf("Unexected status (%d) return from Sematext API", res.StatusCode)
 }
 
 // PutJSON TODO Doc Comment
 func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIResponse, error) {
 
+	fmt.Println("PutJSON Called")
+	fmt.Println("-----------------------------")
+	fmt.Println(client.CachedToken)
+	fmt.Println("-----------------------------")
+	fmt.Printf("%+v\n", object)
+
 	if client.CachedToken == "" {
-		panic("Code error : method called without setting token")
+		return nil, errors.New("coding error - method called without setting API token")
 	}
 
 	route := client.BaseURL
@@ -137,37 +141,40 @@ func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIRespo
 	}
 
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
-	req.Header.Add("Authorization", client.CachedToken)
+	req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
 
 	res, err := client.httpClient.Do(req)
 	if err != nil {
 		return nil, err
 	}
-
 	defer res.Body.Close()
+	return handleAPIResponse(res)
 
-	if res.StatusCode == 200 {
-		genericAppResponse := new(GenericAPIResponse)
-		err = json.NewDecoder(res.Body).Decode(genericAppResponse)
-		if err != nil {
-			return nil, err
-
-		}
-		return genericAppResponse, nil
-	}
-
-	return nil, fmt.Errorf("Unexected status (%d) return from Sematext API", res.StatusCode)
 }
 
 // PostJSON TODO Doc Comment
 func (client *Client) PostJSON(path string, object interface{}) (*GenericAPIResponse, error) {
 
+	fmt.Println("PostJSON Called")
+	fmt.Println("-----------------------------")
+	fmt.Println("client.CachedToken")
+	fmt.Println(client.CachedToken)
+	fmt.Println("-----------------------------")
+	fmt.Println("request")
+	fmt.Printf("%+v\n", object)
+	fmt.Println("-----------------------------")
+
 	if client.CachedToken == "" {
-		panic("Code error : method called without setting token")
+		return nil, errors.New("coding error - method called without setting API token")
 	}
 
 	route := client.BaseURL
 	route.Path = path
+
+	fmt.Println("-----------------------------")
+	fmt.Println("route")
+	fmt.Println(route.String())
+	fmt.Println("-----------------------------")
 
 	jsn, err := json.Marshal(object)
 	if err != nil {
@@ -180,33 +187,28 @@ func (client *Client) PostJSON(path string, object interface{}) (*GenericAPIResp
 	}
 
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
-	req.Header.Add("Authorization", client.CachedToken)
+	req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
+
+	fmt.Println("-----------------------------")
+	fmt.Println("req")
+	fmt.Printf("--> %s\n\n", formatRequest(req))
+	fmt.Println("-----------------------------")
 
 	res, err := client.httpClient.Do(req)
 	if err != nil {
 		panic(err)
 	}
-
 	defer res.Body.Close()
-
-	if res.StatusCode == 200 {
-		genericAppResponse := &GenericAPIResponse{}
-		err = json.NewDecoder(res.Body).Decode(genericAppResponse)
-		if err != nil {
-			return nil, err
-
-		}
-		return genericAppResponse, nil
-	}
-
-	return nil, fmt.Errorf("Unexected status (%d) return from Sematext API", res.StatusCode)
+	fmt.Printf("--> %s\n\n", formatRequest(req))
+	fmt.Println("-----------------------------")
+	return handleAPIResponse(res)
 }
 
 // Delete TODO Doc Comment
-func (client *Client) Delete(path string) error {
+func (client *Client) Delete(path string) (*GenericAPIResponse, error) {
 
 	if client.CachedToken == "" {
-		panic("Code error : method called without setting token")
+		return nil, errors.New("coding error - method called without setting API token")
 	}
 
 	route := client.BaseURL
@@ -214,20 +216,115 @@ func (client *Client) Delete(path string) error {
 
 	req, err := http.NewRequest("DELETE", route.String(), nil)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
-	req.Header.Add("Authorization", client.CachedToken)
+	req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
 
 	res, err := client.httpClient.Do(req)
 	if err != nil {
-		panic(err)
+		return nil, err
+	}
+	defer res.Body.Close()
+	return handleAPIResponse(res)
+
+}
+
+// IsValidSematextRegion checks sematext api region is valid.
+func IsValidSematextRegion(region string) bool {
+	switch region {
+	case "EU", "US":
+		return true
+	}
+	return false
+}
+
+// IsValidUUID checks a string is UUIDv4
+func IsValidUUID(u string) bool {
+	_, err := uuid.Parse(u)
+	return err == nil
+}
+
+// formatRequest is a debug routine for inspection of an http.Request.
+func formatRequest(r *http.Request) string {
+	var result []string
+	url := fmt.Sprintf("%v %v %v", r.Method, r.URL, r.Proto)
+	result = append(result, fmt.Sprintf("Url: %v", url))
+	result = append(result, fmt.Sprintf("Host: %v", r.Host))
+	for name, headers := range r.Header {
+		name = strings.ToLower(name)
+		for _, h := range headers {
+			result = append(result, fmt.Sprintf("%v: %v", name, h))
+		}
 	}
 
-	defer res.Body.Close()
-	if res.StatusCode != 200 {
-		return fmt.Errorf("Unexected status (%d) return from Sematext API on Delete", res.StatusCode)
+	// If this is a POST, add post data
+	if r.Method == "POST" {
+		r.ParseForm()
+		result = append(result, "\n")
+		result = append(result, r.Form.Encode())
 	}
-	return nil
+	return strings.Join(result, "\n")
+}
+
+// formatResponse is a debug routine for inspection of an http.Response.
+func formatResponse(r *http.Response) string {
+	var result []string
+	for name, headers := range r.Header {
+		name = strings.ToLower(name)
+		for _, h := range headers {
+			result = append(result, fmt.Sprintf("%v: %v", name, h))
+		}
+	}
+
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		panic(err)
+	}
+	result = append(result, string(body))
+
+	return strings.Join(result, "\n")
+}
+
+// handleAPIResponse parses responses comsing back from the API.
+func handleAPIResponse(response *http.Response) (*GenericAPIResponse, error) {
+
+	var err error
+	genericAppResponse := &GenericAPIResponse{}
+
+	err = json.NewDecoder(response.Body).Decode(genericAppResponse)
+
+	switch {
+	case err == io.EOF:
+		return nil, errors.New("Response from API is unexpectedy empty. ")
+	case response.ContentLength == 0:
+		return nil, errors.New("ERROR: Response from API is unexpectedy empty. ")
+	case err != nil:
+		return nil, err
+	}
+
+	fmt.Printf("%+v\n", response.StatusCode)
+
+	switch response.StatusCode {
+	case 200:
+		return genericAppResponse, nil
+	case 400:
+		fmt.Printf("%+v\n", genericAppResponse)
+		return nil, errors.New(genericAppResponse.Message)
+	case 401:
+		fmt.Printf("%+v\n", genericAppResponse)
+		return nil, errors.New(genericAppResponse.Message)
+	case 402:
+		fmt.Printf("%+v\n", genericAppResponse)
+		return nil, errors.New(genericAppResponse.Message)
+	case 404:
+		fmt.Printf("%+v\n", genericAppResponse)
+		return nil, errors.New(genericAppResponse.Message)
+	case 500:
+		fmt.Printf("%+v\n", genericAppResponse)
+		return nil, errors.New(genericAppResponse.Message)
+	default:
+		return nil, fmt.Errorf("Unexected status (%d) return from Sematext API", response.StatusCode)
+	}
 }

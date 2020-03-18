@@ -36,15 +36,15 @@ type App struct {
 }
 
 // Load TODO Doc comment
-func (app *App) Load(id string, client *Client) (*App, error) { // TODO Rework once API has a route for GET by id
+func (app *App) Load(id string, client *Client) (*App, error) {
 
-	path := "/spm-reports/api/v3/apps"
+	path := fmt.Sprintf("/spm-reports/api/v3/apps/%s", id)
 	genericAPIResponse, err := client.GetJSON(path, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	app, err = genericAPIResponse.ExtractAppByID(id)
+	app, err = genericAPIResponse.ExtractApp(id)
 	if err != nil {
 		return nil, err
 	}
@@ -54,19 +54,14 @@ func (app *App) Load(id string, client *Client) (*App, error) { // TODO Rework o
 }
 
 // Exists TODO Doc comment
-func (app *App) Exists(id string, client *Client) (bool, error) { // TODO Rework once API has a route for GET by id
+func (app *App) Exists(id string, client *Client) (bool, error) {
 
-	path := "/spm-reports/api/v3/apps"
-	genericAPIResponse, err := client.GetJSON(path, nil)
+	a, err := app.Load(id, client)
 	if err != nil {
-		return false, err
+		return false, err // TODO Return false on error?
 	}
+	exists := a != nil && !a.IsArchived()
 
-	app, err = genericAPIResponse.ExtractAppByID(id)
-	if err != nil {
-		return false, err
-	}
-	exists := app != nil && app.Status == "ACTIVE"
 	return exists, nil
 
 }
