@@ -6,15 +6,13 @@ import (
 
 // BillingInfo TODO Doc Comment
 type BillingInfo struct {
-	CreditCardID  int64  `json:"creditCardId"`
-	PaymentMethod string `json:"paymentMethod"`
-	PlanID        int64  `json:"planId"`
+	PlanID int `json:"planId"`
 }
 
 // Persist TODO Doc comment
-func (billingInfo *BillingInfo) Persist(id string, client *Client) error {
+func (billingInfo *BillingInfo) Persist(appID int, client *Client) error {
 
-	path := fmt.Sprintf("/users-web/api/v3/billing/info/%s", id)
+	path := fmt.Sprintf("/users-web/api/v3/billing/info/%d", appID)
 
 	_, err := client.PutJSON(path, billingInfo)
 	if err != nil {

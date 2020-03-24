@@ -2,6 +2,8 @@ package api
 
 import (
 	"fmt"
+
+	"github.com/davecgh/go-spew/spew"
 )
 
 // App TODO Doc Comment
@@ -15,7 +17,7 @@ type App struct {
 	Description           string               `json:"description"`
 	DisplayStatus         string               `json:"displayStatus"`
 	FirstDataSavedDate    int64                `json:"firstDataSavedDate"`
-	ID                    string               `json:"id"`
+	ID                    int                  `json:"id"`
 	Integration           ServiceIntegration   `json:"integration"` // TODO - Check integration for inclusion into resource
 	LastDataReceivedDate  int64                `json:"lastDataReceivedDate"`
 	LastDataSavedDate     int64                `json:"lastDataSavedDate"`
@@ -36,16 +38,20 @@ type App struct {
 }
 
 // Load TODO Doc comment
-func (app *App) Load(id string, client *Client) (*App, error) {
+func (app *App) Load(id int, client *Client) (*App, error) {
 
-	path := fmt.Sprintf("/spm-reports/api/v3/apps/%s", id)
-	genericAPIResponse, err := client.GetJSON(path, nil)
-	if err != nil {
+	var genericAPIResponse *GenericAPIResponse
+	var err error
+
+	path := fmt.Sprintf("/users-web/api/v3/apps/%d", id)
+
+	if genericAPIResponse, err = client.GetJSON(path, nil); err != nil {
 		return nil, err
 	}
 
-	app, err = genericAPIResponse.ExtractApp(id)
-	if err != nil {
+	spew.Dump(genericAPIResponse)
+
+	if app, err = genericAPIResponse.ExtractApp(); err != nil {
 		return nil, err
 	}
 
@@ -54,31 +60,30 @@ func (app *App) Load(id string, client *Client) (*App, error) {
 }
 
 // Exists TODO Doc comment
-func (app *App) Exists(id string, client *Client) (bool, error) {
+func (app *App) Exists(id int, client *Client) (bool, error) {
 
-	a, err := app.Load(id, client)
-	if err != nil {
+	var err error
+	if app, err = app.Load(id, client); err != nil {
 		return false, err // TODO Return false on error?
 	}
-	exists := a != nil && !a.IsArchived()
+	exists := app != nil && !app.IsArchived()
 
 	return exists, nil
 
 }
 
 // Persist TODO Doc comment
-func (app *App) Persist(id string, client *Client, updateAppInfo UpdateAppInfo) (*App, error) {
+func (app *App) Persist(id int, client *Client, updateAppInfo UpdateAppInfo) (*App, error) {
 
-	// TODO - you cannot
+	var genericAPIResponse *GenericAPIResponse
+	var err error
 
-	path := fmt.Sprintf("/spm-reports/api/v3/apps/%s", id)
-	genericAPIResponse, err := client.PutJSON(path, updateAppInfo)
-	if err != nil {
+	path := fmt.Sprintf("/spm-reports/api/v3/apps/%d", id)
+	if genericAPIResponse, err = client.PutJSON(path, updateAppInfo); err != nil {
 		return nil, err
 	}
 
-	app, err = genericAPIResponse.ExtractAppByID(id)
-	if err != nil {
+	if app, err = genericAPIResponse.ExtractAppByID(id); err != nil {
 		return nil, err
 	}
 

@@ -6,7 +6,7 @@ import "encoding/json"
 type CreateAppInfo struct {
 	AppType       string      `json:"appType"`
 	DiscountCode  string      `json:"discountCode,omitempty"`
-	InitialPlanID int64       `json:"initialPlanId"`
+	InitialPlanID int         `json:"initialPlanId"`
 	MetaData      AppMetadata `json:"metaData,omitempty"`
 	Name          string      `json:"name"`
 }

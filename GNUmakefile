@@ -1,7 +1,7 @@
 SWEEP?=us-east-1,us-west-2
 TEST?=./...
 GOFMT_FILES?=$$(find . -name '*.go' |grep -v vendor)
-PKG_NAME=sematext
+PKG_NAME=.
 WEBSITE_REPO=github.com/hashicorp/terraform-website
 
 default: build

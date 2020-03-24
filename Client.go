@@ -119,16 +119,23 @@ func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIRespo
 
 	fmt.Println("PutJSON Called")
 	fmt.Println("-----------------------------")
+	fmt.Println("client.CachedToken")
 	fmt.Println(client.CachedToken)
 	fmt.Println("-----------------------------")
+	fmt.Println("request")
 	fmt.Printf("%+v\n", object)
-
+	fmt.Println("-----------------------------")
 	if client.CachedToken == "" {
 		return nil, errors.New("coding error - method called without setting API token")
 	}
 
 	route := client.BaseURL
 	route.Path = path
+
+	fmt.Println("-----------------------------")
+	fmt.Println("route")
+	fmt.Println(route.String())
+	fmt.Println("-----------------------------")
 
 	jsn, err := json.Marshal(object)
 	if err != nil {
@@ -143,11 +150,18 @@ func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIRespo
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
 	req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
 
+	fmt.Println("-----------------------------")
+	fmt.Println("req")
+	fmt.Printf("--> %s\n\n", formatRequest(req))
+	fmt.Println("-----------------------------")
+
 	res, err := client.httpClient.Do(req)
 	if err != nil {
 		return nil, err
 	}
 	defer res.Body.Close()
+	fmt.Printf("--> %s\n\n", formatRequest(req))
+	fmt.Println("-----------------------------")
 	return handleAPIResponse(res)
 
 }
@@ -316,6 +330,9 @@ func handleAPIResponse(response *http.Response) (*GenericAPIResponse, error) {
 		fmt.Printf("%+v\n", genericAppResponse)
 		return nil, errors.New(genericAppResponse.Message)
 	case 402:
+		fmt.Printf("%+v\n", genericAppResponse)
+		return nil, errors.New(genericAppResponse.Message)
+	case 403:
 		fmt.Printf("%+v\n", genericAppResponse)
 		return nil, errors.New(genericAppResponse.Message)
 	case 404:

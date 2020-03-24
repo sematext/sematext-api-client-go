@@ -13,12 +13,8 @@ type GenericAPIResponse struct {
 	} `json:"data"`
 }
 
-// TODO JIRA TASK - GET App by ID
-// TODO JIRA TASK - DELETE App by ID
-// TODO JIRA TASK - RESET App STATUS to archived or similar.
-
 // ExtractAppByID - TODO Doc Comment
-func (genericAPIResponse *GenericAPIResponse) ExtractAppByID(id string) (*App, error) {
+func (genericAPIResponse *GenericAPIResponse) ExtractAppByID(id int) (*App, error) {
 
 	if &genericAPIResponse.Data == nil {
 		return nil, fmt.Errorf("Missing Data field")
@@ -39,14 +35,14 @@ func (genericAPIResponse *GenericAPIResponse) ExtractAppByID(id string) (*App, e
 		}
 	}
 
-	return nil, fmt.Errorf("App %s not found", id)
+	return nil, fmt.Errorf("App %d not found", id)
 
 }
 
 // ExtractApp - TODO Doc Comment
-func (genericAPIResponse *GenericAPIResponse) ExtractApp(id string) (*App, error) {
+func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
 
-	if &genericAPIResponse.Data.App != nil {
+	if &genericAPIResponse.Data.App == nil {
 		return nil, fmt.Errorf("Missing App field")
 	}
 
