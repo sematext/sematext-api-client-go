@@ -8,8 +8,9 @@ type GenericAPIResponse struct {
 	Message string  `json:"message"`
 	Success bool    `json:"success"`
 	Data    struct {
-		Apps []App `json:"apps,omitempty"`
-		App  App   `json:"app,omitempty"`
+		Apps               []App              `json:"apps,omitempty"`
+		App                App                `json:"app,omitempty"`
+		CloudWatchSettings CloudWatchSettings `json:"aws,omitempty"`
 	} `json:"data"`
 }
 
@@ -47,5 +48,16 @@ func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
 	}
 
 	return &genericAPIResponse.Data.App, nil
+
+}
+
+// ExtractCloudWatchSettings - TODO Doc Comment
+func (genericAPIResponse *GenericAPIResponse) ExtractCloudWatchSettings() (*CloudWatchSettings, error) {
+
+	if &genericAPIResponse.Data.App == nil {
+		return nil, fmt.Errorf("Missing App field")
+	}
+
+	return &genericAPIResponse.Data.CloudWatchSettings, nil
 
 }

@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
@@ -175,9 +174,6 @@ var LookupAppType2PlanID = map[string][]int{
 
 // AssignPlanID provides a ramdom PlanID for testing.
 func AssignPlanID(appType string) int {
-	fmt.Println("------------------------------")
-	fmt.Println(appType)
-	fmt.Println("------------------------------")
 	if plans, ok := LookupAppType2PlanID[appType]; ok {
 		rand.Seed(time.Now().Unix())
 		n := rand.Intn(len(plans))

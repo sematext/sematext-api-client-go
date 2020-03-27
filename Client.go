@@ -30,6 +30,7 @@ type Client struct {
 // Init TODO Doc Comment
 func (client *Client) Init(region string, terraformVersion string) error {
 
+	fmt.Println("-----------------------------")
 	fmt.Println("Client.Init Called")
 	fmt.Println("-----------------------------")
 
@@ -87,7 +88,15 @@ func (client *Client) SetAuthorization(token string) error {
 // GetJSON TODO Doc Comment
 func (client *Client) GetJSON(path string, object interface{}) (*GenericAPIResponse, error) {
 
+	fmt.Println("-----------------------------")
 	fmt.Println("GetJSON Called")
+	fmt.Println("-----------------------------")
+	fmt.Println("client.CachedToken")
+	fmt.Println(client.CachedToken)
+	fmt.Println("-----------------------------")
+	fmt.Println("request")
+	fmt.Printf("%+v\n", object)
+	fmt.Println("-----------------------------")
 
 	if client.CachedToken == "" {
 		return nil, errors.New("coding error - method called without setting API token")
@@ -96,6 +105,11 @@ func (client *Client) GetJSON(path string, object interface{}) (*GenericAPIRespo
 	route := client.BaseURL
 	route.Path = path
 
+	fmt.Println("-----------------------------")
+	fmt.Println("route")
+	fmt.Println(route.String())
+	fmt.Println("-----------------------------")
+
 	req, err := http.NewRequest("GET", route.String(), nil)
 	if err != nil {
 		return nil, err
@@ -103,6 +117,11 @@ func (client *Client) GetJSON(path string, object interface{}) (*GenericAPIRespo
 
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
 	req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
+
+	fmt.Println("-----------------------------")
+	fmt.Println("request")
+	fmt.Printf("--> %s\n\n", formatRequest(req))
+	fmt.Println("-----------------------------")
 
 	res, err := client.httpClient.Do(req)
 	if err != nil {
@@ -117,6 +136,7 @@ func (client *Client) GetJSON(path string, object interface{}) (*GenericAPIRespo
 // PutJSON TODO Doc Comment
 func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIResponse, error) {
 
+	fmt.Println("-----------------------------")
 	fmt.Println("PutJSON Called")
 	fmt.Println("-----------------------------")
 	fmt.Println("client.CachedToken")
@@ -125,6 +145,7 @@ func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIRespo
 	fmt.Println("request")
 	fmt.Printf("%+v\n", object)
 	fmt.Println("-----------------------------")
+
 	if client.CachedToken == "" {
 		return nil, errors.New("coding error - method called without setting API token")
 	}
@@ -142,6 +163,11 @@ func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIRespo
 		panic(err)
 	}
 
+	fmt.Println("-----------------------------")
+	fmt.Println("packet")
+	fmt.Println(string(jsn))
+	fmt.Println("-----------------------------")
+
 	req, err := http.NewRequest("PUT", route.String(), bytes.NewBuffer(jsn))
 	if err != nil {
 		return nil, err
@@ -151,7 +177,7 @@ func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIRespo
 	req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
 
 	fmt.Println("-----------------------------")
-	fmt.Println("req")
+	fmt.Println("request")
 	fmt.Printf("--> %s\n\n", formatRequest(req))
 	fmt.Println("-----------------------------")
 
@@ -160,8 +186,6 @@ func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIRespo
 		return nil, err
 	}
 	defer res.Body.Close()
-	fmt.Printf("--> %s\n\n", formatRequest(req))
-	fmt.Println("-----------------------------")
 	return handleAPIResponse(res)
 
 }
@@ -169,6 +193,7 @@ func (client *Client) PutJSON(path string, object interface{}) (*GenericAPIRespo
 // PostJSON TODO Doc Comment
 func (client *Client) PostJSON(path string, object interface{}) (*GenericAPIResponse, error) {
 
+	fmt.Println("-----------------------------")
 	fmt.Println("PostJSON Called")
 	fmt.Println("-----------------------------")
 	fmt.Println("client.CachedToken")
@@ -195,6 +220,11 @@ func (client *Client) PostJSON(path string, object interface{}) (*GenericAPIResp
 		panic(err)
 	}
 
+	fmt.Println("-----------------------------")
+	fmt.Println("packet")
+	fmt.Println(string(jsn))
+	fmt.Println("-----------------------------")
+
 	req, err := http.NewRequest("POST", route.String(), bytes.NewBuffer(jsn))
 	if err != nil {
 		return nil, err
@@ -213,13 +243,18 @@ func (client *Client) PostJSON(path string, object interface{}) (*GenericAPIResp
 		panic(err)
 	}
 	defer res.Body.Close()
-	fmt.Printf("--> %s\n\n", formatRequest(req))
-	fmt.Println("-----------------------------")
 	return handleAPIResponse(res)
 }
 
 // Delete TODO Doc Comment
 func (client *Client) Delete(path string) (*GenericAPIResponse, error) {
+
+	fmt.Println("-----------------------------")
+	fmt.Println("Delete Called")
+	fmt.Println("-----------------------------")
+	fmt.Println("client.CachedToken")
+	fmt.Println(client.CachedToken)
+	fmt.Println("-----------------------------")
 
 	if client.CachedToken == "" {
 		return nil, errors.New("coding error - method called without setting API token")
@@ -228,6 +263,11 @@ func (client *Client) Delete(path string) (*GenericAPIResponse, error) {
 	route := client.BaseURL
 	route.Path = path
 
+	fmt.Println("-----------------------------")
+	fmt.Println("route")
+	fmt.Println(route.String())
+	fmt.Println("-----------------------------")
+
 	req, err := http.NewRequest("DELETE", route.String(), nil)
 	if err != nil {
 		return nil, err
@@ -235,6 +275,11 @@ func (client *Client) Delete(path string) (*GenericAPIResponse, error) {
 
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
 	req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
+
+	fmt.Println("-----------------------------")
+	fmt.Println("req")
+	fmt.Printf("--> %s\n\n", formatRequest(req))
+	fmt.Println("-----------------------------")
 
 	res, err := client.httpClient.Do(req)
 	if err != nil {
@@ -307,13 +352,18 @@ func handleAPIResponse(response *http.Response) (*GenericAPIResponse, error) {
 	var err error
 	genericAppResponse := &GenericAPIResponse{}
 
+	fmt.Println("-----------------------------")
+	fmt.Println("handleAPIResponse response")
+	fmt.Printf("--> %s\n\n", formatResponse(response))
+	fmt.Println("-----------------------------")
+
 	err = json.NewDecoder(response.Body).Decode(genericAppResponse)
 
 	switch {
 	case err == io.EOF:
-		return nil, errors.New("Response from API is unexpectedy empty. ")
+		return nil, errors.New("Response from API is cut short")
 	case response.ContentLength == 0:
-		return nil, errors.New("ERROR: Response from API is unexpectedy empty. ")
+		return nil, errors.New("Response from API is unexpectedy empty")
 	case err != nil:
 		return nil, err
 	}
@@ -321,7 +371,7 @@ func handleAPIResponse(response *http.Response) (*GenericAPIResponse, error) {
 	fmt.Printf("%+v\n", response.StatusCode)
 
 	switch response.StatusCode {
-	case 200:
+	case 200, 201:
 		return genericAppResponse, nil
 	case 400:
 		fmt.Printf("%+v\n", genericAppResponse)

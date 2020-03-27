@@ -40,20 +40,36 @@ type App struct {
 // Load TODO Doc comment
 func (app *App) Load(id int, client *Client) (*App, error) {
 
+	fmt.Println("---------------------------------------")
+	fmt.Println("App.Load Called")
+	fmt.Println("---------------------------------------")
+
 	var genericAPIResponse *GenericAPIResponse
 	var err error
 
 	path := fmt.Sprintf("/users-web/api/v3/apps/%d", id)
+	fmt.Println("---------------------------------------")
+	fmt.Println("path")
+	fmt.Println(path)
+	fmt.Println("---------------------------------------")
 
 	if genericAPIResponse, err = client.GetJSON(path, nil); err != nil {
 		return nil, err
 	}
 
+	fmt.Println("---------------------------------------")
+	fmt.Println("genericAPIResponse")
 	spew.Dump(genericAPIResponse)
+	fmt.Println("---------------------------------------")
 
 	if app, err = genericAPIResponse.ExtractApp(); err != nil {
 		return nil, err
 	}
+
+	fmt.Println("---------------------------------------")
+	fmt.Println("app")
+	spew.Dump(app)
+	fmt.Println("---------------------------------------")
 
 	return app, nil
 
