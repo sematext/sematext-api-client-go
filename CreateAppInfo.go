@@ -14,7 +14,14 @@ type CreateAppInfo struct {
 // Persist TODO Doc comment
 func (createAppInfo *CreateAppInfo) Persist(client *Client) (*App, error) {
 
-	path := "/spm-reports/api/v3/apps"
+	var path string
+
+	switch createAppInfo.AppType {
+	case "Logsene":
+		path = "/logsene-reports/api/v3/apps"
+	default:
+		path = "/spm-reports/api/v3/apps"
+	}
 
 	genericAPIResponse, err := client.PostJSON(path, createAppInfo)
 	if err != nil {
