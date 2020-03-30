@@ -4,11 +4,11 @@ import "encoding/json"
 
 // CreateAppInfo TODO Doc Comment
 type CreateAppInfo struct {
-	AppType       string      `json:"appType"`
-	DiscountCode  string      `json:"discountCode,omitempty"`
-	InitialPlanID int         `json:"initialPlanId"`
-	MetaData      AppMetadata `json:"metaData,omitempty"`
-	Name          string      `json:"name"`
+	AppType       string       `json:"appType"`
+	DiscountCode  string       `json:"discountCode,omitempty"`
+	InitialPlanID int          `json:"initialPlanId"`
+	MetaData      *AppMetadata `json:"metaData,omitempty"`
+	Name          string       `json:"name"`
 }
 
 // Persist TODO Doc comment

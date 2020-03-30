@@ -75,12 +75,16 @@ func (app *App) Load(id int, client *Client) (*App, error) {
 
 }
 
-// Exists TODO Doc comment
-func (app *App) Exists(id int, client *Client) (bool, error) {
+// Retired TODO Doc comment
+func (app *App) Retired(id int, client *Client) (bool, error) {
+
+	fmt.Println("---------------------------------------")
+	fmt.Println("App.Retired Called")
+	fmt.Println("---------------------------------------")
 
 	var err error
 	if app, err = app.Load(id, client); err != nil {
-		return false, err // TODO Return false on error?
+		return false, err // TODO Correct to call false on error - tristate condition?
 	}
 	exists := app != nil && !app.IsArchived()
 
@@ -90,6 +94,10 @@ func (app *App) Exists(id int, client *Client) (bool, error) {
 
 // Persist TODO Doc comment
 func (app *App) Persist(id int, client *Client, updateAppInfo UpdateAppInfo) (*App, error) {
+
+	fmt.Println("---------------------------------------")
+	fmt.Println("App.Persist Called")
+	fmt.Println("---------------------------------------")
 
 	var genericAPIResponse *GenericAPIResponse
 	var err error
@@ -108,5 +116,10 @@ func (app *App) Persist(id int, client *Client, updateAppInfo UpdateAppInfo) (*A
 
 // IsArchived TODO Doc comment
 func (app *App) IsArchived() bool {
+
+	fmt.Println("---------------------------------------")
+	fmt.Println("App.IsArchived Called")
+	fmt.Println("---------------------------------------")
+
 	return app.Status == "ARCHIVED"
 }

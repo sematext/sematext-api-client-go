@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"net/url"
 	"runtime"
+	"runtime/debug"
 	"strings"
 	"time"
 
@@ -348,33 +349,29 @@ func formatResponse(r *http.Response) string {
 
 // handleAPIResponse parses responses comsing back from the API.
 func handleAPIResponse(response *http.Response) (*GenericAPIResponse, error) {
+	fmt.Println("-----------------------------")
+	fmt.Println("handleAPIResponse called")
+	fmt.Println("-----------------------------")
 
 	var err error
 	genericAppResponse := &GenericAPIResponse{}
-
-	fmt.Println("-----------------------------")
-	fmt.Println("handleAPIResponse response")
-	fmt.Printf("--> %s\n\n", formatResponse(response))
-	fmt.Println("-----------------------------")
-
 	err = json.NewDecoder(response.Body).Decode(genericAppResponse)
 
 	switch {
 	case err == io.EOF:
-		return nil, errors.New("Response from API is cut short")
+		debug.PrintStack()
+		return nil, errors.New("Response from API has unexpected EOF")
 	case response.ContentLength == 0:
-		return nil, errors.New("Response from API is unexpectedy empty")
+		debug.PrintStack()
+		return nil, errors.New("Response from API has zero content length")
 	case err != nil:
 		return nil, err
 	}
-
-	fmt.Printf("%+v\n", response.StatusCode)
 
 	switch response.StatusCode {
 	case 200, 201:
 		return genericAppResponse, nil
 	case 400:
-		fmt.Printf("%+v\n", genericAppResponse)
 		return nil, errors.New(genericAppResponse.Message)
 	case 401:
 		fmt.Printf("%+v\n", genericAppResponse)
