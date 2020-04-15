@@ -1,0 +1,64 @@
+@hollerloudly Not sure if you have hand-written all the DTO classes for our API. We have a swagger spec. You can generate a client SDK in golang from swagger spec using https://swagger.io/tools/swagger-codegen/
+
+The Swagger spec can be downloaded from https://apps.sematext.com/users-web/api-docs
+
+AWS Terraform provider uses the stdlib log package, so perhaps that's the way to go.
+
+
+make urls constants
+
+MaxIdleConnsPerHost:   runtime.GOMAXPROCS(0) + 1,
+
+
+look at thinning out duplication in client putJSON etc
+
+func (client *Client) doRequest(path, method string, object interface{}) (*GenericAPIResponse, error) {
+        ....
+        var buf []byte
+        var err error
+        if object != nil {
+                buf, err = json.Marshal(object)
+                if err != nil {
+                        return nil, err
+                }
+        }
+
+        fmt.Println("-----------------------------")
+        fmt.Println("packet")
+        fmt.Println(string(buf))
+        fmt.Println("-----------------------------")
+
+        var req *http.Request
+        if buf != nil {
+                req, err = http.NewRequest(method, route, bytes.NewBuffer(buf))
+                if err != nil {
+                        return nil, err
+                }
+        } else {
+                req, err = http.NewRequest(method, route, nil)
+                if err != nil {
+                        return nil, err
+                }
+        }
+
+        req.Header.Set("Content-Type", "application/json; charset=utf-8")
+        req.Header.Add("Authorization", fmt.Sprintf("apiKey %s", client.CachedToken))
+
+        fmt.Println("-----------------------------")
+        fmt.Println("request")
+        fmt.Printf("--> %s\n\n", formatRequest(req))
+        fmt.Println("-----------------------------")
+
+        res, err := client.httpClient.Do(req)
+        if err != nil {
+                return nil, err
+        }
+        defer res.Body.Close()
+        return handleAPIResponse(res)
+}
+
+
+statuscodes from the net/http
+
+
+rename

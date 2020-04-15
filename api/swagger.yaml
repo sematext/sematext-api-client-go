@@ -1,0 +1,2869 @@
+---
+swagger: "2.0"
+info:
+  description: "API Explorer provides access and documentation for Sematext REST API.\
+    \ The REST API requires the API Key to be sent as part of `Authorization` header.\
+    \ E.g.: `Authorization : apiKey e5f18450-205a-48eb-8589-7d49edaea813`."
+  version: "v3"
+  title: "Sematext Cloud API"
+schemes:
+- "https"
+- "http"
+paths:
+  /users-web/api/v3/apps/{appId}/alerts:
+    get:
+      tags:
+      - "Alerts"
+      summary: "Get alert rules for an app"
+      operationId: "getAlertRulesForAppUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      responses:
+        "200":
+          description: "Response data key: alertRules, Response data type: List of\
+            \ AlertRules"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/savedQueries/{updateableQueryId}:
+    put:
+      tags:
+      - "Saved Queries"
+      summary: "Update saved query"
+      operationId: "saveQueryUsingPUT"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "savedQueryDto"
+        description: "savedQueryDto"
+        required: true
+        schema:
+          $ref: "#/definitions/SavedQuery"
+        x-exportParamName: "SavedQueryDto"
+      - name: "updateableQueryId"
+        in: "path"
+        description: "updateableQueryId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "UpdateableQueryId"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+    delete:
+      tags:
+      - "Saved Queries"
+      summary: "Delete saved query"
+      operationId: "deleteSavedQueryUsingDELETE"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "updateableQueryId"
+        in: "path"
+        description: "updateableQueryId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "UpdateableQueryId"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "204":
+          description: "No Content"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/{appId}/subscriptions:
+    get:
+      tags:
+      - "Subscriptions"
+      summary: "Get subscriptions for an app"
+      operationId: "listUsingGET_1"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      responses:
+        "200":
+          description: "Response data key : subscriptions, Response data type: List\
+            \ of Subscription"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/billing/info/{appId}:
+    put:
+      tags:
+      - "Billing"
+      summary: "Update plan for an app"
+      operationId: "updatePlanUsingPUT"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      - in: "body"
+        name: "dto"
+        description: "dto"
+        required: true
+        schema:
+          $ref: "#/definitions/BillingInfo"
+        x-exportParamName: "Dto"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/{anyStateAppId}:
+    get:
+      tags:
+      - "Apps"
+      summary: "Gets defails for one particular App"
+      operationId: "getUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "anyStateAppId"
+        in: "path"
+        description: "anyStateAppId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AnyStateAppId"
+      responses:
+        "200":
+          description: "Response data key: app, Response data type: App"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+    put:
+      tags:
+      - "Apps"
+      summary: "Update app"
+      description: "App can be in any state"
+      operationId: "updateUsingPUT_1"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "dto"
+        description: "dto"
+        required: true
+        schema:
+          $ref: "#/definitions/UpdateAppInfo"
+        x-exportParamName: "Dto"
+      - name: "anyStateAppId"
+        in: "path"
+        description: "App Id"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AnyStateAppId"
+      responses:
+        "200":
+          description: "Response data key: app, Response data type: App"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/alerts/{updateableAlertId}/disable:
+    put:
+      tags:
+      - "Alerts"
+      summary: "Disable alert rule"
+      operationId: "disableAlertRuleUsingPUT"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "updateableAlertId"
+        in: "path"
+        description: "updateableAlertId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "UpdateableAlertId"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/account/password/reset:
+    post:
+      tags:
+      - "Reset Password"
+      summary: "Reset Password"
+      operationId: "resetPasswordUsingPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "dto"
+        description: "dto"
+        required: true
+        schema:
+          $ref: "#/definitions/UserInfo"
+        x-exportParamName: "Dto"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/guests:
+    post:
+      tags:
+      - "Apps"
+      summary: "Invite guests to an app"
+      operationId: "inviteAppGuestsUsingPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "invitation"
+        description: "For `app` and `apps` fields only `id` needs to be populated.Other\
+          \ fields can be left empty or with default values"
+        required: true
+        schema:
+          $ref: "#/definitions/Invitation"
+        x-exportParamName: "Invitation"
+      responses:
+        "200":
+          description: "Response data key: guest or guests, Response data type: Invitation\
+            \ or List of Invitations"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/alerts/{updateableAlertId}:
+    delete:
+      tags:
+      - "Alerts"
+      summary: "Delete alert rule"
+      operationId: "deleteAlertRuleUsingDELETE"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "updateableAlertId"
+        in: "path"
+        description: "updateableAlertId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "UpdateableAlertId"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "204":
+          description: "No Content"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/alerts:
+    post:
+      tags:
+      - "Alerts"
+      summary: "Create alert rule"
+      operationId: "createAlertUsingPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "dto"
+        description: "dto"
+        required: true
+        schema:
+          $ref: "#/definitions/AlertRule"
+        x-exportParamName: "Dto"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/savedQueries:
+    post:
+      tags:
+      - "Saved Queries"
+      summary: "Create saved query"
+      operationId: "saveQueryUsingPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "savedQueryDto"
+        description: "savedQueryDto"
+        required: true
+        schema:
+          $ref: "#/definitions/SavedQuery"
+        x-exportParamName: "SavedQueryDto"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps:
+    get:
+      tags:
+      - "Apps"
+      summary: "Get all apps accessible by account identified with apiKey"
+      operationId: "listUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Response data key: apps, Response data type: List of Apps"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/{appId}/notifications/alerts:
+    post:
+      tags:
+      - "Alert Notifications"
+      summary: "Get alert notifications for an app"
+      description: "Default value of interval is 1d"
+      operationId: "getAlertNotificationsForAppUsingPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      - in: "body"
+        name: "timeInterval"
+        description: "Time Interval"
+        required: true
+        schema:
+          $ref: "#/definitions/AlertNotificationRequest"
+        x-exportParamName: "TimeInterval"
+      responses:
+        "200":
+          description: "Response key: notifications, Response data type: List of AlertNotification"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/{appId}/savedQueries:
+    get:
+      tags:
+      - "Saved Queries"
+      summary: "Get saved queries for an app"
+      operationId: "getSavedQueriesForAppUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      responses:
+        "200":
+          description: "Response data key: savedQueries Response data type: List of\
+            \ SavedQuery"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/users:
+    get:
+      tags:
+      - "Apps"
+      summary: "Get all users of apps accessible to this account"
+      operationId: "listAppsUsersUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Response data key: apps, Response data type: List of Apps\
+            \ (with respective users)"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/{appId}/report/send:
+    post:
+      tags:
+      - "Subscriptions"
+      summary: "Trigger emailing of report for an app"
+      operationId: "sendReportUsingPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      - in: "body"
+        name: "emailDto"
+        description: "emailDto"
+        required: true
+        schema:
+          $ref: "#/definitions/ReportInfo"
+        x-exportParamName: "EmailDto"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/alerts/{updateableAlertId}/enable:
+    put:
+      tags:
+      - "Alerts"
+      summary: "Enable alert rule"
+      operationId: "enableAlertRuleUsingPUT"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "updateableAlertId"
+        in: "path"
+        description: "updateableAlertId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "UpdateableAlertId"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/types:
+    get:
+      tags:
+      - "Apps"
+      summary: "Get all App types supported for the account identified with apiKey"
+      operationId: "getAppTypesUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Response data key: appTypes, Response data type: List of App\
+            \ types"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/billing/availablePlans:
+    get:
+      tags:
+      - "Billing"
+      summary: "Get available plans"
+      operationId: "listAvailablePlansUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "integrationId"
+        in: "query"
+        description: "integrationId"
+        required: false
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "IntegrationId"
+        x-optionalDataType: "Int64"
+      - name: "appType"
+        in: "query"
+        description: "appType"
+        required: false
+        type: "string"
+        x-exportParamName: "AppType"
+        x-optionalDataType: "String"
+      responses:
+        "200":
+          description: "Response data key: availablePlans, Response data type: List\
+            \ of Plans"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/billing/invoice/{service}/{year}/{month}:
+    get:
+      tags:
+      - "Billing"
+      summary: "Get invoice details"
+      operationId: "getDetailedInvoiceUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "service"
+        in: "path"
+        description: "service"
+        required: true
+        type: "string"
+        x-exportParamName: "Service"
+      - name: "year"
+        in: "path"
+        description: "year"
+        required: true
+        type: "integer"
+        format: "int32"
+        x-exportParamName: "Year"
+      - name: "month"
+        in: "path"
+        description: "month"
+        required: true
+        type: "integer"
+        format: "int32"
+        x-exportParamName: "Month"
+      responses:
+        "200":
+          description: "Response data key: invoice, Response data type: Invoice"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/notifications/alerts:
+    post:
+      tags:
+      - "Alert Notifications"
+      summary: "Get alert notifications for a user"
+      description: "Default value of interval is 1d"
+      operationId: "getAlertNotificationsForUserUsingPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "timeInterval"
+        description: "Time Interval"
+        required: true
+        schema:
+          $ref: "#/definitions/AlertNotificationRequest"
+        x-exportParamName: "TimeInterval"
+      responses:
+        "200":
+          description: "Response key: notifications, Response data type: List of AlertNotification"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/{appId}/aws:
+    put:
+      tags:
+      - "aws-settings-controller"
+      summary: "Update App's AWS CloudWatch settings"
+      description: "Applicable only for AWS Apps"
+      operationId: "updateUsingPUT"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      - in: "body"
+        name: "dto"
+        description: "dto"
+        required: true
+        schema:
+          $ref: "#/definitions/CloudWatchSettings"
+        x-exportParamName: "Dto"
+      responses:
+        "200":
+          description: "Response data key: aws, Response data type: CloudWatchSettings"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /users-web/api/v3/apps/{anyStateAppId}/description:
+    put:
+      tags:
+      - "Apps"
+      summary: "Update description of the app"
+      description: "App can be in any state"
+      operationId: "updateDescriptionUsingPUT"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "updateDetails"
+        description: "Update Details"
+        required: false
+        schema:
+          $ref: "#/definitions/AppDescription"
+        x-exportParamName: "UpdateDetails"
+      - name: "anyStateAppId"
+        in: "path"
+        description: "App Id"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AnyStateAppId"
+      responses:
+        "200":
+          description: "Response data key: app, Response data type: App"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /logsene-reports/api/v3/apps:
+    post:
+      tags:
+      - "Logs App"
+      summary: "Create Logs App"
+      operationId: "createLogseneApplication"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "applicationDetails"
+        description: "Details of the application to be created"
+        required: true
+        schema:
+          $ref: "#/definitions/CreateAppInfo"
+        x-exportParamName: "ApplicationDetails"
+      responses:
+        "200":
+          description: "Response data key: apps, Response data type: List of Apps"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /spm-reports/api/v3/apps/{appId}/metrics:
+    get:
+      tags:
+      - "Metrics"
+      summary: "Get metrics info for an app"
+      operationId: "listMetricsUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /spm-reports/api/v3/apps/{appIds}/metrics/filters:
+    get:
+      tags:
+      - "tag-api-controller"
+      summary: "Gets values for specified tags for the given application identifiers\
+        \ appearing in the given time frame."
+      operationId: "getUsingGET_2"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appIds"
+        in: "path"
+        description: "appIds"
+        required: true
+        type: "string"
+        x-exportParamName: "AppIds"
+      - name: "from"
+        in: "query"
+        description: "from"
+        required: false
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "From"
+        x-optionalDataType: "Int64"
+      - name: "to"
+        in: "query"
+        description: "to"
+        required: false
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "To"
+        x-optionalDataType: "Int64"
+      - name: "tag"
+        in: "query"
+        description: "tag"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+        x-exportParamName: "Tag"
+      - name: "metrics"
+        in: "query"
+        description: "metrics"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Metrics"
+        x-optionalDataType: "Bool"
+      - name: "logs"
+        in: "query"
+        description: "logs"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Logs"
+        x-optionalDataType: "Bool"
+      - name: "events"
+        in: "query"
+        description: "events"
+        required: false
+        type: "boolean"
+        default: false
+        x-exportParamName: "Events"
+        x-optionalDataType: "Bool"
+      - name: "rum"
+        in: "query"
+        description: "rum"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Rum"
+        x-optionalDataType: "Bool"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "object"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /spm-reports/api/v3/apps/{appId}/metrics/filters:
+    post:
+      tags:
+      - "Metrics"
+      summary: "Get metrics filters and their values for an app"
+      description: "Default value of interval is 5m"
+      operationId: "listFiltersUsingPOST_1"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      - in: "body"
+        name: "Request Body"
+        description: "Metric filters request"
+        required: true
+        schema:
+          $ref: "#/definitions/DataSeriesRequest"
+        x-exportParamName: "RequestBody"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /spm-reports/api/v3/apps/{appId}/metrics/keys:
+    get:
+      tags:
+      - "Metrics"
+      summary: "Get metrics keys for an app"
+      operationId: "listMetricsKeysUsingGET"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /spm-reports/api/v3/apps:
+    post:
+      tags:
+      - "Monitoring App"
+      summary: "Create Monitoring App"
+      operationId: "createSpmApplication_1"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "applicationDetails"
+        description: "Details of the application to be created"
+        required: true
+        schema:
+          $ref: "#/definitions/CreateAppInfo"
+        x-exportParamName: "ApplicationDetails"
+      responses:
+        "200":
+          description: "Response data key: apps, Response data type: List of Apps"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /spm-reports/api/v3/apps/{appIds}/tags:
+    get:
+      tags:
+      - "tag-api-controller"
+      summary: "Gets values for specified tags for the given application identifiers\
+        \ appearing in the given time frame."
+      operationId: "getUsingGET_1"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appIds"
+        in: "path"
+        description: "appIds"
+        required: true
+        type: "string"
+        x-exportParamName: "AppIds"
+      - name: "from"
+        in: "query"
+        description: "from"
+        required: false
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "From"
+        x-optionalDataType: "Int64"
+      - name: "to"
+        in: "query"
+        description: "to"
+        required: false
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "To"
+        x-optionalDataType: "Int64"
+      - name: "tag"
+        in: "query"
+        description: "tag"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+        x-exportParamName: "Tag"
+      - name: "metrics"
+        in: "query"
+        description: "metrics"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Metrics"
+        x-optionalDataType: "Bool"
+      - name: "logs"
+        in: "query"
+        description: "logs"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Logs"
+        x-optionalDataType: "Bool"
+      - name: "events"
+        in: "query"
+        description: "events"
+        required: false
+        type: "boolean"
+        default: false
+        x-exportParamName: "Events"
+        x-optionalDataType: "Bool"
+      - name: "rum"
+        in: "query"
+        description: "rum"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Rum"
+        x-optionalDataType: "Bool"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "object"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /spm-reports/api/v3/apps/{appId}/metrics/data:
+    post:
+      tags:
+      - "Metrics"
+      summary: "Get metrics data points for an app"
+      description: "Default value of interval is 5m"
+      operationId: "listDataSeriesUsingPOST"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appId"
+        in: "path"
+        description: "appId"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "AppId"
+      - in: "body"
+        name: "Request Body"
+        description: "Metric data points request"
+        required: true
+        schema:
+          $ref: "#/definitions/DataSeriesRequest"
+        x-exportParamName: "RequestBody"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Generic Api Response"
+        "201":
+          description: "Created"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+  /spm-reports/api/v3/apps/{appIds}/tagNames:
+    get:
+      tags:
+      - "tag-api-controller"
+      summary: "Gets tag names for the given application identifiers appearing in\
+        \ the given time frame."
+      operationId: "getTagNamesUsingGET_1"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "appIds"
+        in: "path"
+        description: "appIds"
+        required: true
+        type: "string"
+        x-exportParamName: "AppIds"
+      - name: "from"
+        in: "query"
+        description: "from"
+        required: false
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "From"
+        x-optionalDataType: "Int64"
+      - name: "to"
+        in: "query"
+        description: "to"
+        required: false
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "To"
+        x-optionalDataType: "Int64"
+      - name: "metrics"
+        in: "query"
+        description: "metrics"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Metrics"
+        x-optionalDataType: "Bool"
+      - name: "logs"
+        in: "query"
+        description: "logs"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Logs"
+        x-optionalDataType: "Bool"
+      - name: "events"
+        in: "query"
+        description: "events"
+        required: false
+        type: "boolean"
+        default: false
+        x-exportParamName: "Events"
+        x-optionalDataType: "Bool"
+      - name: "rum"
+        in: "query"
+        description: "rum"
+        required: false
+        type: "boolean"
+        default: true
+        x-exportParamName: "Rum"
+        x-optionalDataType: "Bool"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "object"
+        "401":
+          description: "Unauthorized"
+        "403":
+          description: "Forbidden"
+        "404":
+          description: "Not Found"
+      security:
+      - api_key:
+        - "global"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+definitions:
+  AlertRuleScheduleTimeRangeDto:
+    type: "object"
+    properties:
+      end:
+        type: "string"
+      start:
+        type: "string"
+    example:
+      start: "start"
+      end: "end"
+  App:
+    type: "object"
+    properties:
+      ajaxThreshold:
+        type: "integer"
+        format: "int64"
+      appType:
+        type: "string"
+      appTypeId:
+        type: "integer"
+        format: "int64"
+      creatorEmail:
+        type: "string"
+      creditCardExpiry:
+        type: "string"
+      creditCardNumber:
+        type: "string"
+      description:
+        type: "string"
+      displayStatus:
+        type: "string"
+      firstDataSavedDate:
+        type: "integer"
+        format: "int64"
+      id:
+        type: "integer"
+        format: "int64"
+      integration:
+        $ref: "#/definitions/ServiceIntegration"
+      lastDataReceivedDate:
+        type: "integer"
+        format: "int64"
+      lastDataSavedDate:
+        type: "integer"
+        format: "int64"
+      loggedInUserAppRole:
+        type: "string"
+      monthlyInvoiceAccount:
+        type: "boolean"
+      name:
+        type: "string"
+      ownerEmail:
+        type: "string"
+      owningOrganization:
+        $ref: "#/definitions/BasicOrganizationDto"
+      pageLoadThreshold:
+        type: "integer"
+        format: "int64"
+      paymentMethodId:
+        type: "integer"
+        format: "int64"
+      plan:
+        $ref: "#/definitions/Plan"
+      prepaidAccount:
+        type: "boolean"
+      status:
+        type: "string"
+      token:
+        type: "string"
+      trialEndDate:
+        type: "integer"
+        format: "int64"
+      urlGroupLimit:
+        type: "integer"
+        format: "int32"
+      userRoles:
+        type: "array"
+        items:
+          $ref: "#/definitions/UserRole"
+    example:
+      monthlyInvoiceAccount: true
+      firstDataSavedDate: 1
+      creatorEmail: "creatorEmail"
+      creditCardExpiry: "creditCardExpiry"
+      description: "description"
+      displayStatus: "displayStatus"
+      loggedInUserAppRole: "loggedInUserAppRole"
+      prepaidAccount: true
+      appType: "appType"
+      appTypeId: 6
+      paymentMethodId: 1
+      owningOrganization:
+        name: "name"
+        authMethods:
+        - authType: "SEMATEXT_ACCOUNT"
+          uuid: "uuid"
+        - authType: "SEMATEXT_ACCOUNT"
+          uuid: "uuid"
+        uuid: "uuid"
+        status: "ACTIVE"
+      id: 5
+      plan:
+        freeTrialDays: 1
+        custom: true
+        planScheme: "SPM_1_0"
+        trialPlan: true
+        dataRetentionHours: 1.024645700144157789424070870154537260532379150390625
+        maxDailyEvents: 1
+        appType: "appType"
+        maxAlerts: 7
+        defaultTrialPlan: true
+        name: "name"
+        id: 6
+        free: true
+        sematextService: "LOGSENE"
+      urlGroupLimit: 5
+      pageLoadThreshold: 7
+      ownerEmail: "ownerEmail"
+      token: "token"
+      userRoles:
+      - role: "SUPER_USER"
+        userEmail: "userEmail"
+        roleStatus: "INACTIVE"
+      - role: "SUPER_USER"
+        userEmail: "userEmail"
+        roleStatus: "INACTIVE"
+      lastDataReceivedDate: 2
+      trialEndDate: 4
+      creditCardNumber: "creditCardNumber"
+      ajaxThreshold: 0
+      integration:
+        integrationType: "integrationType"
+        visible: true
+        appTypeId: 5
+        displayName: "displayName"
+        appTypeName: "appTypeName"
+        externalProductName: "externalProductName"
+        parentIntegrationId: 3
+        id: 7
+        externalProductId: 2
+        sematextService: "sematextService"
+        enabled: true
+        ordinal: 9
+      lastDataSavedDate: 4
+      name: "name"
+      status: "status"
+  AppDescription:
+    type: "object"
+    properties:
+      description:
+        type: "string"
+    example:
+      description: "description"
+  ServiceIntegration:
+    type: "object"
+    properties:
+      appTypeId:
+        type: "integer"
+        format: "int64"
+      appTypeName:
+        type: "string"
+      displayName:
+        type: "string"
+      enabled:
+        type: "boolean"
+      externalProductId:
+        type: "integer"
+        format: "int64"
+      externalProductName:
+        type: "string"
+      id:
+        type: "integer"
+        format: "int64"
+      integrationType:
+        type: "string"
+      ordinal:
+        type: "integer"
+        format: "int32"
+      parentIntegrationId:
+        type: "integer"
+        format: "int64"
+      sematextService:
+        type: "string"
+      visible:
+        type: "boolean"
+    example:
+      integrationType: "integrationType"
+      visible: true
+      appTypeId: 5
+      displayName: "displayName"
+      appTypeName: "appTypeName"
+      externalProductName: "externalProductName"
+      parentIntegrationId: 3
+      id: 7
+      externalProductId: 2
+      sematextService: "sematextService"
+      enabled: true
+      ordinal: 9
+  Invitation:
+    type: "object"
+    properties:
+      app:
+        description: "For invite request, only app.id needs to be set."
+        $ref: "#/definitions/App"
+      apps:
+        type: "array"
+        description: "For invite request, only apps.id needs to be set."
+        items:
+          $ref: "#/definitions/App"
+      id:
+        type: "integer"
+        format: "int64"
+        readOnly: true
+      inviteDate:
+        type: "string"
+        format: "date-time"
+        readOnly: true
+      inviteStatus:
+        type: "string"
+        readOnly: true
+        enum:
+        - "PENDING"
+        - "ACCEPTED"
+        - "CANCELLED"
+        - "DECLINED"
+      inviteeEmail:
+        type: "string"
+        example: "guest@sematext.com"
+      inviteeRole:
+        type: "string"
+        example: "DEMO"
+        enum:
+        - "SUPER_USER"
+        - "OWNER"
+        - "ADMIN"
+        - "USER"
+        - "DEMO"
+        - "ANONYMOUS"
+      inviteeStatus:
+        type: "string"
+        example: "ACTIVE"
+        readOnly: true
+        enum:
+        - "INACTIVE"
+        - "ACTIVE"
+      inviterEmail:
+        type: "string"
+        readOnly: true
+      uuid:
+        type: "string"
+        readOnly: true
+    example:
+      app:
+        monthlyInvoiceAccount: true
+        firstDataSavedDate: 1
+        creatorEmail: "creatorEmail"
+        creditCardExpiry: "creditCardExpiry"
+        description: "description"
+        displayStatus: "displayStatus"
+        loggedInUserAppRole: "loggedInUserAppRole"
+        prepaidAccount: true
+        appType: "appType"
+        appTypeId: 6
+        paymentMethodId: 1
+        owningOrganization:
+          name: "name"
+          authMethods:
+          - authType: "SEMATEXT_ACCOUNT"
+            uuid: "uuid"
+          - authType: "SEMATEXT_ACCOUNT"
+            uuid: "uuid"
+          uuid: "uuid"
+          status: "ACTIVE"
+        id: 5
+        plan:
+          freeTrialDays: 1
+          custom: true
+          planScheme: "SPM_1_0"
+          trialPlan: true
+          dataRetentionHours: 1.024645700144157789424070870154537260532379150390625
+          maxDailyEvents: 1
+          appType: "appType"
+          maxAlerts: 7
+          defaultTrialPlan: true
+          name: "name"
+          id: 6
+          free: true
+          sematextService: "LOGSENE"
+        urlGroupLimit: 5
+        pageLoadThreshold: 7
+        ownerEmail: "ownerEmail"
+        token: "token"
+        userRoles:
+        - role: "SUPER_USER"
+          userEmail: "userEmail"
+          roleStatus: "INACTIVE"
+        - role: "SUPER_USER"
+          userEmail: "userEmail"
+          roleStatus: "INACTIVE"
+        lastDataReceivedDate: 2
+        trialEndDate: 4
+        creditCardNumber: "creditCardNumber"
+        ajaxThreshold: 0
+        integration:
+          integrationType: "integrationType"
+          visible: true
+          appTypeId: 5
+          displayName: "displayName"
+          appTypeName: "appTypeName"
+          externalProductName: "externalProductName"
+          parentIntegrationId: 3
+          id: 7
+          externalProductId: 2
+          sematextService: "sematextService"
+          enabled: true
+          ordinal: 9
+        lastDataSavedDate: 4
+        name: "name"
+        status: "status"
+      inviterEmail: "inviterEmail"
+      inviteeEmail: "guest@sematext.com"
+      inviteeStatus: "ACTIVE"
+      inviteDate: "2000-01-23T04:56:07.000+00:00"
+      inviteStatus: "PENDING"
+      inviteeRole: "DEMO"
+      id: 9
+      uuid: "uuid"
+      apps:
+      - monthlyInvoiceAccount: true
+        firstDataSavedDate: 1
+        creatorEmail: "creatorEmail"
+        creditCardExpiry: "creditCardExpiry"
+        description: "description"
+        displayStatus: "displayStatus"
+        loggedInUserAppRole: "loggedInUserAppRole"
+        prepaidAccount: true
+        appType: "appType"
+        appTypeId: 6
+        paymentMethodId: 1
+        owningOrganization:
+          name: "name"
+          authMethods:
+          - authType: "SEMATEXT_ACCOUNT"
+            uuid: "uuid"
+          - authType: "SEMATEXT_ACCOUNT"
+            uuid: "uuid"
+          uuid: "uuid"
+          status: "ACTIVE"
+        id: 5
+        plan:
+          freeTrialDays: 1
+          custom: true
+          planScheme: "SPM_1_0"
+          trialPlan: true
+          dataRetentionHours: 1.024645700144157789424070870154537260532379150390625
+          maxDailyEvents: 1
+          appType: "appType"
+          maxAlerts: 7
+          defaultTrialPlan: true
+          name: "name"
+          id: 6
+          free: true
+          sematextService: "LOGSENE"
+        urlGroupLimit: 5
+        pageLoadThreshold: 7
+        ownerEmail: "ownerEmail"
+        token: "token"
+        userRoles:
+        - role: "SUPER_USER"
+          userEmail: "userEmail"
+          roleStatus: "INACTIVE"
+        - role: "SUPER_USER"
+          userEmail: "userEmail"
+          roleStatus: "INACTIVE"
+        lastDataReceivedDate: 2
+        trialEndDate: 4
+        creditCardNumber: "creditCardNumber"
+        ajaxThreshold: 0
+        integration:
+          integrationType: "integrationType"
+          visible: true
+          appTypeId: 5
+          displayName: "displayName"
+          appTypeName: "appTypeName"
+          externalProductName: "externalProductName"
+          parentIntegrationId: 3
+          id: 7
+          externalProductId: 2
+          sematextService: "sematextService"
+          enabled: true
+          ordinal: 9
+        lastDataSavedDate: 4
+        name: "name"
+        status: "status"
+      - monthlyInvoiceAccount: true
+        firstDataSavedDate: 1
+        creatorEmail: "creatorEmail"
+        creditCardExpiry: "creditCardExpiry"
+        description: "description"
+        displayStatus: "displayStatus"
+        loggedInUserAppRole: "loggedInUserAppRole"
+        prepaidAccount: true
+        appType: "appType"
+        appTypeId: 6
+        paymentMethodId: 1
+        owningOrganization:
+          name: "name"
+          authMethods:
+          - authType: "SEMATEXT_ACCOUNT"
+            uuid: "uuid"
+          - authType: "SEMATEXT_ACCOUNT"
+            uuid: "uuid"
+          uuid: "uuid"
+          status: "ACTIVE"
+        id: 5
+        plan:
+          freeTrialDays: 1
+          custom: true
+          planScheme: "SPM_1_0"
+          trialPlan: true
+          dataRetentionHours: 1.024645700144157789424070870154537260532379150390625
+          maxDailyEvents: 1
+          appType: "appType"
+          maxAlerts: 7
+          defaultTrialPlan: true
+          name: "name"
+          id: 6
+          free: true
+          sematextService: "LOGSENE"
+        urlGroupLimit: 5
+        pageLoadThreshold: 7
+        ownerEmail: "ownerEmail"
+        token: "token"
+        userRoles:
+        - role: "SUPER_USER"
+          userEmail: "userEmail"
+          roleStatus: "INACTIVE"
+        - role: "SUPER_USER"
+          userEmail: "userEmail"
+          roleStatus: "INACTIVE"
+        lastDataReceivedDate: 2
+        trialEndDate: 4
+        creditCardNumber: "creditCardNumber"
+        ajaxThreshold: 0
+        integration:
+          integrationType: "integrationType"
+          visible: true
+          appTypeId: 5
+          displayName: "displayName"
+          appTypeName: "appTypeName"
+          externalProductName: "externalProductName"
+          parentIntegrationId: 3
+          id: 7
+          externalProductId: 2
+          sematextService: "sematextService"
+          enabled: true
+          ordinal: 9
+        lastDataSavedDate: 4
+        name: "name"
+        status: "status"
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+      message:
+        type: "string"
+    example:
+      code: "code"
+      message: "message"
+  ReportInfo:
+    type: "object"
+    properties:
+      addresses:
+        type: "string"
+        description: "Comma separated list of email addresses"
+      appId:
+        type: "integer"
+        format: "int64"
+      endDate:
+        type: "string"
+        format: "date-time"
+      filters:
+        type: "string"
+      reportName:
+        type: "string"
+      startDate:
+        type: "string"
+        format: "date-time"
+      subject:
+        type: "string"
+      text:
+        type: "string"
+    example:
+      addresses: "addresses"
+      reportName: "reportName"
+      endDate: "2000-01-23T04:56:07.000+00:00"
+      subject: "subject"
+      appId: 0
+      filters: "filters"
+      text: "text"
+      startDate: "2000-01-23T04:56:07.000+00:00"
+  UserInfo:
+    type: "object"
+    properties:
+      loginName:
+        type: "string"
+    example:
+      loginName: "loginName"
+  Plan:
+    type: "object"
+    properties:
+      appType:
+        type: "string"
+      custom:
+        type: "boolean"
+      dataRetentionHours:
+        type: "number"
+      defaultTrialPlan:
+        type: "boolean"
+      free:
+        type: "boolean"
+      freeTrialDays:
+        type: "integer"
+        format: "int64"
+      id:
+        type: "integer"
+        format: "int64"
+      maxAlerts:
+        type: "integer"
+        format: "int64"
+      maxDailyEvents:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      planScheme:
+        type: "string"
+        enum:
+        - "SPM_1_0"
+        - "SPM_2_0"
+        - "SA_1_0"
+        - "SEARCHENE_1_0"
+        - "LOGSENE_1_0"
+        - "LOGSENE_2_0"
+        - "RUM_1_0"
+        - "RUM_EA"
+        - "SYNTHETICS_1_0"
+      sematextService:
+        type: "string"
+        enum:
+        - "LOGSENE"
+        - "SPM"
+        - "RUM"
+        - "SYNTHETICS"
+      trialPlan:
+        type: "boolean"
+    example:
+      freeTrialDays: 1
+      custom: true
+      planScheme: "SPM_1_0"
+      trialPlan: true
+      dataRetentionHours: 1.024645700144157789424070870154537260532379150390625
+      maxDailyEvents: 1
+      appType: "appType"
+      maxAlerts: 7
+      defaultTrialPlan: true
+      name: "name"
+      id: 6
+      free: true
+      sematextService: "LOGSENE"
+  BillingInfo:
+    type: "object"
+    properties:
+      creditCardId:
+        type: "integer"
+        format: "int64"
+      paymentMethod:
+        type: "string"
+      planId:
+        type: "integer"
+        format: "int64"
+    example:
+      paymentMethod: "paymentMethod"
+      creditCardId: 0
+      planId: 6
+  FilterValue:
+    type: "object"
+    properties:
+      aggType:
+        type: "string"
+      filterName:
+        type: "string"
+      key:
+        type: "string"
+      label:
+        type: "string"
+      name:
+        type: "string"
+      values:
+        type: "array"
+        items:
+          type: "string"
+    example:
+      values:
+      - "values"
+      - "values"
+      aggType: "aggType"
+      filterName: "filterName"
+      name: "name"
+      label: "label"
+      key: "key"
+  SavedQuery:
+    type: "object"
+    properties:
+      alertRule:
+        $ref: "#/definitions/AlertRule"
+      allowModification:
+        type: "boolean"
+        example: false
+        readOnly: true
+      applicationId:
+        type: "string"
+      applicationName:
+        type: "string"
+        readOnly: true
+      applicationToken:
+        type: "string"
+        readOnly: true
+      creatorEmail:
+        type: "string"
+        readOnly: true
+      id:
+        type: "string"
+        readOnly: true
+      labelColor:
+        type: "string"
+      logseneAlertType:
+        type: "object"
+        properties: {}
+      ownerEmail:
+        type: "string"
+        readOnly: true
+      queryName:
+        type: "string"
+      queryString:
+        type: "string"
+      userPermissions:
+        $ref: "#/definitions/UserPermissions"
+    example:
+      allowModification: false
+      creatorEmail: "creatorEmail"
+      applicationToken: "applicationToken"
+      logseneAlertType: "{}"
+      userPermissions:
+        canView: true
+        canEdit: true
+        canDelete: true
+      alertRule:
+        disallowedAppTypes:
+        - 1
+        - 1
+        filterValues: "filterValues"
+        lastTriggered: 7
+        appState: "appState"
+        metadata: "{}"
+        allowedAppTypes:
+        - 0
+        - 0
+        color: "color"
+        metricKey: "metricKey"
+        reportName: "reportName"
+        valueName: "valueName"
+        creatorEmail: "creatorEmail"
+        timezone: "timezone"
+        backToNormalNeeded: true
+        description: "description"
+        notificationIntegrations:
+        - integrationType: "PAGER_DUTY"
+          creatorId: 9
+          name: "name"
+          applicability: "NONE"
+          createdByOwner: true
+          id: 3
+          state: "ACTIVE"
+          params:
+            key: "params"
+          userId: 2
+          createDate: "2000-01-23T04:56:07.000+00:00"
+        - integrationType: "PAGER_DUTY"
+          creatorId: 9
+          name: "name"
+          applicability: "NONE"
+          createdByOwner: true
+          id: 3
+          state: "ACTIVE"
+          params:
+            key: "params"
+          userId: 2
+          createDate: "2000-01-23T04:56:07.000+00:00"
+        analyzingTime: "analyzingTime"
+        notificationsEnabled: true
+        userPermissions:
+          canView: true
+          canEdit: true
+          canDelete: true
+        lastSent: 2
+        ruleKey: 4
+        enabled: true
+        appType: "appType"
+        appDisplayState: "appDisplayState"
+        appId: 6
+        ruleType: "ruleType"
+        notificationEmails:
+        - "notificationEmails"
+        - "notificationEmails"
+        defaultAggType: "defaultAggType"
+        runbook: "runbook"
+        estimateValue: 5.962133916683182
+        minDelayBetweenNotificationsInMinutes: "minDelayBetweenNotificationsInMinutes"
+        appName: "appName"
+        appToken: "appToken"
+        query: "query"
+        filterValuesObj:
+        - values:
+          - "values"
+          - "values"
+          aggType: "aggType"
+          filterName: "filterName"
+          name: "name"
+          label: "label"
+          key: "key"
+        - values:
+          - "values"
+          - "values"
+          aggType: "aggType"
+          filterName: "filterName"
+          name: "name"
+          label: "label"
+          key: "key"
+        estimateOperation: "LESS"
+        schedule:
+        - intervals:
+          - start: "start"
+            end: "end"
+          - start: "start"
+            end: "end"
+          index: 1
+          label: "label"
+          type: "type"
+          day: "day"
+        - intervals:
+          - start: "start"
+            end: "end"
+          - start: "start"
+            end: "end"
+          index: 1
+          label: "label"
+          type: "type"
+          day: "day"
+        accountEmail: "accountEmail"
+        lastDataReceivedDate: 5
+        savedQueryId: 7
+        ignoreRegularEventsEnabled: true
+        metricLabel: "metricLabel"
+        name: "name"
+        sematextService: "sematextService"
+        valueColumnName: "valueColumnName"
+        integrations: "integrations"
+        sendToEmail: "sendToEmail"
+        chartKey: "chartKey"
+        useOnlyAlertRuleIntegrations: true
+      queryString: "queryString"
+      labelColor: "labelColor"
+      ownerEmail: "ownerEmail"
+      queryName: "queryName"
+      id: "id"
+      applicationId: "applicationId"
+      applicationName: "applicationName"
+  AlertRuleScheduleWeekdayDto:
+    type: "object"
+    properties:
+      day:
+        type: "string"
+      index:
+        type: "integer"
+        format: "int32"
+      intervals:
+        type: "array"
+        items:
+          $ref: "#/definitions/AlertRuleScheduleTimeRangeDto"
+      label:
+        type: "string"
+      type:
+        type: "string"
+    example:
+      intervals:
+      - start: "start"
+        end: "end"
+      - start: "start"
+        end: "end"
+      index: 1
+      label: "label"
+      type: "type"
+      day: "day"
+  BasicOrganizationDto:
+    type: "object"
+    properties:
+      authMethods:
+        type: "array"
+        items:
+          $ref: "#/definitions/BasicAuthMethodDto"
+      name:
+        type: "string"
+      status:
+        type: "string"
+        enum:
+        - "ACTIVE"
+        - "IN_REGISTRATION"
+        - "DISABLED"
+        - "EXPIRED"
+        - "INVITED"
+        - "DEMO"
+      uuid:
+        type: "string"
+    example:
+      name: "name"
+      authMethods:
+      - authType: "SEMATEXT_ACCOUNT"
+        uuid: "uuid"
+      - authType: "SEMATEXT_ACCOUNT"
+        uuid: "uuid"
+      uuid: "uuid"
+      status: "ACTIVE"
+  UserRole:
+    type: "object"
+    properties:
+      role:
+        type: "string"
+        enum:
+        - "SUPER_USER"
+        - "OWNER"
+        - "ADMIN"
+        - "USER"
+        - "DEMO"
+        - "ANONYMOUS"
+      roleStatus:
+        type: "string"
+        enum:
+        - "INACTIVE"
+        - "ACTIVE"
+      userEmail:
+        type: "string"
+    example:
+      role: "SUPER_USER"
+      userEmail: "userEmail"
+      roleStatus: "INACTIVE"
+  CloudWatchSettings:
+    type: "object"
+    properties:
+      accessKey:
+        type: "string"
+      fetchFrequency:
+        type: "string"
+        enum:
+        - "MINUTE"
+        - "FIVE_MINUTES"
+        - "FIFTEEN_MINUTES"
+      region:
+        type: "string"
+        enum:
+        - "US_EAST_1"
+        - "US_WEST_1"
+        - "EU_WEST_1"
+        - "US_WEST_2"
+        - "AP_SOUTHEAST_1"
+        - "AP_SOUTHEAST_2"
+        - "AP_NORTHEAST_1"
+        - "SA_EAST_1"
+        - "GovCloud"
+        - "CN_NORTH_1"
+        - "US_EAST_2"
+        - "AP_SOUTH_1"
+        - "AP_NORTHEAST_2"
+        - "CA_CENTRAL_1"
+        - "EU_CENTRAL_1"
+        - "EU_WEST_2"
+      secretKey:
+        type: "string"
+    example:
+      secretKey: "secretKey"
+      accessKey: "accessKey"
+      fetchFrequency: "MINUTE"
+      region: "US_EAST_1"
+  BasicAuthMethodDto:
+    type: "object"
+    properties:
+      authType:
+        type: "string"
+        enum:
+        - "SEMATEXT_ACCOUNT"
+        - "LDAP"
+      uuid:
+        type: "string"
+    example:
+      authType: "SEMATEXT_ACCOUNT"
+      uuid: "uuid"
+  AlertNotificationRequest:
+    type: "object"
+    properties:
+      defaultInterval:
+        type: "integer"
+        format: "int64"
+      end:
+        type: "string"
+        description: "End time of interval. Can be expressed as timestamp in milliseconds\
+          \ or UTC date in yyyy-MM-dd HH:mm:ss format"
+      interval:
+        type: "string"
+      start:
+        type: "string"
+        description: "Start time of interval. Can be expressed as timestamp in milliseconds\
+          \ or UTC date in yyyy-MM-dd HH:mm:ss format"
+    example:
+      start: "start"
+      end: "end"
+      interval: "interval"
+      defaultInterval: 0
+  UpdateAppInfo:
+    type: "object"
+    properties:
+      description:
+        type: "string"
+        example: "New Description of App"
+      ignorePercentage:
+        type: "integer"
+        format: "int32"
+        example: 1
+      maxEvents:
+        type: "integer"
+        format: "int64"
+        example: 1000
+      maxLimitMB:
+        type: "integer"
+        format: "int64"
+        example: 10
+      name:
+        type: "string"
+        example: "New Name"
+      sampling:
+        type: "boolean"
+        example: false
+      samplingPercentage:
+        type: "integer"
+        format: "int32"
+        example: 10
+      staggering:
+        type: "boolean"
+        example: false
+      status:
+        type: "string"
+        example: "ACTIVE"
+        enum:
+        - "ACTIVE"
+        - "DISABLED"
+    example:
+      maxEvents: 1000
+      ignorePercentage: 1
+      maxLimitMB: 10
+      samplingPercentage: 10
+      sampling: false
+      name: "New Name"
+      description: "New Description of App"
+      staggering: false
+      status: "ACTIVE"
+  UserPermissions:
+    type: "object"
+    properties:
+      canDelete:
+        type: "boolean"
+      canEdit:
+        type: "boolean"
+      canView:
+        type: "boolean"
+    example:
+      canView: true
+      canEdit: true
+      canDelete: true
+  AlertRule:
+    type: "object"
+    properties:
+      accountEmail:
+        type: "string"
+        readOnly: true
+      allowedAppTypes:
+        type: "array"
+        items:
+          type: "integer"
+          format: "int64"
+      analyzingTime:
+        type: "string"
+      appDisplayState:
+        type: "string"
+        readOnly: true
+      appId:
+        type: "integer"
+        format: "int64"
+      appName:
+        type: "string"
+        readOnly: true
+      appState:
+        type: "string"
+        readOnly: true
+      appToken:
+        type: "string"
+        readOnly: true
+      appType:
+        type: "string"
+        readOnly: true
+      backToNormalNeeded:
+        type: "boolean"
+      chartKey:
+        type: "string"
+      color:
+        type: "string"
+      creatorEmail:
+        type: "string"
+        readOnly: true
+      defaultAggType:
+        type: "string"
+        readOnly: true
+      description:
+        type: "string"
+      disallowedAppTypes:
+        type: "array"
+        items:
+          type: "integer"
+          format: "int64"
+      enabled:
+        type: "boolean"
+      estimateOperation:
+        type: "string"
+        enum:
+        - "LESS"
+        - "MORE"
+        - "EQUAL"
+        - "UN_EQUAL"
+        - "LESS_OR_EQUAL"
+        - "MORE_OR_EQUAL"
+      estimateValue:
+        type: "number"
+        format: "double"
+      filterValues:
+        type: "string"
+      filterValuesObj:
+        type: "array"
+        items:
+          $ref: "#/definitions/FilterValue"
+      ignoreRegularEventsEnabled:
+        type: "boolean"
+      integrations:
+        type: "string"
+        readOnly: true
+      lastDataReceivedDate:
+        type: "integer"
+        format: "int64"
+        readOnly: true
+      lastSent:
+        type: "integer"
+        format: "int64"
+        readOnly: true
+      lastTriggered:
+        type: "integer"
+        format: "int64"
+        readOnly: true
+      metadata:
+        type: "object"
+        properties: {}
+      metricKey:
+        type: "string"
+        readOnly: true
+      metricLabel:
+        type: "string"
+      minDelayBetweenNotificationsInMinutes:
+        type: "string"
+      name:
+        type: "string"
+      notificationEmails:
+        type: "array"
+        items:
+          type: "string"
+      notificationIntegrations:
+        type: "array"
+        items:
+          $ref: "#/definitions/NotificationIntegration"
+      notificationsEnabled:
+        type: "boolean"
+      query:
+        type: "string"
+      reportName:
+        type: "string"
+      ruleKey:
+        type: "integer"
+        format: "int64"
+        readOnly: true
+      ruleType:
+        type: "string"
+      runbook:
+        type: "string"
+      savedQueryId:
+        type: "integer"
+        format: "int64"
+        readOnly: true
+      schedule:
+        type: "array"
+        items:
+          $ref: "#/definitions/AlertRuleScheduleWeekdayDto"
+      sematextService:
+        type: "string"
+        readOnly: true
+      sendToEmail:
+        type: "string"
+      timezone:
+        type: "string"
+      useOnlyAlertRuleIntegrations:
+        type: "boolean"
+      userPermissions:
+        $ref: "#/definitions/UserPermissions"
+      valueColumnName:
+        type: "string"
+        readOnly: true
+      valueName:
+        type: "string"
+        readOnly: true
+    example:
+      disallowedAppTypes:
+      - 1
+      - 1
+      filterValues: "filterValues"
+      lastTriggered: 7
+      appState: "appState"
+      metadata: "{}"
+      allowedAppTypes:
+      - 0
+      - 0
+      color: "color"
+      metricKey: "metricKey"
+      reportName: "reportName"
+      valueName: "valueName"
+      creatorEmail: "creatorEmail"
+      timezone: "timezone"
+      backToNormalNeeded: true
+      description: "description"
+      notificationIntegrations:
+      - integrationType: "PAGER_DUTY"
+        creatorId: 9
+        name: "name"
+        applicability: "NONE"
+        createdByOwner: true
+        id: 3
+        state: "ACTIVE"
+        params:
+          key: "params"
+        userId: 2
+        createDate: "2000-01-23T04:56:07.000+00:00"
+      - integrationType: "PAGER_DUTY"
+        creatorId: 9
+        name: "name"
+        applicability: "NONE"
+        createdByOwner: true
+        id: 3
+        state: "ACTIVE"
+        params:
+          key: "params"
+        userId: 2
+        createDate: "2000-01-23T04:56:07.000+00:00"
+      analyzingTime: "analyzingTime"
+      notificationsEnabled: true
+      userPermissions:
+        canView: true
+        canEdit: true
+        canDelete: true
+      lastSent: 2
+      ruleKey: 4
+      enabled: true
+      appType: "appType"
+      appDisplayState: "appDisplayState"
+      appId: 6
+      ruleType: "ruleType"
+      notificationEmails:
+      - "notificationEmails"
+      - "notificationEmails"
+      defaultAggType: "defaultAggType"
+      runbook: "runbook"
+      estimateValue: 5.962133916683182
+      minDelayBetweenNotificationsInMinutes: "minDelayBetweenNotificationsInMinutes"
+      appName: "appName"
+      appToken: "appToken"
+      query: "query"
+      filterValuesObj:
+      - values:
+        - "values"
+        - "values"
+        aggType: "aggType"
+        filterName: "filterName"
+        name: "name"
+        label: "label"
+        key: "key"
+      - values:
+        - "values"
+        - "values"
+        aggType: "aggType"
+        filterName: "filterName"
+        name: "name"
+        label: "label"
+        key: "key"
+      estimateOperation: "LESS"
+      schedule:
+      - intervals:
+        - start: "start"
+          end: "end"
+        - start: "start"
+          end: "end"
+        index: 1
+        label: "label"
+        type: "type"
+        day: "day"
+      - intervals:
+        - start: "start"
+          end: "end"
+        - start: "start"
+          end: "end"
+        index: 1
+        label: "label"
+        type: "type"
+        day: "day"
+      accountEmail: "accountEmail"
+      lastDataReceivedDate: 5
+      savedQueryId: 7
+      ignoreRegularEventsEnabled: true
+      metricLabel: "metricLabel"
+      name: "name"
+      sematextService: "sematextService"
+      valueColumnName: "valueColumnName"
+      integrations: "integrations"
+      sendToEmail: "sendToEmail"
+      chartKey: "chartKey"
+      useOnlyAlertRuleIntegrations: true
+  NotificationIntegration:
+    type: "object"
+    properties:
+      applicability:
+        type: "string"
+        enum:
+        - "NONE"
+        - "USE_ALWAYS"
+      createDate:
+        type: "string"
+        format: "date-time"
+      createdByOwner:
+        type: "boolean"
+      creatorId:
+        type: "integer"
+        format: "int64"
+      id:
+        type: "integer"
+        format: "int64"
+      integrationType:
+        type: "string"
+        enum:
+        - "PAGER_DUTY"
+        - "NAGIOS"
+        - "WEB_HOOKS"
+        - "WEB_HOOKS_TEMPLATE"
+        - "HIP_CHAT"
+        - "EMAIL_LIST"
+        - "TEMPORARY_EMAIL_LIST"
+      name:
+        type: "string"
+      params:
+        type: "object"
+        additionalProperties:
+          type: "string"
+      state:
+        type: "string"
+        enum:
+        - "ACTIVE"
+        - "DISABLED"
+        - "DELETED"
+      userId:
+        type: "integer"
+        format: "int64"
+    example:
+      integrationType: "PAGER_DUTY"
+      creatorId: 9
+      name: "name"
+      applicability: "NONE"
+      createdByOwner: true
+      id: 3
+      state: "ACTIVE"
+      params:
+        key: "params"
+      userId: 2
+      createDate: "2000-01-23T04:56:07.000+00:00"
+  Generic Api Response:
+    type: "object"
+    properties:
+      data:
+        type: "object"
+        description: "Contains actual data when response is successful. Key and Value\
+          \ is specific to each endpoint"
+        properties: {}
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/Error"
+      message:
+        type: "string"
+      success:
+        type: "boolean"
+    description: "Generic wrapper class for all API responses"
+    example:
+      data: "{}"
+      success: true
+      message: "message"
+      errors:
+      - code: "code"
+        message: "message"
+      - code: "code"
+        message: "message"
+  AppMetadata:
+    type: "object"
+    properties:
+      awsCloudWatchAccessKey:
+        type: "string"
+        example: "zzzzz"
+      awsCloudWatchSecretKey:
+        type: "string"
+        example: "xxxxx"
+      awsFetchFrequency:
+        type: "string"
+        example: "FIVE_MINUTES"
+        enum:
+        - "MINUTE"
+        - "FIVE_MINUTES"
+        - "FIFTEEN_MINUTES"
+      awsRegion:
+        type: "string"
+        example: "US_EAST_1"
+        enum:
+        - "US_EAST_1"
+        - "US_WEST_1"
+        - "EU_WEST_1"
+        - "US_WEST_2"
+        - "AP_SOUTHEAST_1"
+        - "AP_SOUTHEAST_2"
+        - "AP_NORTHEAST_1"
+        - "SA_EAST_1"
+        - "GovCloud"
+        - "CN_NORTH_1"
+        - "US_EAST_2"
+        - "AP_SOUTH_1"
+        - "AP_NORTHEAST_2"
+        - "CA_CENTRAL_1"
+        - "EU_CENTRAL_1"
+        - "EU_WEST_2"
+      subTypes:
+        type: "array"
+        example: "aws_ec2,aws_elb"
+        description: "Comma separated list of AWS types monitored by created app"
+        items:
+          type: "string"
+          enum:
+          - "aws_ec2"
+          - "aws_elb"
+          - "aws_ebs"
+    example:
+      awsFetchFrequency: "FIVE_MINUTES"
+      awsRegion: "US_EAST_1"
+      awsCloudWatchSecretKey: "xxxxx"
+      subTypes: "aws_ec2,aws_elb"
+      awsCloudWatchAccessKey: "zzzzz"
+  CreateAppInfo:
+    type: "object"
+    properties:
+      appType:
+        type: "string"
+        example: "aws"
+      discountCode:
+        type: "string"
+      initialPlanId:
+        type: "integer"
+        format: "int64"
+        example: 1
+      metaData:
+        description: "AWS app meta data. Applicable only for `aws` appType"
+        $ref: "#/definitions/AppMetadata"
+      name:
+        type: "string"
+        example: "new-aws-app-1"
+    example:
+      metaData:
+        awsFetchFrequency: "FIVE_MINUTES"
+        awsRegion: "US_EAST_1"
+        awsCloudWatchSecretKey: "xxxxx"
+        subTypes: "aws_ec2,aws_elb"
+        awsCloudWatchAccessKey: "zzzzz"
+      discountCode: "discountCode"
+      appType: "aws"
+      initialPlanId: 1
+      name: "new-aws-app-1"
+  DataSeriesFilter:
+    type: "object"
+    properties:
+      aggregation:
+        type: "string"
+        enum:
+        - "NONE"
+        - "SUM"
+        - "AVG"
+        - "MIN"
+        - "MAX"
+      multiValue:
+        type: "boolean"
+      values:
+        type: "array"
+        items:
+          type: "string"
+    example:
+      values:
+      - "values"
+      - "values"
+      aggregation: "NONE"
+      multiValue: true
+  DataSeriesRequest:
+    type: "object"
+    required:
+    - "metric"
+    properties:
+      defaultInterval:
+        type: "integer"
+        format: "int64"
+      end:
+        type: "string"
+        description: "End time of interval. Can be expressed as timestamp in milliseconds\
+          \ or UTC date in yyyy-MM-dd HH:mm:ss format"
+      filters:
+        type: "object"
+        description: "Map of allowed filter values and aggregation strategy. List\
+          \ of available filter values can be fetched using metric filters endpoint\
+          \ and default aggregation strategy depends on metric"
+        additionalProperties:
+          $ref: "#/definitions/DataSeriesFilter"
+      granularity:
+        type: "string"
+        description: "Data points interval granularity between two data points.Default\
+          \ value is \"AUTO\" - calculated based on selected time span. Not required\
+          \ while getting filters."
+        enum:
+        - "AUTO"
+        - "ONE_MINUTE"
+        - "FIVE_MINUTES"
+        - "HOUR"
+        - "DAY"
+        - "WEEK"
+        - "MONTH"
+      interval:
+        type: "string"
+      metric:
+        type: "string"
+        description: "Metric name or metric group prefix"
+      start:
+        type: "string"
+        description: "Start time of interval. Can be expressed as timestamp in milliseconds\
+          \ or UTC date in yyyy-MM-dd HH:mm:ss format"
+    example:
+      metric: "metric"
+      granularity: "AUTO"
+      start: "start"
+      end: "end"
+      interval: "interval"
+      filters:
+        key:
+          values:
+          - "values"
+          - "values"
+          aggregation: "NONE"
+          multiValue: true
+      defaultInterval: 0
