@@ -9,8 +9,6 @@
 
 package stcloud
 
-import "fmt"
-
 // UpdateAppInfo TODO Golang comment
 type UpdateAppInfo struct {
 	Description        string `json:"description,omitempty"`
@@ -22,28 +20,4 @@ type UpdateAppInfo struct {
 	SamplingPercentage int32  `json:"samplingPercentage,omitempty"`
 	Staggering         bool   `json:"staggering,omitempty"`
 	Status             string `json:"status,omitempty"`
-}
-
-// Persist TODO Doc comment
-func (updateAppInfo *UpdateAppInfo) Persist(id int, client *Client) (*App, error) {
-
-	path := fmt.Sprintf("/users-web/api/v3/apps/%d", id)
-	genericAPIResponse, err := client.PutJSON(path, updateAppInfo)
-	if err != nil {
-		return nil, err
-	}
-	var app *App
-	if app, err = genericAPIResponse.ExtractApp(); err != nil {
-		return nil, err
-	}
-
-	return app, nil
-}
-
-// IsValid TODO Doc comment
-func (updateAppInfo *UpdateAppInfo) IsValid() (valid bool, err error) {
-
-	// TODO - test minimum viable
-
-	return true, nil
 }

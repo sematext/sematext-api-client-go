@@ -10,12 +10,7 @@
 package stcloud
 
 import (
-	"encoding/json"
-	"errors"
 	"fmt"
-	"io"
-	"net/http"
-	"runtime/debug"
 )
 
 // GenericAPIResponse is a generic wrapper class for all API responses
@@ -27,98 +22,15 @@ type GenericAPIResponse struct {
 	Success bool         `json:"success,omitempty"`
 }
 
-// ExtractAppByID - TODO Doc Comment
-func (genericAPIResponse *GenericAPIResponse) ExtractAppByID(id int) (*App, error) {
-
-	if &genericAPIResponse.Data == nil {
-		return nil, fmt.Errorf("Missing Data field")
-	}
-
-	if &genericAPIResponse.Data.Apps == nil {
-		return nil, fmt.Errorf("Missing Apps field")
-	}
-
-	if len(genericAPIResponse.Data.Apps) == 0 {
-		return nil, nil
-	}
-
-	for i := range genericAPIResponse.Data.Apps {
-		if genericAPIResponse.Data.Apps[i].ID == id {
-			app := genericAPIResponse.Data.Apps[i]
-			return &app, nil
-		}
-	}
-
-	return nil, fmt.Errorf("App %d not found", id)
-
-}
-
 // ExtractApp - TODO Doc Comment
 func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
 
-	if &genericAPIResponse.Data.App == nil {
-		return nil, fmt.Errorf("Missing App field")
+	data := (*genericAPIResponse.Data).(map[string]App)
+
+	if app, ok := data["App"]; ok {
+		return &app, nil
 	}
 
-	return &genericAPIResponse.Data.App, nil
+	return nil, fmt.Errorf("Unexpected missing App field in API response")
 
-}
-
-// ExtractCloudWatchSettings - TODO Doc Comment
-func (genericAPIResponse *GenericAPIResponse) ExtractCloudWatchSettings() (*CloudWatchSettings, error) {
-
-	if &genericAPIResponse.Data.App == nil {
-		return nil, fmt.Errorf("Missing App field")
-	}
-
-	return &genericAPIResponse.Data.CloudWatchSettings, nil
-
-}
-
-// TODO reform this
-
-// handleAPIResponse parses responses comsing back from the API.
-func handleAPIResponse(response *http.Response) (*GenericAPIResponse, error) {
-	fmt.Println("-----------------------------")
-	fmt.Println("handleAPIResponse called")
-	fmt.Println("-----------------------------")
-
-	var err error
-	genericAPIResponse := &GenericAPIResponse{}
-	err = json.NewDecoder(response.Body).Decode(genericAPIResponse)
-
-	switch {
-	case err == io.EOF:
-		debug.PrintStack()
-		return nil, errors.New("Response from API has unexpected EOF")
-	case response.ContentLength == 0:
-		debug.PrintStack()
-		return nil, errors.New("Response from API has zero content length")
-	case err != nil:
-		return nil, err
-	}
-
-	switch response.StatusCode {
-	case 200, 201:
-		return genericAPIResponse, nil
-	case 400:
-		return nil, errors.New(genericAPIResponse.Message)
-	case 401:
-		fmt.Printf("%+v\n", genericAPIResponse)
-		return nil, errors.New(genericAPIResponse.Message)
-	case 402:
-		fmt.Printf("%+v\n", genericAPIResponse)
-		return nil, errors.New(genericAPIResponse.Message)
-	case 403:
-		fmt.Printf("%+v\n", genericAPIResponse)
-		return nil, errors.New(genericAPIResponse.Message)
-	case 404:
-		fmt.Printf("%+v\n", genericAPIResponse)
-		return nil, errors.New(genericAPIResponse.Message)
-	case 500:
-		fmt.Printf("%+v\n", genericAPIResponse)
-		return nil, errors.New(genericAPIResponse.Message)
-	default:
-		return nil, fmt.Errorf("Unexected status (%d) return from Sematext API", response.StatusCode)
-	}
 }

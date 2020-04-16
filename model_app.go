@@ -13,8 +13,6 @@ package stcloud
 
 import (
 	"fmt"
-
-	"github.com/davecgh/go-spew/spew"
 )
 
 //App TODO Godoc Comment
@@ -46,83 +44,6 @@ type App struct {
 	TrialEndDate          int64                 `json:"trialEndDate,omitempty"`
 	URLGroupLimit         int32                 `json:"urlGroupLimit,omitempty"`
 	UserRoles             []UserRole            `json:"userRoles,omitempty"`
-}
-
-// Load TODO Doc comment
-func (app *App) Load(id int, client *Client) (*App, error) {
-
-	fmt.Println("---------------------------------------")
-	fmt.Println("App.Load Called")
-	fmt.Println("---------------------------------------")
-
-	var genericAPIResponse *GenericAPIResponse
-	var err error
-
-	path := fmt.Sprintf("/users-web/api/v3/apps/%d", id)
-	fmt.Println("---------------------------------------")
-	fmt.Println("path")
-	fmt.Println(path)
-	fmt.Println("---------------------------------------")
-
-	if genericAPIResponse, err = client.GetJSON(path, nil); err != nil {
-		return nil, err
-	}
-
-	fmt.Println("---------------------------------------")
-	fmt.Println("genericAPIResponse")
-	spew.Dump(genericAPIResponse)
-	fmt.Println("---------------------------------------")
-
-	if app, err = genericAPIResponse.ExtractApp(); err != nil {
-		return nil, err
-	}
-
-	fmt.Println("---------------------------------------")
-	fmt.Println("app")
-	spew.Dump(app)
-	fmt.Println("---------------------------------------")
-
-	return app, nil
-
-}
-
-// Retired TODO Doc comment
-func (app *App) Retired(id int, client *Client) (bool, error) {
-
-	fmt.Println("---------------------------------------")
-	fmt.Println("App.Retired Called")
-	fmt.Println("---------------------------------------")
-
-	var err error
-	if app, err = app.Load(id, client); err != nil {
-		return false, err // TODO Correct to call false on error - tristate condition?
-	}
-	exists := app != nil && !app.IsArchived()
-
-	return exists, nil
-
-}
-
-// Persist TODO Doc comment
-func (app *App) Persist(id int, client *Client, updateAppInfo UpdateAppInfo) (*App, error) {
-
-	fmt.Println("---------------------------------------")
-	fmt.Println("App.Persist Called")
-	fmt.Println("---------------------------------------")
-
-	var genericAPIResponse *GenericAPIResponse
-	var err error
-
-	path := fmt.Sprintf("/spm-reports/api/v3/apps/%d", id)
-	if genericAPIResponse, err = client.PutJSON(path, updateAppInfo); err != nil {
-		return nil, err
-	}
-
-	if app, err = genericAPIResponse.ExtractAppByID(id); err != nil {
-		return nil, err
-	}
-
-	return app, nil
 }
 
 // IsArchived TODO Doc comment

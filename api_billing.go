@@ -164,8 +164,8 @@ func (a *BillingAPIService) ListAvailablePlansUsingGET(ctx context.Context, loca
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.IntegrationId.IsSet() {
-		localVarQueryParams.Add("integrationId", parameterToString(localVarOptionals.IntegrationId.Value(), ""))
+	if localVarOptionals != nil && localVarOptionals.IntegrationID.IsSet() {
+		localVarQueryParams.Add("integrationId", parameterToString(localVarOptionals.IntegrationID.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.AppType.IsSet() {
 		localVarQueryParams.Add("appType", parameterToString(localVarOptionals.AppType.Value(), ""))
@@ -248,14 +248,14 @@ func (a *BillingAPIService) ListAvailablePlansUsingGET(ctx context.Context, loca
 }
 
 /*
-BillingAPIService Update plan for an app
+UpdatePlanUsingPUT Update plan for an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appId appId
  * @param dto dto
 
 @return GenericAPIResponse
 */
-func (a *BillingAPIService) UpdatePlanUsingPUT(ctx context.Context, appId int64, dto BillingInfo) (GenericAPIResponse, *http.Response, error) {
+func (a *BillingAPIService) UpdatePlanUsingPUT(ctx context.Context, appID int64, dto BillingInfo) (GenericAPIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -266,7 +266,7 @@ func (a *BillingAPIService) UpdatePlanUsingPUT(ctx context.Context, appId int64,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/billing/info/{appId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

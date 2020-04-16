@@ -9,36 +9,9 @@
 
 package stcloud
 
-import "fmt"
-
 // BillingInfo TODO godoc Comment
 type BillingInfo struct {
 	// CreditCardId int64 `json:"creditCardId,omitempty"` Not Implemented
 	// PaymentMethod string `json:"paymentMethod,omitempty"` Not Implemented
 	PlanID int64 `json:"planId,omitempty"`
-}
-
-// TODO Adjust for new client
-
-// Persist TODO Doc comment
-func (billingInfo *BillingInfo) Persist(appID int, client *Client) error {
-
-	path := fmt.Sprintf("/users-web/api/v3/billing/info/%d", appID)
-
-	_, err := client.PutJSON(path, billingInfo)
-	if err != nil {
-		return err // TODO Extract information from genericAPIResponse
-	}
-
-	// TODO Check http status and other return errors.
-
-	return nil
-}
-
-// IsValid TODO Doc comment
-func (billingInfo *BillingInfo) IsValid() (valid bool, err error) {
-
-	// TODO - test minimum viable
-
-	return true, nil
 }

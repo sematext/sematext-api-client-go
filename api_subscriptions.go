@@ -33,7 +33,7 @@ ListUsingGET1 get subscriptions for an app
 
 @return GenericAPIResponse
 */
-func (a *SubscriptionsAPIService) ListUsingGET1(ctx context.Context, appDd int64) (GenericAPIResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) ListUsingGET1(ctx context.Context, appID int64) (GenericAPIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -128,14 +128,14 @@ func (a *SubscriptionsAPIService) ListUsingGET1(ctx context.Context, appDd int64
 }
 
 /*
-SubscriptionsAPIService Trigger emailing of report for an app
+SendReportUsingPOST trigger emailing of report for an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appId appId
  * @param emailDto emailDto
 
 @return GenericAPIResponse
 */
-func (a *SubscriptionsAPIService) SendReportUsingPOST(ctx context.Context, appId int64, emailDto ReportInfo) (GenericAPIResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) SendReportUsingPOST(ctx context.Context, appID int64, emailDto ReportInfo) (GenericAPIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -146,7 +146,7 @@ func (a *SubscriptionsAPIService) SendReportUsingPOST(ctx context.Context, appId
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/report/send"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

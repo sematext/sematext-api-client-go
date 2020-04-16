@@ -9,8 +9,6 @@
 
 package stcloud
 
-import "encoding/json"
-
 // CreateAppInfo TODO goddoc comment
 type CreateAppInfo struct {
 	AppType       string `json:"appType,omitempty"`
@@ -19,42 +17,4 @@ type CreateAppInfo struct {
 	// AWS app meta data. Applicable only for `aws` appType
 	MetaData *AppMetadata `json:"metaData,omitempty"`
 	Name     string       `json:"name,omitempty"`
-}
-
-// Persist TODO Doc comment
-func (createAppInfo *CreateAppInfo) Persist(client *Client) (*App, error) {
-
-	var path string
-
-	switch createAppInfo.AppType {
-	case "Logsene":
-		path = "/logsene-reports/api/v3/apps"
-	default:
-		path = "/spm-reports/api/v3/apps"
-	}
-
-	genericAPIResponse, err := client.PostJSON(path, createAppInfo)
-	if err != nil {
-		return nil, err
-	}
-
-	var extract interface{}
-	extract, err = json.Marshal(genericAPIResponse.Data.Apps)
-
-	var apps []App
-
-	err = json.Unmarshal(extract.([]byte), &apps) // TODO check this conversion
-	if err != nil {
-		return nil, err
-	}
-
-	return &apps[0], nil
-}
-
-// IsValid TODO Doc comment
-func (createAppInfo *CreateAppInfo) IsValid() bool {
-
-	// TODO - test minimum viable
-
-	return true
 }

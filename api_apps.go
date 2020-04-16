@@ -16,6 +16,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -537,7 +539,7 @@ App can be in any state
 @return GenericAPIResponse
 */
 type UpdateDescriptionUsingPUTOpts struct {
-	UpdateDetails interface{}
+	UpdateDetails optional.Interface
 }
 
 // UpdateDescriptionUsingPUT TODO Godoc comment
