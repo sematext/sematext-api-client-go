@@ -11,6 +11,8 @@ package stcloud
 
 import (
 	"fmt"
+
+	"github.com/mitchellh/mapstructure"
 )
 
 // GenericAPIResponse is a generic wrapper class for all API responses
@@ -25,12 +27,30 @@ type GenericAPIResponse struct {
 // ExtractApp - TODO Doc Comment
 func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
 
-	data := (*genericAPIResponse.Data).(map[string]App)
+	// TODO - Shift this to TFP?
 
-	if app, ok := data["App"]; ok {
+	var dataEntry map[string]interface{}
+	var appsEntry []interface{}
+	var appEntry map[string]interface{}
+	var exists bool
+	var app App
+
+	dataEntry = (*genericAPIResponse.Data).(map[string]interface{})
+
+	if appsEntry, exists = dataEntry["apps"].([]interface{}); exists {
+
+		mapstructure.Decode(appsEntry[0], &app)
 		return &app, nil
-	}
 
-	return nil, fmt.Errorf("Unexpected missing App field in API response")
+	} else if appEntry, exists = dataEntry["app"].(map[string]interface{}); exists {
+
+		mapstructure.Decode(appEntry, &app)
+		return &app, nil
+
+	} else {
+
+		return nil, fmt.Errorf("Unexpected missing apps or app field in API response")
+
+	}
 
 }

@@ -15,5 +15,5 @@ type AlertRuleScheduleWeekdayDto struct {
 	Index     int32                           `json:"index,omitempty"`
 	Intervals []AlertRuleScheduleTimeRangeDto `json:"intervals,omitempty"`
 	Label     string                          `json:"label,omitempty"`
-	Type_     string                          `json:"type,omitempty"`
+	Type      string                          `json:"type,omitempty"`
 }
