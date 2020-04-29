@@ -1,4 +1,4 @@
-module github.com/sematext/sematext-api-client-go/stcloud
+module github.com/sematext/sematext-api-client-go
 
 go 1.13
 
