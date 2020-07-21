@@ -38,7 +38,6 @@ Refer to below link for deeper information on the API itself.
   - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Authentication](#authentication)
-  - [Testing](#testing)
   - [Reference](#reference)
   - [Documentation for Models](#documentation-for-models)
 
@@ -53,7 +52,7 @@ These instructions will get you a copy of the project up and running on your loc
 * [Go](https://golang.org/) - v1.13.8
 
 
-### Installing
+### Installation
 
 Put the package under your project folder and add the following in import:
 ```golang
