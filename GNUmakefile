@@ -1,13 +1,12 @@
 SWEEP?=us-east-1,us-west-2
 TEST?=./...
 GOFMT_FILES?=$$(find . -name '*.go' |grep -v vendor)
-PKG_NAME=.
-WEBSITE_REPO=github.com/hashicorp/terraform-website
+PKG_NAME=stcloud
 
 default: build
 
 build: fmtcheck
-	go install
+	go install ./...
 
 sweep:
 	@echo "WARNING: This will destroy infrastructure. Use only in development accounts."
