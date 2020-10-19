@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**ListUsingGET1**](SubscriptionsApi.md#ListUsingGET1) | **Get** /users-web/api/v3/apps/{appId}/subscriptions | Get subscriptions for an app
-[**SendReportUsingPOST**](SubscriptionsApi.md#SendReportUsingPOST) | **Post** /users-web/api/v3/apps/{appId}/report/send | Trigger emailing of report for an app
+| Method                                                             | HTTP request                                         | Description                           |
+| ------------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------- |
+| [**ListUsingGET1**](SubscriptionsApi.md#ListUsingGET1)             | **Get** /users-web/api/v3/apps/{appId}/subscriptions | Get subscriptions for an app          |
+| [**SendReportUsingPOST**](SubscriptionsApi.md#SendReportUsingPOST) | **Post** /users-web/api/v3/apps/{appId}/report/send  | Trigger emailing of report for an app |
 
 
 # **ListUsingGET1**
@@ -14,10 +14,10 @@ Get subscriptions for an app
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appId** | **int64**| appId | 
+| Name      | Type                | Description                                                                 | Notes |
+| --------- | ------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**   | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appId** | **int64**           | appId                                                                       |
 
 ### Return type
 
@@ -40,11 +40,11 @@ Trigger emailing of report for an app
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appId** | **int64**| appId | 
-  **emailDto** | [**ReportInfo**](ReportInfo.md)| emailDto | 
+| Name         | Type                            | Description                                                                 | Notes |
+| ------------ | ------------------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**      | **context.Context**             | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appId**    | **int64**                       | appId                                                                       |
+| **emailDto** | [**ReportInfo**](ReportInfo.md) | emailDto                                                                    |
 
 ### Return type
 
@@ -60,4 +60,3 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

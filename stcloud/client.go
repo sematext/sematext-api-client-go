@@ -68,6 +68,8 @@ type APIClient struct {
 	SubscriptionsAPI *SubscriptionsAPIService
 
 	TagAPIControllerAPI *TagAPIControllerAPIService
+
+	TokensAPIControllerAPI *TokensAPIControllerAPIService
 }
 
 type service struct {

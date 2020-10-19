@@ -11,10 +11,6 @@ package stcloud
 
 // TODO Adjust methods to use new client
 
-import (
-	"fmt"
-)
-
 //App TODO Godoc Comment
 type App struct {
 	AjaxThreshold         int64                 `json:"ajaxThreshold,omitempty"`
@@ -39,19 +35,18 @@ type App struct {
 	PaymentMethodID       int64                 `json:"paymentMethodId,omitempty"`
 	Plan                  *Plan                 `json:"plan,omitempty"`
 	PrepaidAccount        bool                  `json:"prepaidAccount,omitempty"`
+	ReadToken             string                `json:"readToken,omitempty"`
+	ReadWriteToken        string                `json:"readWriteToken,omitempty"`
+	RegistrationDate      int64                 `json:"registrationDate,omitempty"`
 	Status                string                `json:"status,omitempty"`
 	Token                 string                `json:"token,omitempty"`
 	TrialEndDate          int64                 `json:"trialEndDate,omitempty"`
 	URLGroupLimit         int32                 `json:"urlGroupLimit,omitempty"`
 	UserRoles             []UserRole            `json:"userRoles,omitempty"`
+	WriteToken            string                `json:"writeToken,omitempty"`
 }
 
 // IsArchived TODO Doc comment
 func (app *App) IsArchived() bool {
-
-	fmt.Println("---------------------------------------")
-	fmt.Println("App.IsArchived Called")
-	fmt.Println("---------------------------------------")
-
 	return app.Status == "ARCHIVED"
 }
