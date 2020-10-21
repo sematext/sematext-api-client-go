@@ -122,6 +122,12 @@ Class | Method | HTTP request | Description
 *TagApiControllerApi* | [**GetTagNamesUsingGET1**](docs/TagApiControllerApi.md#gettagnamesusingget1) | **Get** /spm-reports/api/v3/apps/{appIds}/tagNames | Gets tag names for the given application identifiers appearing in the given time frame.
 *TagApiControllerApi* | [**GetUsingGET1**](docs/TagApiControllerApi.md#getusingget1) | **Get** /spm-reports/api/v3/apps/{appIds}/tags | Gets values for specified tags for the given application identifiers appearing in the given time frame.
 *TagApiControllerApi* | [**GetUsingGET2**](docs/TagApiControllerApi.md#getusingget2) | **Get** /spm-reports/api/v3/apps/{appIds}/metrics/filters | Gets values for specified tags for the given application identifiers appearing in the given time frame.
+*TokensApiControllerApi* | [**CreateAppToken**](docs/TokensApiControllerApi.md#createapptoken) | **Post** /users-web/api/v3/apps/{appId}/tokens | Create new app token
+*TokensApiControllerApi* | [**DeleteAppToken1**](docs/TokensApiControllerApi.md#deleteapptoken1) | **Delete** /users-web/api/v3/apps/{appId}/tokens/{tokenId} | Delete app token
+*TokensApiControllerApi* | [**GetAppTokens1**](docs/TokensApiControllerApi.md#getapptokens1) | **Get** /users-web/api/v3/apps/{appId}/tokens | Get app available tokens
+*TokensApiControllerApi* | [**RegenerateAppToken**](docs/TokensApiControllerApi.md#regenerateapptoken) | **Post** /users-web/api/v3/apps/{appId}/tokens/{tokenId}/regenerate | Regenerate app token)
+*TokensApiControllerApi* | [**UpdateAppToken**](docs/TokensApiControllerApi.md#updateapptoken) | **Put** /users-web/api/v3/apps/{appId}/tokens/{tokenId} | Update app token (enable/disable)
+
 
 
 ## Documentation For Models

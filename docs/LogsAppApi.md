@@ -2,9 +2,9 @@
 
 All URIs are relative to *https://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CreateLogseneApplication**](LogsAppApi.md#CreateLogseneApplication) | **Post** /logsene-reports/api/v3/apps | Create Logs App
+| Method                                                                 | HTTP request                          | Description     |
+| ---------------------------------------------------------------------- | ------------------------------------- | --------------- |
+| [**CreateLogseneApplication**](LogsAppApi.md#CreateLogseneApplication) | **Post** /logsene-reports/api/v3/apps | Create Logs App |
 
 
 # **CreateLogseneApplication**
@@ -13,10 +13,10 @@ Create Logs App
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **applicationDetails** | [**CreateAppInfo**](CreateAppInfo.md)| Details of the application to be created | 
+| Name                   | Type                                  | Description                                                                 | Notes |
+| ---------------------- | ------------------------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**                | **context.Context**                   | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **applicationDetails** | [**CreateAppInfo**](CreateAppInfo.md) | Details of the application to be created                                    |
 
 ### Return type
 
@@ -32,4 +32,3 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

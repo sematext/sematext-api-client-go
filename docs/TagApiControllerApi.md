@@ -2,11 +2,11 @@
 
 All URIs are relative to *https://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**GetTagNamesUsingGET1**](TagApiControllerApi.md#GetTagNamesUsingGET1) | **Get** /spm-reports/api/v3/apps/{appIds}/tagNames | Gets tag names for the given application identifiers appearing in the given time frame.
-[**GetUsingGET1**](TagApiControllerApi.md#GetUsingGET1) | **Get** /spm-reports/api/v3/apps/{appIds}/tags | Gets values for specified tags for the given application identifiers appearing in the given time frame.
-[**GetUsingGET2**](TagApiControllerApi.md#GetUsingGET2) | **Get** /spm-reports/api/v3/apps/{appIds}/metrics/filters | Gets values for specified tags for the given application identifiers appearing in the given time frame.
+| Method                                                                  | HTTP request                                              | Description                                                                                             |
+| ----------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [**GetTagNamesUsingGET1**](TagApiControllerApi.md#GetTagNamesUsingGET1) | **Get** /spm-reports/api/v3/apps/{appIds}/tagNames        | Gets tag names for the given application identifiers appearing in the given time frame.                 |
+| [**GetUsingGET1**](TagApiControllerApi.md#GetUsingGET1)                 | **Get** /spm-reports/api/v3/apps/{appIds}/tags            | Gets values for specified tags for the given application identifiers appearing in the given time frame. |
+| [**GetUsingGET2**](TagApiControllerApi.md#GetUsingGET2)                 | **Get** /spm-reports/api/v3/apps/{appIds}/metrics/filters | Gets values for specified tags for the given application identifiers appearing in the given time frame. |
 
 
 # **GetTagNamesUsingGET1**
@@ -15,20 +15,20 @@ Gets tag names for the given application identifiers appearing in the given time
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appIds** | **string**| appIds | 
- **optional** | ***GetTagNamesUsingGET1Opts** | optional parameters | nil if no parameters
+| Name         | Type                          | Description                                                                 | Notes                |
+| ------------ | ----------------------------- | --------------------------------------------------------------------------- | -------------------- |
+| **ctx**      | **context.Context**           | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appIds**   | **string**                    | appIds                                                                      |
+| **optional** | ***GetTagNamesUsingGET1Opts** | optional parameters                                                         | nil if no parameters |
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a GetTagNamesUsingGET1Opts struct
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
 
- **from** | **optional.Int64**| from | 
- **to** | **optional.Int64**| to | 
+ **from** | **optional.Int64**| from |
+ **to** | **optional.Int64**| to |
  **metrics** | **optional.Bool**| metrics | [default to true]
  **logs** | **optional.Bool**| logs | [default to true]
  **events** | **optional.Bool**| events | [default to false]
@@ -55,22 +55,22 @@ Gets values for specified tags for the given application identifiers appearing i
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appIds** | **string**| appIds | 
-  **tag** | [**[]string**](string.md)| tag | 
- **optional** | ***GetUsingGET1Opts** | optional parameters | nil if no parameters
+| Name         | Type                      | Description                                                                 | Notes                |
+| ------------ | ------------------------- | --------------------------------------------------------------------------- | -------------------- |
+| **ctx**      | **context.Context**       | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appIds**   | **string**                | appIds                                                                      |
+| **tag**      | [**[]string**](string.md) | tag                                                                         |
+| **optional** | ***GetUsingGET1Opts**     | optional parameters                                                         | nil if no parameters |
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a GetUsingGET1Opts struct
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
 
 
- **from** | **optional.Int64**| from | 
- **to** | **optional.Int64**| to | 
+ **from** | **optional.Int64**| from |
+ **to** | **optional.Int64**| to |
  **metrics** | **optional.Bool**| metrics | [default to true]
  **logs** | **optional.Bool**| logs | [default to true]
  **events** | **optional.Bool**| events | [default to false]
@@ -97,22 +97,22 @@ Gets values for specified tags for the given application identifiers appearing i
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appIds** | **string**| appIds | 
-  **tag** | [**[]string**](string.md)| tag | 
- **optional** | ***GetUsingGET2Opts** | optional parameters | nil if no parameters
+| Name         | Type                      | Description                                                                 | Notes                |
+| ------------ | ------------------------- | --------------------------------------------------------------------------- | -------------------- |
+| **ctx**      | **context.Context**       | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appIds**   | **string**                | appIds                                                                      |
+| **tag**      | [**[]string**](string.md) | tag                                                                         |
+| **optional** | ***GetUsingGET2Opts**     | optional parameters                                                         | nil if no parameters |
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a GetUsingGET2Opts struct
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
 
 
- **from** | **optional.Int64**| from | 
- **to** | **optional.Int64**| to | 
+ **from** | **optional.Int64**| from |
+ **to** | **optional.Int64**| to |
  **metrics** | **optional.Bool**| metrics | [default to true]
  **logs** | **optional.Bool**| logs | [default to true]
  **events** | **optional.Bool**| events | [default to false]
@@ -132,4 +132,3 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

@@ -2,12 +2,12 @@
 
 All URIs are relative to *https://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**ListDataSeriesUsingPOST**](MetricsApi.md#ListDataSeriesUsingPOST) | **Post** /spm-reports/api/v3/apps/{appId}/metrics/data | Get metrics data points for an app
-[**ListFiltersUsingPOST1**](MetricsApi.md#ListFiltersUsingPOST1) | **Post** /spm-reports/api/v3/apps/{appId}/metrics/filters | Get metrics filters and their values for an app
-[**ListMetricsKeysUsingGET**](MetricsApi.md#ListMetricsKeysUsingGET) | **Get** /spm-reports/api/v3/apps/{appId}/metrics/keys | Get metrics keys for an app
-[**ListMetricsUsingGET**](MetricsApi.md#ListMetricsUsingGET) | **Get** /spm-reports/api/v3/apps/{appId}/metrics | Get metrics info for an app
+| Method                                                               | HTTP request                                              | Description                                     |
+| -------------------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------- |
+| [**ListDataSeriesUsingPOST**](MetricsApi.md#ListDataSeriesUsingPOST) | **Post** /spm-reports/api/v3/apps/{appId}/metrics/data    | Get metrics data points for an app              |
+| [**ListFiltersUsingPOST1**](MetricsApi.md#ListFiltersUsingPOST1)     | **Post** /spm-reports/api/v3/apps/{appId}/metrics/filters | Get metrics filters and their values for an app |
+| [**ListMetricsKeysUsingGET**](MetricsApi.md#ListMetricsKeysUsingGET) | **Get** /spm-reports/api/v3/apps/{appId}/metrics/keys     | Get metrics keys for an app                     |
+| [**ListMetricsUsingGET**](MetricsApi.md#ListMetricsUsingGET)         | **Get** /spm-reports/api/v3/apps/{appId}/metrics          | Get metrics info for an app                     |
 
 
 # **ListDataSeriesUsingPOST**
@@ -18,11 +18,11 @@ Default value of interval is 5m
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appId** | **int64**| appId | 
-  **requestBody** | [**DataSeriesRequest**](DataSeriesRequest.md)| Metric data points request | 
+| Name            | Type                                          | Description                                                                 | Notes |
+| --------------- | --------------------------------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**         | **context.Context**                           | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appId**       | **int64**                                     | appId                                                                       |
+| **requestBody** | [**DataSeriesRequest**](DataSeriesRequest.md) | Metric data points request                                                  |
 
 ### Return type
 
@@ -47,11 +47,11 @@ Default value of interval is 5m
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appId** | **int64**| appId | 
-  **requestBody** | [**DataSeriesRequest**](DataSeriesRequest.md)| Metric filters request | 
+| Name            | Type                                          | Description                                                                 | Notes |
+| --------------- | --------------------------------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**         | **context.Context**                           | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appId**       | **int64**                                     | appId                                                                       |
+| **requestBody** | [**DataSeriesRequest**](DataSeriesRequest.md) | Metric filters request                                                      |
 
 ### Return type
 
@@ -74,10 +74,10 @@ Get metrics keys for an app
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appId** | **int64**| appId | 
+| Name      | Type                | Description                                                                 | Notes |
+| --------- | ------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**   | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appId** | **int64**           | appId                                                                       |
 
 ### Return type
 
@@ -100,10 +100,10 @@ Get metrics info for an app
 
 ### Required Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **appId** | **int64**| appId | 
+| Name      | Type                | Description                                                                 | Notes |
+| --------- | ------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**   | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appId** | **int64**           | appId                                                                       |
 
 ### Return type
 
@@ -119,4 +119,3 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
