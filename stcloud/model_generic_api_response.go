@@ -70,6 +70,6 @@ func (genericAPIResponse *GenericAPIResponse) ExtractAppTokens() (*[]AppToken, e
 		mapstructure.Decode(appTokenField, appTokenList)
 		return &appTokenList, nil
 	}
-	return nil, fmt.Errorf("Unexpected missing apps or app field in API response")
+	return nil, fmt.Errorf("Unexpected missing tokens field in API response")
 
 }
