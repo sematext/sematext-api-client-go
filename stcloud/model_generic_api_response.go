@@ -29,22 +29,22 @@ func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
 
 	// TODO - Shift this to TFP?
 
-	var dataEntry map[string]interface{}
-	var appsEntry []interface{}
-	var appEntry map[string]interface{}
+	var dataField map[string]interface{}
+	var appsField []interface{}
+	var appField map[string]interface{}
 	var exists bool
 	var app App
 
-	dataEntry = (*genericAPIResponse.Data).(map[string]interface{})
+	dataField = (*genericAPIResponse.Data).(map[string]interface{})
 
-	if appsEntry, exists = dataEntry["apps"].([]interface{}); exists {
+	if appsField, exists = dataField["apps"].([]interface{}); exists {
 
-		mapstructure.Decode(appsEntry[0], &app)
+		mapstructure.Decode(appsField[0], &app)
 		return &app, nil
 
-	} else if appEntry, exists = dataEntry["app"].(map[string]interface{}); exists {
+	} else if appField, exists = dataField["app"].(map[string]interface{}); exists {
 
-		mapstructure.Decode(appEntry, &app)
+		mapstructure.Decode(appField, &app)
 		return &app, nil
 
 	} else {
@@ -52,5 +52,24 @@ func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
 		return nil, fmt.Errorf("Unexpected missing apps or app field in API response")
 
 	}
+
+}
+
+// ExtractAppTokens - TODO Doc Comment
+func (genericAPIResponse *GenericAPIResponse) ExtractAppTokens() (*[]AppTokenEntry, error) {
+
+	// TODO - Shift this to TFP?
+
+	var dataField map[string]interface{}
+	var appTokenField []interface{}
+	var appTokenList []AppTokenEntry
+	var exists bool
+
+	dataField = (*genericAPIResponse.Data).(map[string]interface{})
+	if appTokenField, exists = dataField["tokens"].([]interface{}); exists {
+		mapstructure.Decode(appTokenField, appTokenList)
+		return &appTokenList, nil
+	}
+	return nil, fmt.Errorf("Unexpected missing tokens field in API response")
 
 }
