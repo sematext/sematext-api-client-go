@@ -56,13 +56,13 @@ func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
 }
 
 // ExtractAppTokens - TODO Doc Comment
-func (genericAPIResponse *GenericAPIResponse) ExtractAppTokens() (*[]AppToken, error) {
+func (genericAPIResponse *GenericAPIResponse) ExtractAppTokens() (*[]AppTokenEntry, error) {
 
 	// TODO - Shift this to TFP?
 
 	var dataField map[string]interface{}
 	var appTokenField []interface{}
-	var appTokenList []AppToken
+	var appTokenList []AppTokenEntry
 	var exists bool
 
 	dataField = (*genericAPIResponse.Data).(map[string]interface{})
