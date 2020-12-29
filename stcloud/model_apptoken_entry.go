@@ -12,6 +12,7 @@ package stcloud
 // AppTokenEntry TODO Godoc commenting
 type AppTokenEntry struct {
 	ID        int    `json:"id,omitempty"`
+	Name      string `json:"name,omitempty"`
 	Token     string `json:"token,omitempty"`
 	CreatedAt int64  `json:"createdAt,omitempty"`
 	Readable  bool   `json:"readable,omitempty"`

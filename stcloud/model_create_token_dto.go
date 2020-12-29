@@ -11,6 +11,7 @@ package stcloud
 
 // CreateTokenDto TODO goddoc comment
 type CreateTokenDto struct {
-	Readable  bool `json:"readable,omitempty"`
-	Writeable bool `json:"writeable,omitempty"`
+	Name      string `json:"name,omitempty"`
+	Readable  bool   `json:"readable,omitempty"`
+	Writeable bool   `json:"writeable,omitempty"`
 }

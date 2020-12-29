@@ -11,5 +11,6 @@ package stcloud
 
 // UpdateTokenDto TODO Doc Comment
 type UpdateTokenDto struct {
-	Enabled bool `json:"enabled,omitempty"`
+	Enabled bool   `json:"enabled,omitempty"`
+	Name    string `json:"name,omitempty"`
 }
