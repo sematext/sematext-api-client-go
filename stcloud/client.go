@@ -100,6 +100,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SavedQueriesAPI = (*SavedQueriesAPIService)(&c.common)
 	c.SubscriptionsAPI = (*SubscriptionsAPIService)(&c.common)
 	c.TagAPIControllerAPI = (*TagAPIControllerAPIService)(&c.common)
+	c.TokensAPIControllerAPI = (*TokensAPIControllerAPIService)(&c.common)
 
 	return c
 }
