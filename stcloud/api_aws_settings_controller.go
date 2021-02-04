@@ -30,7 +30,7 @@ type AwsSettingsControllerAPIService service
 UpdateUsingPUT Update App's AWS CloudWatch settings
 Applicable only for AWS Apps
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
  * @param dto dto
 
 @return GenericAPIResponse
@@ -45,8 +45,8 @@ func (a *AwsSettingsControllerAPIService) UpdateUsingPUT(ctx context.Context, ap
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/aws"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/aws"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

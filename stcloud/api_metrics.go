@@ -30,7 +30,7 @@ type MetricsAPIService service
 ListDataSeriesUsingPOST Get metrics data points for an app
 Default value of interval is 5m
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
  * @param requestBody Metric data points request
 
 @return GenericAPIResponse
@@ -45,8 +45,8 @@ func (a *MetricsAPIService) ListDataSeriesUsingPOST(ctx context.Context, appID i
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appId}/metrics/data"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appID}/metrics/data"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -135,7 +135,7 @@ func (a *MetricsAPIService) ListDataSeriesUsingPOST(ctx context.Context, appID i
 ListFiltersUsingPOST1 get metrics filters and their values for an app
 Default value of interval is 5m
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
  * @param requestBody Metric filters request
 
 @return GenericAPIResponse
@@ -150,8 +150,8 @@ func (a *MetricsAPIService) ListFiltersUsingPOST1(ctx context.Context, appID int
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appId}/metrics/filters"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appID}/metrics/filters"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -239,7 +239,7 @@ func (a *MetricsAPIService) ListFiltersUsingPOST1(ctx context.Context, appID int
 /*
 ListMetricsKeysUsingGET get metrics keys for an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
 
 @return GenericAPIResponse
 */
@@ -253,8 +253,8 @@ func (a *MetricsAPIService) ListMetricsKeysUsingGET(ctx context.Context, appID i
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appId}/metrics/keys"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appID}/metrics/keys"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -340,7 +340,7 @@ func (a *MetricsAPIService) ListMetricsKeysUsingGET(ctx context.Context, appID i
 /*
 ListMetricsUsingGET get metrics info for an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
 
 @return GenericAPIResponse
 */
@@ -354,8 +354,8 @@ func (a *MetricsAPIService) ListMetricsUsingGET(ctx context.Context, appID int64
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appId}/metrics"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appID}/metrics"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -15,7 +15,7 @@ type AlertRule struct {
 	AllowedAppTypes                       []int64                       `json:"allowedAppTypes,omitempty"`
 	AnalyzingTime                         string                        `json:"analyzingTime,omitempty"`
 	AppDisplayState                       string                        `json:"appDisplayState,omitempty"`
-	AppID                                 int64                         `json:"appId,omitempty"`
+	AppID                                 int64                         `json:"appID,omitempty"`
 	AppName                               string                        `json:"appName,omitempty"`
 	AppState                              string                        `json:"appState,omitempty"`
 	AppToken                              string                        `json:"appToken,omitempty"`
