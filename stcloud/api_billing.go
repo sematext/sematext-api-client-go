@@ -250,7 +250,7 @@ func (a *BillingAPIService) ListAvailablePlansUsingGET(ctx context.Context, loca
 /*
 UpdatePlanUsingPUT Update plan for an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
  * @param dto dto
 
 @return GenericAPIResponse
@@ -265,8 +265,8 @@ func (a *BillingAPIService) UpdatePlanUsingPUT(ctx context.Context, appID int64,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/billing/info/{appId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/billing/info/{appID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

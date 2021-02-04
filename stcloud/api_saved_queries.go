@@ -130,7 +130,7 @@ func (a *SavedQueriesAPIService) DeleteSavedQueryUsingDELETE(ctx context.Context
 /*
 GetSavedQueriesForAppUsingGET get saved queries for an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
 
 @return GenericAPIResponse
 */
@@ -144,8 +144,8 @@ func (a *SavedQueriesAPIService) GetSavedQueriesForAppUsingGET(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/savedQueries"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/savedQueries"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -31,7 +31,7 @@ type AppsAPIService service
 /*
 DeleteUsingDELETE1 delete
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from HTTP.Request or context.Background().
- * @param anyStateAppId anyStateAppId
+ * @param anyStateAppID anyStateAppID
 
 @return GenericAPIResponse
 */
@@ -45,8 +45,8 @@ func (a *AppsAPIService) DeleteUsingDELETE1(ctx context.Context, anyStateAppID i
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppId"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppID"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -231,7 +231,7 @@ func (a *AppsAPIService) GetAppTypesUsingGET(ctx context.Context) (GenericAPIRes
 /*
 GetUsingGET Gets defails for one particular App
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from HTTP.Request or context.Background().
- * @param anyStateAppID anyStateAppId
+ * @param anyStateAppID anyStateAppID
 
 @return GenericAPIResponse
 */
@@ -245,8 +245,8 @@ func (a *AppsAPIService) GetUsingGET(ctx context.Context, anyStateAppID int64) (
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppId"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppID"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -633,7 +633,7 @@ func (a *AppsAPIService) ListUsingGET(ctx context.Context) (GenericAPIResponse, 
 UpdateDescriptionUsingPUTOpts Update description of the app
 App can be in any state
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from HTTP.Request or context.Background().
- * @param anyStateAppId App Id
+ * @param anyStateAppID App Id
  * @param optional nil or *UpdateDescriptionUsingPUTOpts - Optional Parameters:
      * @param "UpdateDetails" (optional.Interface of AppDescription) -  Update Details
 
@@ -654,8 +654,8 @@ func (a *AppsAPIService) UpdateDescriptionUsingPUT(ctx context.Context, anyState
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppId}/description"
-	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppId"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppID}/description"
+	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppID"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -752,7 +752,7 @@ UpdateUsingPUT1 Update app
 App can be in any state
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from HTTP.Request or context.Background().
  * @param dto dto
- * @param anyStateAppId App Id
+ * @param anyStateAppID App Id
 
 @return GenericAPIResponse
 */
@@ -766,8 +766,8 @@ func (a *AppsAPIService) UpdateUsingPUT1(ctx context.Context, dto UpdateAppInfo,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppId"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppID"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -30,7 +30,7 @@ type AlertNotificationsAPIService service
 GetAlertNotificationsForAppUsingPOST get alert notifications for an app
 Default value of interval is 1d
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
  * @param timeInterval Time Interval
 
 @return GenericAPIResponse
@@ -45,8 +45,8 @@ func (a *AlertNotificationsAPIService) GetAlertNotificationsForAppUsingPOST(ctx 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/notifications/alerts"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/notifications/alerts"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
