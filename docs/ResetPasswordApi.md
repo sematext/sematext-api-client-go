@@ -1,26 +1,25 @@
-# \ResetPasswordApi
+# {{classname}}
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 | Method                                                                   | HTTP request                                      | Description    |
 | ------------------------------------------------------------------------ | ------------------------------------------------- | -------------- |
 | [**ResetPasswordUsingPOST**](ResetPasswordApi.md#ResetPasswordUsingPOST) | **Post** /users-web/api/v3/account/password/reset | Reset Password |
 
-
 # **ResetPasswordUsingPOST**
-> GenericApiResponse ResetPasswordUsingPOST(ctx, dto)
+> GenericMapBasedApiResponse ResetPasswordUsingPOST(ctx, body)
 Reset Password
 
 ### Required Parameters
 
-| Name    | Type                        | Description                                                                 | Notes |
-| ------- | --------------------------- | --------------------------------------------------------------------------- | ----- |
-| **ctx** | **context.Context**         | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **dto** | [**UserInfo**](UserInfo.md) | dto                                                                         |
+| Name     | Type                        | Description                                                                 | Notes |
+| -------- | --------------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**  | **context.Context**         | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **body** | [**UserInfo**](UserInfo.md) | dto                                                                         |
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**GenericMapBasedApiResponse**](Generic Map Based Api Response.md)
 
 ### Authorization
 

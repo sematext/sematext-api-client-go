@@ -25,8 +25,12 @@
 | **PaymentMethodId**       | **int64**                                            |             | [optional] [default to null] |
 | **Plan**                  | [***Plan**](Plan.md)                                 |             | [optional] [default to null] |
 | **PrepaidAccount**        | **bool**                                             |             | [optional] [default to null] |
+| **ReadToken**             | **string**                                           |             | [optional] [default to null] |
+| **ReadWriteToken**        | **string**                                           |             | [optional] [default to null] |
+| **RegistrationDate**      | **int64**                                            |             | [optional] [default to null] |
 | **Status**                | **string**                                           |             | [optional] [default to null] |
 | **Token**                 | **string**                                           |             | [optional] [default to null] |
+| **Tokens**                | **[]string**                                         |             | [optional] [default to null] |
 | **TrialEndDate**          | **int64**                                            |             | [optional] [default to null] |
 | **UrlGroupLimit**         | **int32**                                            |             | [optional] [default to null] |
 | **UserRoles**             | [**[]UserRole**](UserRole.md)                        |             | [optional] [default to null] |

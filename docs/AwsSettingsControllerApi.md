@@ -1,14 +1,13 @@
-# \AwsSettingsControllerApi
+# {{classname}}
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
-| Method                                                           | HTTP request                               | Description                              |
-| ---------------------------------------------------------------- | ------------------------------------------ | ---------------------------------------- |
-| [**UpdateUsingPUT**](AwsSettingsControllerApi.md#UpdateUsingPUT) | **Put** /users-web/api/v3/apps/{appId}/aws | Update App&#39;s AWS CloudWatch settings |
+| Method                                                             | HTTP request                               | Description                               |
+| ------------------------------------------------------------------ | ------------------------------------------ | ----------------------------------------- |
+| [**UpdateUsingPUT1**](AwsSettingsControllerApi.md#UpdateUsingPUT1) | **Put** /users-web/api/v3/apps/{appId}/aws | Update App&#x27;s AWS CloudWatch settings |
 
-
-# **UpdateUsingPUT**
-> GenericApiResponse UpdateUsingPUT(ctx, appId, dto)
+# **UpdateUsingPUT1**
+> CloudWatchSettingsResponse UpdateUsingPUT1(ctx, body, appId)
 Update App's AWS CloudWatch settings
 
 Applicable only for AWS Apps
@@ -18,12 +17,12 @@ Applicable only for AWS Apps
 | Name      | Type                                            | Description                                                                 | Notes |
 | --------- | ----------------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**                             | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **body**  | [**CloudWatchSettings**](CloudWatchSettings.md) | dto                                                                         |
 | **appId** | **int64**                                       | appId                                                                       |
-| **dto**   | [**CloudWatchSettings**](CloudWatchSettings.md) | dto                                                                         |
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**CloudWatchSettingsResponse**](CloudWatchSettingsResponse.md)
 
 ### Authorization
 

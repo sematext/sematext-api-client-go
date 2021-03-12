@@ -1,26 +1,25 @@
-# \MonitoringAppApi
+# {{classname}}
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 | Method                                                                 | HTTP request                      | Description           |
 | ---------------------------------------------------------------------- | --------------------------------- | --------------------- |
 | [**CreateSpmApplication1**](MonitoringAppApi.md#CreateSpmApplication1) | **Post** /spm-reports/api/v3/apps | Create Monitoring App |
 
-
 # **CreateSpmApplication1**
-> GenericApiResponse CreateSpmApplication1(ctx, applicationDetails)
+> AppsResponse CreateSpmApplication1(ctx, body)
 Create Monitoring App
 
 ### Required Parameters
 
-| Name                   | Type                                  | Description                                                                 | Notes |
-| ---------------------- | ------------------------------------- | --------------------------------------------------------------------------- | ----- |
-| **ctx**                | **context.Context**                   | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **applicationDetails** | [**CreateAppInfo**](CreateAppInfo.md) | Details of the application to be created                                    |
+| Name     | Type                                  | Description                                                                 | Notes |
+| -------- | ------------------------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**  | **context.Context**                   | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **body** | [**CreateAppInfo**](CreateAppInfo.md) | Details of the application to be created                                    |
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**AppsResponse**](AppsResponse.md)
 
 ### Authorization
 

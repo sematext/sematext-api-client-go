@@ -1,26 +1,25 @@
-# \LogsAppApi
+# {{classname}}
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 | Method                                                                 | HTTP request                          | Description     |
 | ---------------------------------------------------------------------- | ------------------------------------- | --------------- |
 | [**CreateLogseneApplication**](LogsAppApi.md#CreateLogseneApplication) | **Post** /logsene-reports/api/v3/apps | Create Logs App |
 
-
 # **CreateLogseneApplication**
-> GenericApiResponse CreateLogseneApplication(ctx, applicationDetails)
+> AppsResponse CreateLogseneApplication(ctx, body)
 Create Logs App
 
 ### Required Parameters
 
-| Name                   | Type                                  | Description                                                                 | Notes |
-| ---------------------- | ------------------------------------- | --------------------------------------------------------------------------- | ----- |
-| **ctx**                | **context.Context**                   | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **applicationDetails** | [**CreateAppInfo**](CreateAppInfo.md) | Details of the application to be created                                    |
+| Name     | Type                                  | Description                                                                 | Notes |
+| -------- | ------------------------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**  | **context.Context**                   | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **body** | [**CreateAppInfo**](CreateAppInfo.md) | Details of the application to be created                                    |
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**AppsResponse**](AppsResponse.md)
 
 ### Authorization
 

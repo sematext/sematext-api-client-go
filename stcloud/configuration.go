@@ -10,11 +10,13 @@
 package stcloud
 
 import (
+	"fmt"
 	"math/rand"
 	"net/http"
 	"time"
 
 	"github.com/google/uuid"
+	"github.com/mitchellh/mapstructure"
 )
 
 // contextKeys are used to identify the type of value in the context.
@@ -622,6 +624,9 @@ var LookupAppType2PlanID = map[string][]int{
 	},
 }
 
+// Following are helper methods tacked onto generated objects.
+// They live in this file for convenience when updating.
+
 // AssignPlanID provides a ramdom PlanID for testing. - TODO rest to only use free plans
 func AssignPlanID(appType string) int {
 	if plans, ok := LookupAppType2PlanID[appType]; ok {
@@ -633,4 +638,59 @@ func AssignPlanID(appType string) int {
 		return LookupAppType2PlanID[appType][n]
 	}
 	panic("CODE ERROR - bad appType.")
+}
+
+// IsArchived TODO Doc comment
+func (app *App) IsArchived() bool {
+	return app.Status == "ARCHIVED"
+}
+
+// ExtractApp - TODO Doc Comment
+func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
+
+	// TODO - Shift this to TFP?
+
+	var dataField map[string]interface{}
+	var appsField []interface{}
+	var appField map[string]interface{}
+	var exists bool
+	var app App
+
+	dataField = (*genericAPIResponse.Data).(map[string]interface{})
+
+	if appsField, exists = dataField["apps"].([]interface{}); exists {
+
+		mapstructure.Decode(appsField[0], &app)
+		return &app, nil
+
+	} else if appField, exists = dataField["app"].(map[string]interface{}); exists {
+
+		mapstructure.Decode(appField, &app)
+		return &app, nil
+
+	} else {
+
+		return nil, fmt.Errorf("Unexpected missing apps or app field in API response")
+
+	}
+
+}
+
+// ExtractAppTokens - TODO Doc Comment
+func (genericAPIResponse *GenericAPIResponse) ExtractAppTokens() (*[]AppTokenEntry, error) {
+
+	// TODO - Shift this to TFP?
+
+	var dataField map[string]interface{}
+	var appTokenField []interface{}
+	var appTokenList []AppTokenEntry
+	var exists bool
+
+	dataField = (*genericAPIResponse.Data).(map[string]interface{})
+	if appTokenField, exists = dataField["tokens"].([]interface{}); exists {
+		mapstructure.Decode(appTokenField, appTokenList)
+		return &appTokenList, nil
+	}
+	return nil, fmt.Errorf("Unexpected missing tokens field in API response")
+
 }

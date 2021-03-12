@@ -5,7 +5,7 @@
 | ---------------------- | ----------- | ----------- | ---------------------------- |
 | **AppType**            | **string**  |             | [optional] [default to null] |
 | **Custom**             | **bool**    |             | [optional] [default to null] |
-| **DataRetentionHours** | **float32** |             | [optional] [default to null] |
+| **DataRetentionHours** | **float64** |             | [optional] [default to null] |
 | **DefaultTrialPlan**   | **bool**    |             | [optional] [default to null] |
 | **Free**               | **bool**    |             | [optional] [default to null] |
 | **FreeTrialDays**      | **int64**   |             | [optional] [default to null] |

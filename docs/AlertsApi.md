@@ -1,6 +1,6 @@
-# \AlertsApi
+# {{classname}}
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 | Method                                                                      | HTTP request                                                 | Description                |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------- |
@@ -10,21 +10,20 @@ All URIs are relative to *https://localhost*
 | [**EnableAlertRuleUsingPUT**](AlertsApi.md#EnableAlertRuleUsingPUT)         | **Put** /users-web/api/v3/alerts/{updateableAlertId}/enable  | Enable alert rule          |
 | [**GetAlertRulesForAppUsingGET**](AlertsApi.md#GetAlertRulesForAppUsingGET) | **Get** /users-web/api/v3/apps/{appId}/alerts                | Get alert rules for an app |
 
-
 # **CreateAlertUsingPOST**
-> GenericApiResponse CreateAlertUsingPOST(ctx, dto)
+> AlertRuleResponse CreateAlertUsingPOST(ctx, body)
 Create alert rule
 
 ### Required Parameters
 
-| Name    | Type                          | Description                                                                 | Notes |
-| ------- | ----------------------------- | --------------------------------------------------------------------------- | ----- |
-| **ctx** | **context.Context**           | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **dto** | [**AlertRule**](AlertRule.md) | dto                                                                         |
+| Name     | Type                          | Description                                                                 | Notes |
+| -------- | ----------------------------- | --------------------------------------------------------------------------- | ----- |
+| **ctx**  | **context.Context**           | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **body** | [**AlertRule**](AlertRule.md) | dto                                                                         |
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**AlertRuleResponse**](AlertRuleResponse.md)
 
 ### Authorization
 
@@ -38,7 +37,7 @@ Create alert rule
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteAlertRuleUsingDELETE**
-> GenericApiResponse DeleteAlertRuleUsingDELETE(ctx, updateableAlertId)
+> GenericMapBasedApiResponse DeleteAlertRuleUsingDELETE(ctx, updateableAlertId)
 Delete alert rule
 
 ### Required Parameters
@@ -50,7 +49,7 @@ Delete alert rule
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**GenericMapBasedApiResponse**](Generic Map Based Api Response.md)
 
 ### Authorization
 
@@ -58,13 +57,13 @@ Delete alert rule
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DisableAlertRuleUsingPUT**
-> GenericApiResponse DisableAlertRuleUsingPUT(ctx, updateableAlertId)
+> GenericMapBasedApiResponse DisableAlertRuleUsingPUT(ctx, updateableAlertId)
 Disable alert rule
 
 ### Required Parameters
@@ -76,7 +75,7 @@ Disable alert rule
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**GenericMapBasedApiResponse**](Generic Map Based Api Response.md)
 
 ### Authorization
 
@@ -84,13 +83,13 @@ Disable alert rule
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **EnableAlertRuleUsingPUT**
-> GenericApiResponse EnableAlertRuleUsingPUT(ctx, updateableAlertId)
+> GenericMapBasedApiResponse EnableAlertRuleUsingPUT(ctx, updateableAlertId)
 Enable alert rule
 
 ### Required Parameters
@@ -102,7 +101,7 @@ Enable alert rule
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**GenericMapBasedApiResponse**](Generic Map Based Api Response.md)
 
 ### Authorization
 
@@ -110,13 +109,13 @@ Enable alert rule
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAlertRulesForAppUsingGET**
-> GenericApiResponse GetAlertRulesForAppUsingGET(ctx, appId)
+> AlertRulesResponse GetAlertRulesForAppUsingGET(ctx, appId)
 Get alert rules for an app
 
 ### Required Parameters
@@ -128,7 +127,7 @@ Get alert rules for an app
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**AlertRulesResponse**](AlertRulesResponse.md)
 
 ### Authorization
 
@@ -136,7 +135,7 @@ Get alert rules for an app
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
