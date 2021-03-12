@@ -9,7 +9,7 @@
 package stcloud
 
 // Generic map based wrapper class for all API responses
-type GenericMapBasedApiResponse struct {
+type GenericMapBasedAPIResponse struct {
 	Data    *interface{} `json:"data,omitempty"`
 	Errors  []ModelError `json:"errors,omitempty"`
 	Message string       `json:"message,omitempty"`

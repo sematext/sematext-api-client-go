@@ -4,10 +4,10 @@ All URIs are relative to */*
 
 | Method                                                                      | HTTP request                                                   | Description |
 | --------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------- |
-| [**GetForRangeUsingGET**](LogsUsageApiControllerApi.md#GetForRangeUsingGET) | **Get** /logsene-reports/api/v3/apps/{appId}/usage/{from}/{to} | getForRange |
+| [**GetForRangeUsingGET**](LogsUsageAPIControllerAPI.md#GetForRangeUsingGET) | **Get** /logsene-reports/api/v3/apps/{appID}/usage/{from}/{to} | getForRange |
 
 # **GetForRangeUsingGET**
-> UsageResponse GetForRangeUsingGET(ctx, appId, from, to)
+> UsageResponse GetForRangeUsingGET(ctx, appID, from, to)
 getForRange
 
 ### Required Parameters
@@ -15,7 +15,7 @@ getForRange
 | Name      | Type                | Description                                                                 | Notes |
 | --------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appId** | **int64**           | appId                                                                       |
+| **appID** | **int64**           | appID                                                                       |
 | **from**  | **int64**           | from                                                                        |
 | **to**    | **int64**           | to                                                                          |
 

@@ -1,4 +1,4 @@
-# GenericApiResponse
+# GenericAPIResponse
 
 ## Properties
 | Name        | Type                               | Description | Notes                        |

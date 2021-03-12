@@ -21,15 +21,15 @@ var (
 	_ context.Context
 )
 
-type MonitoringAppApiService service
+type MonitoringAppAPIService service
 
 /*
-MonitoringAppApiService Create Monitoring App
+MonitoringAppAPIService Create Monitoring App
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body Details of the application to be created
 @return AppsResponse
 */
-func (a *MonitoringAppApiService) CreateSpmApplication1(ctx context.Context, body CreateAppInfo) (AppsResponse, *http.Response, error) {
+func (a *MonitoringAppAPIService) CreateSpmApplication1(ctx context.Context, body CreateAppInfo) (AppsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}

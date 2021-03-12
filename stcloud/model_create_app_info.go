@@ -11,7 +11,7 @@ package stcloud
 type CreateAppInfo struct {
 	AppType       string       `json:"appType,omitempty"`
 	DiscountCode  string       `json:"discountCode,omitempty"`
-	InitialPlanId int64        `json:"initialPlanId,omitempty"`
+	InitialPlanID int64        `json:"initialPlanId,omitempty"`
 	MetaData      *AppMetadata `json:"metaData,omitempty"`
 	Name          string       `json:"name,omitempty"`
 }

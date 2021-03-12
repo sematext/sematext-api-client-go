@@ -22,17 +22,17 @@ var (
 	_ context.Context
 )
 
-type AlertNotificationsApiService service
+type AlertNotificationsAPIService service
 
 /*
-AlertNotificationsApiService Get alert notifications for an app
+AlertNotificationsAPIService Get alert notifications for an app
 Default value of interval is 1d
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body Time Interval
- * @param appId appId
+ * @param appID appID
 @return NotificationsResponse
 */
-func (a *AlertNotificationsApiService) GetAlertNotificationsForAppUsingPOST1(ctx context.Context, body AlertNotificationRequest, appId int64) (NotificationsResponse, *http.Response, error) {
+func (a *AlertNotificationsAPIService) GetAlertNotificationsForAppUsingPOST1(ctx context.Context, body AlertNotificationRequest, appID int64) (NotificationsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -42,8 +42,8 @@ func (a *AlertNotificationsApiService) GetAlertNotificationsForAppUsingPOST1(ctx
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/notifications/alerts"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/notifications/alerts"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -127,13 +127,13 @@ func (a *AlertNotificationsApiService) GetAlertNotificationsForAppUsingPOST1(ctx
 }
 
 /*
-AlertNotificationsApiService Get alert notifications for a user
+AlertNotificationsAPIService Get alert notifications for a user
 Default value of interval is 1d
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body Time Interval
 @return NotificationsResponse
 */
-func (a *AlertNotificationsApiService) GetAlertNotificationsForUserUsingPOST1(ctx context.Context, body AlertNotificationRequest) (NotificationsResponse, *http.Response, error) {
+func (a *AlertNotificationsAPIService) GetAlertNotificationsForUserUsingPOST1(ctx context.Context, body AlertNotificationRequest) (NotificationsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}

@@ -4,14 +4,14 @@ All URIs are relative to */*
 
 | Method                                                                 | HTTP request                                                        | Description                               |
 | ---------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
-| [**CreateAppToken1**](TokensApiControllerApi.md#CreateAppToken1)       | **Post** /users-web/api/v3/apps/{appId}/tokens                      | Create new app token                      |
-| [**DeleteAppToken**](TokensApiControllerApi.md#DeleteAppToken)         | **Delete** /users-web/api/v3/apps/{appId}/tokens/{tokenId}          | Delete app token                          |
-| [**GetAppTokens1**](TokensApiControllerApi.md#GetAppTokens1)           | **Get** /users-web/api/v3/apps/{appId}/tokens                       | Get app available tokens                  |
-| [**RegenerateAppToken**](TokensApiControllerApi.md#RegenerateAppToken) | **Post** /users-web/api/v3/apps/{appId}/tokens/{tokenId}/regenerate | Regenerate app token)                     |
-| [**UpdateAppToken**](TokensApiControllerApi.md#UpdateAppToken)         | **Put** /users-web/api/v3/apps/{appId}/tokens/{tokenId}             | Update app token (enable/disable or name) |
+| [**CreateAppToken1**](TokensApiControllerApi.md#CreateAppToken1)       | **Post** /users-web/api/v3/apps/{appID}/tokens                      | Create new app token                      |
+| [**DeleteAppToken**](TokensApiControllerApi.md#DeleteAppToken)         | **Delete** /users-web/api/v3/apps/{appID}/tokens/{tokenID}          | Delete app token                          |
+| [**GetAppTokens1**](TokensApiControllerApi.md#GetAppTokens1)           | **Get** /users-web/api/v3/apps/{appID}/tokens                       | Get app available tokens                  |
+| [**RegenerateAppToken**](TokensApiControllerApi.md#RegenerateAppToken) | **Post** /users-web/api/v3/apps/{appID}/tokens/{tokenID}/regenerate | Regenerate app token)                     |
+| [**UpdateAppToken**](TokensApiControllerApi.md#UpdateAppToken)         | **Put** /users-web/api/v3/apps/{appID}/tokens/{tokenID}             | Update app token (enable/disable or name) |
 
 # **CreateAppToken1**
-> TokenResponse CreateAppToken1(ctx, body, appId)
+> TokenResponse CreateAppToken1(ctx, body, appID)
 Create new app token
 
 ### Required Parameters
@@ -20,7 +20,7 @@ Create new app token
 | --------- | --------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**                     | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**CreateTokenDto**](CreateTokenDto.md) | dto                                                                         |
-| **appId** | **int64**                               | appId                                                                       |
+| **appID** | **int64**                               | appID                                                                       |
 
 ### Return type
 
@@ -38,7 +38,7 @@ Create new app token
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteAppToken**
-> GenericMapBasedApiResponse DeleteAppToken(ctx, appId, tokenId)
+> GenericMapBasedApiResponse DeleteAppToken(ctx, appID, tokenID)
 Delete app token
 
 ### Required Parameters
@@ -46,8 +46,8 @@ Delete app token
 | Name        | Type                | Description                                                                 | Notes |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**     | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appId**   | **int64**           | appId                                                                       |
-| **tokenId** | **int64**           | tokenId                                                                     |
+| **appID**   | **int64**           | appID                                                                       |
+| **tokenID** | **int64**           | tokenID                                                                     |
 
 ### Return type
 
@@ -65,7 +65,7 @@ Delete app token
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAppTokens1**
-> TokensResponse GetAppTokens1(ctx, appId)
+> TokensResponse GetAppTokens1(ctx, appID)
 Get app available tokens
 
 ### Required Parameters
@@ -73,7 +73,7 @@ Get app available tokens
 | Name      | Type                | Description                                                                 | Notes |
 | --------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appId** | **int64**           | appId                                                                       |
+| **appID** | **int64**           | appID                                                                       |
 
 ### Return type
 
@@ -91,7 +91,7 @@ Get app available tokens
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RegenerateAppToken**
-> TokenResponse RegenerateAppToken(ctx, appId, tokenId)
+> TokenResponse RegenerateAppToken(ctx, appID, tokenID)
 Regenerate app token)
 
 ### Required Parameters
@@ -99,8 +99,8 @@ Regenerate app token)
 | Name        | Type                | Description                                                                 | Notes |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**     | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appId**   | **int64**           | appId                                                                       |
-| **tokenId** | **int64**           | tokenId                                                                     |
+| **appID**   | **int64**           | appID                                                                       |
+| **tokenID** | **int64**           | tokenID                                                                     |
 
 ### Return type
 
@@ -118,7 +118,7 @@ Regenerate app token)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateAppToken**
-> TokenResponse UpdateAppToken(ctx, body, appId, tokenId)
+> TokenResponse UpdateAppToken(ctx, body, appID, tokenID)
 Update app token (enable/disable or name)
 
 ### Required Parameters
@@ -127,8 +127,8 @@ Update app token (enable/disable or name)
 | ----------- | --------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**     | **context.Context**                     | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**    | [**UpdateTokenDto**](UpdateTokenDto.md) | dto                                                                         |
-| **appId**   | **int64**                               | appId                                                                       |
-| **tokenId** | **int64**                               | tokenId                                                                     |
+| **appID**   | **int64**                               | appID                                                                       |
+| **tokenID** | **int64**                               | tokenID                                                                     |
 
 ### Return type
 

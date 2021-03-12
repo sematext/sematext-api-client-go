@@ -17,7 +17,7 @@ type MinPeriodFeePeriod struct {
 	Discount           float64   `json:"discount,omitempty"`
 	FromDate           time.Time `json:"fromDate,omitempty"`
 	HttpMonitors       int32     `json:"httpMonitors,omitempty"`
-	Id                 int64     `json:"id,omitempty"`
+	ID                 int64     `json:"id,omitempty"`
 	MinPeriodFeeAmount float64   `json:"minPeriodFeeAmount,omitempty"`
 	OveragePercentage  float64   `json:"overagePercentage,omitempty"`
 	PlanDataLimit      int64     `json:"planDataLimit,omitempty"`

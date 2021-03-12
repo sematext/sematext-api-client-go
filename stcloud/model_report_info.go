@@ -15,7 +15,7 @@ import (
 type ReportInfo struct {
 	// Comma separated list of email addresses
 	Addresses  string    `json:"addresses,omitempty"`
-	AppId      int64     `json:"appId,omitempty"`
+	AppID      int64     `json:"appId,omitempty"`
 	EndDate    time.Time `json:"endDate,omitempty"`
 	Filters    string    `json:"filters,omitempty"`
 	ReportName string    `json:"reportName,omitempty"`

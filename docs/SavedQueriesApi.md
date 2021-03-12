@@ -1,17 +1,17 @@
-# \SavedQueriesApi
+# \SavedQueriesAPI
 
 All URIs are relative to *https://localhost*
 
 | Method                                                                                | HTTP request                                                  | Description                  |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------- |
-| [**DeleteSavedQueryUsingDELETE**](SavedQueriesApi.md#DeleteSavedQueryUsingDELETE)     | **Delete** /users-web/api/v3/savedQueries/{updateableQueryId} | Delete saved query           |
-| [**GetSavedQueriesForAppUsingGET**](SavedQueriesApi.md#GetSavedQueriesForAppUsingGET) | **Get** /users-web/api/v3/apps/{appId}/savedQueries           | Get saved queries for an app |
-| [**SaveQueryUsingPOST**](SavedQueriesApi.md#SaveQueryUsingPOST)                       | **Post** /users-web/api/v3/savedQueries                       | Create saved query           |
-| [**SaveQueryUsingPUT**](SavedQueriesApi.md#SaveQueryUsingPUT)                         | **Put** /users-web/api/v3/savedQueries/{updateableQueryId}    | Update saved query           |
+| [**DeleteSavedQueryUsingDELETE**](SavedQueriesAPI.md#DeleteSavedQueryUsingDELETE)     | **Delete** /users-web/api/v3/savedQueries/{updateableQueryID} | Delete saved query           |
+| [**GetSavedQueriesForAppUsingGET**](SavedQueriesAPI.md#GetSavedQueriesForAppUsingGET) | **Get** /users-web/api/v3/apps/{appID}/savedQueries           | Get saved queries for an app |
+| [**SaveQueryUsingPOST**](SavedQueriesAPI.md#SaveQueryUsingPOST)                       | **Post** /users-web/api/v3/savedQueries                       | Create saved query           |
+| [**SaveQueryUsingPUT**](SavedQueriesAPI.md#SaveQueryUsingPUT)                         | **Put** /users-web/api/v3/savedQueries/{updateableQueryID}    | Update saved query           |
 
 
 # **DeleteSavedQueryUsingDELETE**
-> GenericApiResponse DeleteSavedQueryUsingDELETE(ctx, updateableQueryId)
+> GenericAPIResponse DeleteSavedQueryUsingDELETE(ctx, updateableQueryID)
 Delete saved query
 
 ### Required Parameters
@@ -19,11 +19,11 @@ Delete saved query
 | Name                  | Type                | Description                                                                 | Notes |
 | --------------------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**               | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **updateableQueryId** | **int64**           | updateableQueryId                                                           |
+| **updateableQueryID** | **int64**           | updateableQueryID                                                           |
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**GenericAPIResponse**](Generic API Response.md)
 
 ### Authorization
 
@@ -37,7 +37,7 @@ Delete saved query
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSavedQueriesForAppUsingGET**
-> GenericApiResponse GetSavedQueriesForAppUsingGET(ctx, appId)
+> GenericAPIResponse GetSavedQueriesForAppUsingGET(ctx, appID)
 Get saved queries for an app
 
 ### Required Parameters
@@ -45,11 +45,11 @@ Get saved queries for an app
 | Name      | Type                | Description                                                                 | Notes |
 | --------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appId** | **int64**           | appId                                                                       |
+| **appID** | **int64**           | appID                                                                       |
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**GenericAPIResponse**](Generic API Response.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Get saved queries for an app
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SaveQueryUsingPOST**
-> GenericApiResponse SaveQueryUsingPOST(ctx, savedQueryDto)
+> GenericAPIResponse SaveQueryUsingPOST(ctx, savedQueryDto)
 Create saved query
 
 ### Required Parameters
@@ -75,7 +75,7 @@ Create saved query
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**GenericAPIResponse**](Generic API Response.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Create saved query
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SaveQueryUsingPUT**
-> GenericApiResponse SaveQueryUsingPUT(ctx, savedQueryDto, updateableQueryId)
+> GenericAPIResponse SaveQueryUsingPUT(ctx, savedQueryDto, updateableQueryID)
 Update saved query
 
 ### Required Parameters
@@ -98,11 +98,11 @@ Update saved query
 | --------------------- | ------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**               | **context.Context**             | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **savedQueryDto**     | [**SavedQuery**](SavedQuery.md) | savedQueryDto                                                               |
-| **updateableQueryId** | **int64**                       | updateableQueryId                                                           |
+| **updateableQueryID** | **int64**                       | updateableQueryID                                                           |
 
 ### Return type
 
-[**GenericApiResponse**](Generic Api Response.md)
+[**GenericAPIResponse**](Generic API Response.md)
 
 ### Authorization
 

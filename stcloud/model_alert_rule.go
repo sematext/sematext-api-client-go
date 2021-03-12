@@ -13,7 +13,7 @@ type AlertRule struct {
 	AllowedAppTypes                       []int64                       `json:"allowedAppTypes,omitempty"`
 	AnalyzingTime                         string                        `json:"analyzingTime,omitempty"`
 	AppDisplayState                       string                        `json:"appDisplayState,omitempty"`
-	AppId                                 int64                         `json:"appId,omitempty"`
+	AppID                                 int64                         `json:"appID,omitempty"`
 	AppName                               string                        `json:"appName,omitempty"`
 	AppState                              string                        `json:"appState,omitempty"`
 	AppToken                              string                        `json:"appToken,omitempty"`
@@ -48,7 +48,7 @@ type AlertRule struct {
 	RuleKey                               int64                         `json:"ruleKey,omitempty"`
 	RuleType                              string                        `json:"ruleType,omitempty"`
 	Runbook                               string                        `json:"runbook,omitempty"`
-	SavedQueryId                          int64                         `json:"savedQueryId,omitempty"`
+	SavedQueryID                          int64                         `json:"savedQueryId,omitempty"`
 	Schedule                              []AlertRuleScheduleWeekdayDto `json:"schedule,omitempty"`
 	SematextService                       string                        `json:"sematextService,omitempty"`
 	SendToEmail                           string                        `json:"sendToEmail,omitempty"`

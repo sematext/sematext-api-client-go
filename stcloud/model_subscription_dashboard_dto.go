@@ -14,11 +14,11 @@ import (
 
 type SubscriptionDashboardDto struct {
 	Addresses   string    `json:"addresses,omitempty"`
-	DashboardId int64     `json:"dashboardId,omitempty"`
+	DashboardID int64     `json:"dashboardId,omitempty"`
 	Enable      bool      `json:"enable,omitempty"`
 	Filters     string    `json:"filters,omitempty"`
 	Frequency   string    `json:"frequency,omitempty"`
-	Id          int64     `json:"id,omitempty"`
+	ID          int64     `json:"id,omitempty"`
 	ReportName  string    `json:"reportName,omitempty"`
 	SendTime    time.Time `json:"sendTime,omitempty"`
 	Subject     string    `json:"subject,omitempty"`

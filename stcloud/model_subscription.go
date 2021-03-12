@@ -15,15 +15,15 @@ import (
 type Subscription struct {
 	Addresses       string           `json:"addresses,omitempty"`
 	CreatedBy       string           `json:"createdBy,omitempty"`
-	DashboardId     int64            `json:"dashboardId,omitempty"`
+	DashboardID     int64            `json:"dashboardId,omitempty"`
 	DashboardName   string           `json:"dashboardName,omitempty"`
 	Enabled         bool             `json:"enabled,omitempty"`
 	Filters         string           `json:"filters,omitempty"`
 	Frequency       string           `json:"frequency,omitempty"`
-	Id              int64            `json:"id,omitempty"`
+	ID              int64            `json:"id,omitempty"`
 	NextSendDate    time.Time        `json:"nextSendDate,omitempty"`
 	Subject         string           `json:"subject,omitempty"`
-	SystemId        int64            `json:"systemId,omitempty"`
+	SystemID        int64            `json:"systemId,omitempty"`
 	SystemName      string           `json:"systemName,omitempty"`
 	Text            string           `json:"text,omitempty"`
 	TimeRange       string           `json:"timeRange,omitempty"`

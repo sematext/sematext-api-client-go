@@ -43,29 +43,29 @@ type APIClient struct {
 
 	// API Services
 
-	AlertNotificationsApi *AlertNotificationsApiService
+	AlertNotificationsAPI *AlertNotificationsAPIService
 
-	AlertsApi *AlertsApiService
+	AlertsAPI *AlertsAPIService
 
-	AppsApi *AppsApiService
+	AppsAPI *AppsAPIService
 
-	AwsSettingsControllerApi *AwsSettingsControllerApiService
+	AwsSettingsControllerAPI *AwsSettingsControllerAPIService
 
-	BillingApi *BillingApiService
+	BillingAPI *BillingAPIService
 
-	LogsAppApi *LogsAppApiService
+	LogsAppAPI *LogsAppAPIService
 
-	LogsUsageApiControllerApi *LogsUsageApiControllerApiService
+	LogsUsageAPIControllerAPI *LogsUsageAPIControllerAPIService
 
-	MonitoringAppApi *MonitoringAppApiService
+	MonitoringAppAPI *MonitoringAppAPIService
 
-	ResetPasswordApi *ResetPasswordApiService
+	ResetPasswordAPI *ResetPasswordAPIService
 
-	SubscriptionsApi *SubscriptionsApiService
+	SubscriptionsAPI *SubscriptionsAPIService
 
-	TagApiControllerApi *TagApiControllerApiService
+	TagAPIControllerAPI *TagAPIControllerAPIService
 
-	TokensApiControllerApi *TokensApiControllerApiService
+	TokensAPIControllerAPI *TokensAPIControllerAPIService
 }
 
 type service struct {
@@ -84,18 +84,18 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AlertNotificationsApi = (*AlertNotificationsApiService)(&c.common)
-	c.AlertsApi = (*AlertsApiService)(&c.common)
-	c.AppsApi = (*AppsApiService)(&c.common)
-	c.AwsSettingsControllerApi = (*AwsSettingsControllerApiService)(&c.common)
-	c.BillingApi = (*BillingApiService)(&c.common)
-	c.LogsAppApi = (*LogsAppApiService)(&c.common)
-	c.LogsUsageApiControllerApi = (*LogsUsageApiControllerApiService)(&c.common)
-	c.MonitoringAppApi = (*MonitoringAppApiService)(&c.common)
-	c.ResetPasswordApi = (*ResetPasswordApiService)(&c.common)
-	c.SubscriptionsApi = (*SubscriptionsApiService)(&c.common)
-	c.TagApiControllerApi = (*TagApiControllerApiService)(&c.common)
-	c.TokensApiControllerApi = (*TokensApiControllerApiService)(&c.common)
+	c.AlertNotificationsAPI = (*AlertNotificationsAPIService)(&c.common)
+	c.AlertsAPI = (*AlertsAPIService)(&c.common)
+	c.AppsAPI = (*AppsAPIService)(&c.common)
+	c.AwsSettingsControllerAPI = (*AwsSettingsControllerAPIService)(&c.common)
+	c.BillingAPI = (*BillingAPIService)(&c.common)
+	c.LogsAppAPI = (*LogsAppAPIService)(&c.common)
+	c.LogsUsageAPIControllerAPI = (*LogsUsageAPIControllerAPIService)(&c.common)
+	c.MonitoringAppAPI = (*MonitoringAppAPIService)(&c.common)
+	c.ResetPasswordAPI = (*ResetPasswordAPIService)(&c.common)
+	c.SubscriptionsAPI = (*SubscriptionsAPIService)(&c.common)
+	c.TagAPIControllerAPI = (*TagAPIControllerAPIService)(&c.common)
+	c.TokensAPIControllerAPI = (*TokensAPIControllerAPIService)(&c.common)
 
 	return c
 }

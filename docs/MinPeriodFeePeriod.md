@@ -7,7 +7,7 @@
 | **Discount**           | **float64**                   |             | [optional] [default to null] |
 | **FromDate**           | [**time.Time**](time.Time.md) |             | [optional] [default to null] |
 | **HttpMonitors**       | **int32**                     |             | [optional] [default to null] |
-| **Id**                 | **int64**                     |             | [optional] [default to null] |
+| **ID**                 | **int64**                     |             | [optional] [default to null] |
 | **MinPeriodFeeAmount** | **float64**                   |             | [optional] [default to null] |
 | **OveragePercentage**  | **float64**                   |             | [optional] [default to null] |
 | **PlanDataLimit**      | **int64**                     |             | [optional] [default to null] |

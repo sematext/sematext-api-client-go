@@ -16,11 +16,11 @@ type NotificationIntegration struct {
 	Applicability   string            `json:"applicability,omitempty"`
 	CreateDate      time.Time         `json:"createDate,omitempty"`
 	CreatedByOwner  bool              `json:"createdByOwner,omitempty"`
-	CreatorId       int64             `json:"creatorId,omitempty"`
-	Id              int64             `json:"id,omitempty"`
+	CreatorID       int64             `json:"creatorId,omitempty"`
+	ID              int64             `json:"id,omitempty"`
 	IntegrationType string            `json:"integrationType,omitempty"`
 	Name            string            `json:"name,omitempty"`
 	Params          map[string]string `json:"params,omitempty"`
 	State           string            `json:"state,omitempty"`
-	UserId          int64             `json:"userId,omitempty"`
+	UserID          int64             `json:"userId,omitempty"`
 }

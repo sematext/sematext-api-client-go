@@ -5,14 +5,14 @@
 | ------------------------- | ---------------------------------------------------- | ----------- | ---------------------------- |
 | **AjaxThreshold**         | **int64**                                            |             | [optional] [default to null] |
 | **AppType**               | **string**                                           |             | [optional] [default to null] |
-| **AppTypeId**             | **int64**                                            |             | [optional] [default to null] |
+| **AppTypeID**             | **int64**                                            |             | [optional] [default to null] |
 | **CreatorEmail**          | **string**                                           |             | [optional] [default to null] |
 | **CreditCardExpiry**      | **string**                                           |             | [optional] [default to null] |
 | **CreditCardNumber**      | **string**                                           |             | [optional] [default to null] |
 | **Description**           | **string**                                           |             | [optional] [default to null] |
 | **DisplayStatus**         | **string**                                           |             | [optional] [default to null] |
 | **FirstDataSavedDate**    | **int64**                                            |             | [optional] [default to null] |
-| **Id**                    | **int64**                                            |             | [optional] [default to null] |
+| **ID**                    | **int64**                                            |             | [optional] [default to null] |
 | **Integration**           | [***ServiceIntegration**](ServiceIntegration.md)     |             | [optional] [default to null] |
 | **LastDataReceivedDate**  | **int64**                                            |             | [optional] [default to null] |
 | **LastDataSavedDate**     | **int64**                                            |             | [optional] [default to null] |
@@ -22,7 +22,7 @@
 | **OwnerEmail**            | **string**                                           |             | [optional] [default to null] |
 | **OwningOrganization**    | [***BasicOrganizationDto**](BasicOrganizationDto.md) |             | [optional] [default to null] |
 | **PageLoadThreshold**     | **int64**                                            |             | [optional] [default to null] |
-| **PaymentMethodId**       | **int64**                                            |             | [optional] [default to null] |
+| **PaymentMethodID**       | **int64**                                            |             | [optional] [default to null] |
 | **Plan**                  | [***Plan**](Plan.md)                                 |             | [optional] [default to null] |
 | **PrepaidAccount**        | **bool**                                             |             | [optional] [default to null] |
 | **ReadToken**             | **string**                                           |             | [optional] [default to null] |

@@ -4,7 +4,7 @@ All URIs are relative to */*
 
 | Method                                                                 | HTTP request                      | Description           |
 | ---------------------------------------------------------------------- | --------------------------------- | --------------------- |
-| [**CreateSpmApplication1**](MonitoringAppApi.md#CreateSpmApplication1) | **Post** /spm-reports/api/v3/apps | Create Monitoring App |
+| [**CreateSpmApplication1**](MonitoringAppAPI.md#CreateSpmApplication1) | **Post** /spm-reports/api/v3/apps | Create Monitoring App |
 
 # **CreateSpmApplication1**
 > AppsResponse CreateSpmApplication1(ctx, body)

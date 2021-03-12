@@ -21,21 +21,21 @@ var (
 	_ context.Context
 )
 
-type ResetPasswordApiService service
+type ResetPasswordAPIService service
 
 /*
-ResetPasswordApiService Reset Password
+ResetPasswordAPIService Reset Password
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
-@return GenericMapBasedApiResponse
+@return GenericMapBasedAPIResponse
 */
-func (a *ResetPasswordApiService) ResetPasswordUsingPOST(ctx context.Context, body UserInfo) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *ResetPasswordAPIService) ResetPasswordUsingPOST(ctx context.Context, body UserInfo) (GenericMapBasedAPIResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedApiResponse
+		localVarReturnValue GenericMapBasedAPIResponse
 	)
 
 	// create path and map variables
@@ -107,7 +107,7 @@ func (a *ResetPasswordApiService) ResetPasswordUsingPOST(ctx context.Context, bo
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedApiResponse
+			var v GenericMapBasedAPIResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

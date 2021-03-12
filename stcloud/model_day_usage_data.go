@@ -17,7 +17,7 @@ type DayUsageData struct {
 	FixedMonthlyPrice          float64 `json:"fixedMonthlyPrice,omitempty"`
 	FixedMonthlyPricePerHour   float64 `json:"fixedMonthlyPricePerHour,omitempty"`
 	FreeContainersPerHost      int32   `json:"freeContainersPerHost,omitempty"`
-	Id                         int64   `json:"id,omitempty"`
+	ID                         int64   `json:"id,omitempty"`
 	KiloDpmOveragePricePerHour float64 `json:"kiloDpmOveragePricePerHour,omitempty"`
 	PlanType                   string  `json:"planType,omitempty"`
 	PricePerContainerHostHour  float64 `json:"pricePerContainerHostHour,omitempty"`

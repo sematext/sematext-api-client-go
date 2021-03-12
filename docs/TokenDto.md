@@ -5,7 +5,7 @@
 | ------------- | ----------------------------- | ----------- | ---------------------------- |
 | **CreatedAt** | [**time.Time**](time.Time.md) |             | [optional] [default to null] |
 | **Enabled**   | **bool**                      |             | [optional] [default to null] |
-| **Id**        | **int64**                     |             | [optional] [default to null] |
+| **ID**        | **int64**                     |             | [optional] [default to null] |
 | **Name**      | **string**                    |             | [optional] [default to null] |
 | **Readable**  | **bool**                      |             | [optional] [default to null] |
 | **Token**     | **string**                    |             | [optional] [default to null] |

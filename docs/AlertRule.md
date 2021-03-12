@@ -7,7 +7,7 @@
 | **AllowedAppTypes**                       | **[]int64**                                                         |             | [optional] [default to null] |
 | **AnalyzingTime**                         | **string**                                                          |             | [optional] [default to null] |
 | **AppDisplayState**                       | **string**                                                          |             | [optional] [default to null] |
-| **AppId**                                 | **int64**                                                           |             | [optional] [default to null] |
+| **AppID**                                 | **int64**                                                           |             | [optional] [default to null] |
 | **AppName**                               | **string**                                                          |             | [optional] [default to null] |
 | **AppState**                              | **string**                                                          |             | [optional] [default to null] |
 | **AppToken**                              | **string**                                                          |             | [optional] [default to null] |
@@ -42,7 +42,7 @@
 | **RuleKey**                               | **int64**                                                           |             | [optional] [default to null] |
 | **RuleType**                              | **string**                                                          |             | [optional] [default to null] |
 | **Runbook**                               | **string**                                                          |             | [optional] [default to null] |
-| **SavedQueryId**                          | **int64**                                                           |             | [optional] [default to null] |
+| **SavedQueryID**                          | **int64**                                                           |             | [optional] [default to null] |
 | **Schedule**                              | [**[]AlertRuleScheduleWeekdayDto**](AlertRuleScheduleWeekdayDto.md) |             | [optional] [default to null] |
 | **SematextService**                       | **string**                                                          |             | [optional] [default to null] |
 | **SendToEmail**                           | **string**                                                          |             | [optional] [default to null] |

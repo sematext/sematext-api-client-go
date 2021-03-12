@@ -5,7 +5,7 @@
 | ----------------- | ----------------------------- | ------------------------------------------------- | ---------------------------- |
 | **App**           | [***App**](App.md)            |                                                   | [optional] [default to null] |
 | **Apps**          | [**[]App**](App.md)           | For invite request, only apps.id needs to be set. | [optional] [default to null] |
-| **Id**            | **int64**                     |                                                   | [optional] [default to null] |
+| **ID**            | **int64**                     |                                                   | [optional] [default to null] |
 | **InviteDate**    | [**time.Time**](time.Time.md) |                                                   | [optional] [default to null] |
 | **InviteStatus**  | **string**                    |                                                   | [optional] [default to null] |
 | **InviteeEmail**  | **string**                    |                                                   | [optional] [default to null] |

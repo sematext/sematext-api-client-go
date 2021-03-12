@@ -9,7 +9,7 @@
 | **DefaultTrialPlan**   | **bool**    |             | [optional] [default to null] |
 | **Free**               | **bool**    |             | [optional] [default to null] |
 | **FreeTrialDays**      | **int64**   |             | [optional] [default to null] |
-| **Id**                 | **int64**   |             | [optional] [default to null] |
+| **ID**                 | **int64**   |             | [optional] [default to null] |
 | **MaxAlerts**          | **int64**   |             | [optional] [default to null] |
 | **MaxDailyEvents**     | **int64**   |             | [optional] [default to null] |
 | **Name**               | **string**  |             | [optional] [default to null] |

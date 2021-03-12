@@ -144,7 +144,7 @@ func IsValidUUID(u string) bool {
 	return err == nil
 }
 
-// LookupPlanID2Apptypes is a ookup of planId to appType.
+// LookupPlanID2Apptypes is a ookup of planID to appType.
 var LookupPlanID2Apptypes = map[int]string{
 	121:   "Akka",
 	122:   "Akka",
@@ -422,7 +422,7 @@ var LookupPlanID2Apptypes = map[int]string{
 	10609: "mobile-logs",
 }
 
-// LookupAppType2PlanID is a lookup of appType to [planId]
+// LookupAppType2PlanID is a lookup of appType to [planID]
 var LookupAppType2PlanID = map[string][]int{
 	"Akka":           {121, 122, 123, 124},
 	"Apache":         {81, 82, 83, 84},

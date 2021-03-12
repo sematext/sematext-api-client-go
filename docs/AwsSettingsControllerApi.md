@@ -4,10 +4,10 @@ All URIs are relative to */*
 
 | Method                                                             | HTTP request                               | Description                               |
 | ------------------------------------------------------------------ | ------------------------------------------ | ----------------------------------------- |
-| [**UpdateUsingPUT1**](AwsSettingsControllerApi.md#UpdateUsingPUT1) | **Put** /users-web/api/v3/apps/{appId}/aws | Update App&#x27;s AWS CloudWatch settings |
+| [**UpdateUsingPUT1**](AwsSettingsControllerAPI.md#UpdateUsingPUT1) | **Put** /users-web/api/v3/apps/{appID}/aws | Update App&#x27;s AWS CloudWatch settings |
 
 # **UpdateUsingPUT1**
-> CloudWatchSettingsResponse UpdateUsingPUT1(ctx, body, appId)
+> CloudWatchSettingsResponse UpdateUsingPUT1(ctx, body, appID)
 Update App's AWS CloudWatch settings
 
 Applicable only for AWS Apps
@@ -18,7 +18,7 @@ Applicable only for AWS Apps
 | --------- | ----------------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**                             | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**CloudWatchSettings**](CloudWatchSettings.md) | dto                                                                         |
-| **appId** | **int64**                                       | appId                                                                       |
+| **appID** | **int64**                                       | appID                                                                       |
 
 ### Return type
 

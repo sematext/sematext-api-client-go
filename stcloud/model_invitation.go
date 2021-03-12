@@ -16,7 +16,7 @@ type Invitation struct {
 	App *App `json:"app,omitempty"`
 	// For invite request, only apps.id needs to be set.
 	Apps          []App     `json:"apps,omitempty"`
-	Id            int64     `json:"id,omitempty"`
+	ID            int64     `json:"id,omitempty"`
 	InviteDate    time.Time `json:"inviteDate,omitempty"`
 	InviteStatus  string    `json:"inviteStatus,omitempty"`
 	InviteeEmail  string    `json:"inviteeEmail,omitempty"`

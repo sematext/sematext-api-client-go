@@ -22,16 +22,16 @@ var (
 	_ context.Context
 )
 
-type SubscriptionsApiService service
+type SubscriptionsAPIService service
 
 /*
-SubscriptionsApiService Create App subscription
+SubscriptionsAPIService Create App subscription
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body subscription
- * @param appId appId
+ * @param appID appID
 @return SubscriptionResponse
 */
-func (a *SubscriptionsApiService) CreateForAppUsingPOST1(ctx context.Context, body SubscriptionDto, appId int64) (SubscriptionResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) CreateForAppUsingPOST1(ctx context.Context, body SubscriptionDto, appID int64) (SubscriptionResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -41,8 +41,8 @@ func (a *SubscriptionsApiService) CreateForAppUsingPOST1(ctx context.Context, bo
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/subscription"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/subscription"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -126,13 +126,13 @@ func (a *SubscriptionsApiService) CreateForAppUsingPOST1(ctx context.Context, bo
 }
 
 /*
-SubscriptionsApiService Create dashboard subscription
+SubscriptionsAPIService Create dashboard subscription
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body subscription
- * @param dashId dashId
+ * @param dashID dashID
 @return SubscriptionResponse
 */
-func (a *SubscriptionsApiService) CreateForDashUsingPOST1(ctx context.Context, body SubscriptionDashboardDto, dashId int64) (SubscriptionResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) CreateForDashUsingPOST1(ctx context.Context, body SubscriptionDashboardDto, dashID int64) (SubscriptionResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -142,8 +142,8 @@ func (a *SubscriptionsApiService) CreateForDashUsingPOST1(ctx context.Context, b
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/dashboards/{dashId}/subscription"
-	localVarPath = strings.Replace(localVarPath, "{"+"dashId"+"}", fmt.Sprintf("%v", dashId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/dashboards/{dashID}/subscription"
+	localVarPath = strings.Replace(localVarPath, "{"+"dashID"+"}", fmt.Sprintf("%v", dashID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -227,23 +227,23 @@ func (a *SubscriptionsApiService) CreateForDashUsingPOST1(ctx context.Context, b
 }
 
 /*
-SubscriptionsApiService Delete subscription
+SubscriptionsAPIService Delete subscription
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param updateableSubscriptionId updateableSubscriptionId
-@return GenericMapBasedApiResponse
+ * @param updateableSubscriptionID updateableSubscriptionID
+@return GenericMapBasedAPIResponse
 */
-func (a *SubscriptionsApiService) DeleteUsingDELETE3(ctx context.Context, updateableSubscriptionId int64) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) DeleteUsingDELETE3(ctx context.Context, updateableSubscriptionID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Delete")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedApiResponse
+		localVarReturnValue GenericMapBasedAPIResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/subscriptions/{updateableSubscriptionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableSubscriptionId"+"}", fmt.Sprintf("%v", updateableSubscriptionId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/subscriptions/{updateableSubscriptionID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableSubscriptionID"+"}", fmt.Sprintf("%v", updateableSubscriptionID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -309,7 +309,7 @@ func (a *SubscriptionsApiService) DeleteUsingDELETE3(ctx context.Context, update
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedApiResponse
+			var v GenericMapBasedAPIResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -325,12 +325,12 @@ func (a *SubscriptionsApiService) DeleteUsingDELETE3(ctx context.Context, update
 }
 
 /*
-SubscriptionsApiService Get subscriptions for an App
+SubscriptionsAPIService Get subscriptions for an App
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
 @return SubscriptionsResponse
 */
-func (a *SubscriptionsApiService) ListUsingGET3(ctx context.Context, appId int64) (SubscriptionsResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) ListUsingGET3(ctx context.Context, appID int64) (SubscriptionsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -340,8 +340,8 @@ func (a *SubscriptionsApiService) ListUsingGET3(ctx context.Context, appId int64
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/subscriptions"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/subscriptions"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -423,11 +423,11 @@ func (a *SubscriptionsApiService) ListUsingGET3(ctx context.Context, appId int64
 }
 
 /*
-SubscriptionsApiService Get current account&#x27;s subscriptions
+SubscriptionsAPIService Get current account&#x27;s subscriptions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return SubscriptionsResponse
 */
-func (a *SubscriptionsApiService) ListUsingGET5(ctx context.Context) (SubscriptionsResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) ListUsingGET5(ctx context.Context) (SubscriptionsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -519,13 +519,13 @@ func (a *SubscriptionsApiService) ListUsingGET5(ctx context.Context) (Subscripti
 }
 
 /*
-SubscriptionsApiService Email an App report
+SubscriptionsAPIService Email an App report
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body emailDto
- * @param appId appId
+ * @param appID appID
 @return MailReportResponse
 */
-func (a *SubscriptionsApiService) SendAppReportUsingPOST(ctx context.Context, body ReportInfo, appId int64) (MailReportResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) SendAppReportUsingPOST(ctx context.Context, body ReportInfo, appID int64) (MailReportResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -535,8 +535,8 @@ func (a *SubscriptionsApiService) SendAppReportUsingPOST(ctx context.Context, bo
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/report/send"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/report/send"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -620,13 +620,13 @@ func (a *SubscriptionsApiService) SendAppReportUsingPOST(ctx context.Context, bo
 }
 
 /*
-SubscriptionsApiService Email a dashboard report
+SubscriptionsAPIService Email a dashboard report
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body emailDto
- * @param dashId dashId
+ * @param dashID dashID
 @return MailReportResponse
 */
-func (a *SubscriptionsApiService) SendDashReportUsingPOST(ctx context.Context, body ReportInfo, dashId int64) (MailReportResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) SendDashReportUsingPOST(ctx context.Context, body ReportInfo, dashID int64) (MailReportResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -636,8 +636,8 @@ func (a *SubscriptionsApiService) SendDashReportUsingPOST(ctx context.Context, b
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/dashboards/{dashId}/report/send"
-	localVarPath = strings.Replace(localVarPath, "{"+"dashId"+"}", fmt.Sprintf("%v", dashId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/dashboards/{dashID}/report/send"
+	localVarPath = strings.Replace(localVarPath, "{"+"dashID"+"}", fmt.Sprintf("%v", dashID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -721,13 +721,13 @@ func (a *SubscriptionsApiService) SendDashReportUsingPOST(ctx context.Context, b
 }
 
 /*
-SubscriptionsApiService Toggle subscription status
+SubscriptionsAPIService Toggle subscription status
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
- * @param updateableSubscriptionId updateableSubscriptionId
+ * @param updateableSubscriptionID updateableSubscriptionID
 @return SubscriptionResponse
 */
-func (a *SubscriptionsApiService) ToggleEnabledUsingPUT1(ctx context.Context, body UpdateSubscriptionDto, updateableSubscriptionId int64) (SubscriptionResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) ToggleEnabledUsingPUT1(ctx context.Context, body UpdateSubscriptionDto, updateableSubscriptionID int64) (SubscriptionResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -737,8 +737,8 @@ func (a *SubscriptionsApiService) ToggleEnabledUsingPUT1(ctx context.Context, bo
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/subscriptions/{updateableSubscriptionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableSubscriptionId"+"}", fmt.Sprintf("%v", updateableSubscriptionId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/subscriptions/{updateableSubscriptionID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableSubscriptionID"+"}", fmt.Sprintf("%v", updateableSubscriptionID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -822,13 +822,13 @@ func (a *SubscriptionsApiService) ToggleEnabledUsingPUT1(ctx context.Context, bo
 }
 
 /*
-SubscriptionsApiService Update App subscription
+SubscriptionsAPIService Update App subscription
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body subscription
- * @param appId appId
+ * @param appID appID
 @return SubscriptionResponse
 */
-func (a *SubscriptionsApiService) UpdateForAppUsingPUT1(ctx context.Context, body SubscriptionDto, appId int64) (SubscriptionResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) UpdateForAppUsingPUT1(ctx context.Context, body SubscriptionDto, appID int64) (SubscriptionResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -838,8 +838,8 @@ func (a *SubscriptionsApiService) UpdateForAppUsingPUT1(ctx context.Context, bod
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/subscription"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/subscription"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -923,13 +923,13 @@ func (a *SubscriptionsApiService) UpdateForAppUsingPUT1(ctx context.Context, bod
 }
 
 /*
-SubscriptionsApiService Update dashboard subscription
+SubscriptionsAPIService Update dashboard subscription
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body subscription
- * @param dashId dashId
+ * @param dashID dashID
 @return SubscriptionResponse
 */
-func (a *SubscriptionsApiService) UpdateForDashUsingPUT1(ctx context.Context, body SubscriptionDashboardDto, dashId int64) (SubscriptionResponse, *http.Response, error) {
+func (a *SubscriptionsAPIService) UpdateForDashUsingPUT1(ctx context.Context, body SubscriptionDashboardDto, dashID int64) (SubscriptionResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -939,8 +939,8 @@ func (a *SubscriptionsApiService) UpdateForDashUsingPUT1(ctx context.Context, bo
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/dashboards/{dashId}/subscription"
-	localVarPath = strings.Replace(localVarPath, "{"+"dashId"+"}", fmt.Sprintf("%v", dashId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/dashboards/{dashID}/subscription"
+	localVarPath = strings.Replace(localVarPath, "{"+"dashID"+"}", fmt.Sprintf("%v", dashID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

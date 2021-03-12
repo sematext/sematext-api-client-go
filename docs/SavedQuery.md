@@ -9,7 +9,7 @@
 | **ApplicationName**   | **string**                                 |             | [optional] [default to null] |
 | **ApplicationToken**  | **string**                                 |             | [optional] [default to null] |
 | **CreatorEmail**      | **string**                                 |             | [optional] [default to null] |
-| **Id**                | **string**                                 |             | [optional] [default to null] |
+| **ID**                | **string**                                 |             | [optional] [default to null] |
 | **LabelColor**        | **string**                                 |             | [optional] [default to null] |
 | **LogseneAlertType**  | [***interface{}**](interface{}.md)         |             | [optional] [default to null] |
 | **OwnerEmail**        | **string**                                 |             | [optional] [default to null] |

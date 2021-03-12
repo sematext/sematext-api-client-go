@@ -10,5 +10,5 @@ package stcloud
 
 type UpdatePlanResponseDto struct {
 	Events []EventDto `json:"events,omitempty"`
-	PlanId int64      `json:"planId,omitempty"`
+	PlanID int64      `json:"planId,omitempty"`
 }

@@ -22,15 +22,15 @@ var (
 	_ context.Context
 )
 
-type AlertsApiService service
+type AlertsAPIService service
 
 /*
-AlertsApiService Create alert rule
+AlertsAPIService Create alert rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
 @return AlertRuleResponse
 */
-func (a *AlertsApiService) CreateAlertUsingPOST(ctx context.Context, body AlertRule) (AlertRuleResponse, *http.Response, error) {
+func (a *AlertsAPIService) CreateAlertUsingPOST(ctx context.Context, body AlertRule) (AlertRuleResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -124,23 +124,23 @@ func (a *AlertsApiService) CreateAlertUsingPOST(ctx context.Context, body AlertR
 }
 
 /*
-AlertsApiService Delete alert rule
+AlertsAPIService Delete alert rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param updateableAlertId updateableAlertId
-@return GenericMapBasedApiResponse
+ * @param updateableAlertID updateableAlertID
+@return GenericMapBasedAPIResponse
 */
-func (a *AlertsApiService) DeleteAlertRuleUsingDELETE(ctx context.Context, updateableAlertId int64) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *AlertsAPIService) DeleteAlertRuleUsingDELETE(ctx context.Context, updateableAlertID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Delete")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedApiResponse
+		localVarReturnValue GenericMapBasedAPIResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertId"+"}", fmt.Sprintf("%v", updateableAlertId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertID"+"}", fmt.Sprintf("%v", updateableAlertID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -206,7 +206,7 @@ func (a *AlertsApiService) DeleteAlertRuleUsingDELETE(ctx context.Context, updat
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedApiResponse
+			var v GenericMapBasedAPIResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -222,23 +222,23 @@ func (a *AlertsApiService) DeleteAlertRuleUsingDELETE(ctx context.Context, updat
 }
 
 /*
-AlertsApiService Disable alert rule
+AlertsAPIService Disable alert rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param updateableAlertId updateableAlertId
-@return GenericMapBasedApiResponse
+ * @param updateableAlertID updateableAlertID
+@return GenericMapBasedAPIResponse
 */
-func (a *AlertsApiService) DisableAlertRuleUsingPUT(ctx context.Context, updateableAlertId int64) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *AlertsAPIService) DisableAlertRuleUsingPUT(ctx context.Context, updateableAlertID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedApiResponse
+		localVarReturnValue GenericMapBasedAPIResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertId}/disable"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertId"+"}", fmt.Sprintf("%v", updateableAlertId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertID}/disable"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertID"+"}", fmt.Sprintf("%v", updateableAlertID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -304,7 +304,7 @@ func (a *AlertsApiService) DisableAlertRuleUsingPUT(ctx context.Context, updatea
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedApiResponse
+			var v GenericMapBasedAPIResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -320,23 +320,23 @@ func (a *AlertsApiService) DisableAlertRuleUsingPUT(ctx context.Context, updatea
 }
 
 /*
-AlertsApiService Enable alert rule
+AlertsAPIService Enable alert rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param updateableAlertId updateableAlertId
-@return GenericMapBasedApiResponse
+ * @param updateableAlertID updateableAlertID
+@return GenericMapBasedAPIResponse
 */
-func (a *AlertsApiService) EnableAlertRuleUsingPUT(ctx context.Context, updateableAlertId int64) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *AlertsAPIService) EnableAlertRuleUsingPUT(ctx context.Context, updateableAlertID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedApiResponse
+		localVarReturnValue GenericMapBasedAPIResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertId}/enable"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertId"+"}", fmt.Sprintf("%v", updateableAlertId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertID}/enable"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertID"+"}", fmt.Sprintf("%v", updateableAlertID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -402,7 +402,7 @@ func (a *AlertsApiService) EnableAlertRuleUsingPUT(ctx context.Context, updateab
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedApiResponse
+			var v GenericMapBasedAPIResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -418,12 +418,12 @@ func (a *AlertsApiService) EnableAlertRuleUsingPUT(ctx context.Context, updateab
 }
 
 /*
-AlertsApiService Get alert rules for an app
+AlertsAPIService Get alert rules for an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
 @return AlertRulesResponse
 */
-func (a *AlertsApiService) GetAlertRulesForAppUsingGET(ctx context.Context, appId int64) (AlertRulesResponse, *http.Response, error) {
+func (a *AlertsAPIService) GetAlertRulesForAppUsingGET(ctx context.Context, appID int64) (AlertRulesResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -433,8 +433,8 @@ func (a *AlertsApiService) GetAlertRulesForAppUsingGET(ctx context.Context, appI
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/alerts"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/alerts"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

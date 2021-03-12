@@ -4,10 +4,10 @@ All URIs are relative to */*
 
 | Method                                                                   | HTTP request                                      | Description    |
 | ------------------------------------------------------------------------ | ------------------------------------------------- | -------------- |
-| [**ResetPasswordUsingPOST**](ResetPasswordApi.md#ResetPasswordUsingPOST) | **Post** /users-web/api/v3/account/password/reset | Reset Password |
+| [**ResetPasswordUsingPOST**](ResetPasswordAPI.md#ResetPasswordUsingPOST) | **Post** /users-web/api/v3/account/password/reset | Reset Password |
 
 # **ResetPasswordUsingPOST**
-> GenericMapBasedApiResponse ResetPasswordUsingPOST(ctx, body)
+> GenericMapBasedAPIResponse ResetPasswordUsingPOST(ctx, body)
 Reset Password
 
 ### Required Parameters
@@ -19,7 +19,7 @@ Reset Password
 
 ### Return type
 
-[**GenericMapBasedApiResponse**](Generic Map Based Api Response.md)
+[**GenericMapBasedAPIResponse**](Generic Map Based API Response.md)
 
 ### Authorization
 

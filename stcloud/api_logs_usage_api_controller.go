@@ -22,17 +22,17 @@ var (
 	_ context.Context
 )
 
-type LogsUsageApiControllerApiService service
+type LogsUsageAPIControllerAPIService service
 
 /*
-LogsUsageApiControllerApiService getForRange
+LogsUsageAPIControllerAPIService getForRange
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
  * @param from from
  * @param to to
 @return UsageResponse
 */
-func (a *LogsUsageApiControllerApiService) GetForRangeUsingGET(ctx context.Context, appId int64, from int64, to int64) (UsageResponse, *http.Response, error) {
+func (a *LogsUsageAPIControllerAPIService) GetForRangeUsingGET(ctx context.Context, appID int64, from int64, to int64) (UsageResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -42,8 +42,8 @@ func (a *LogsUsageApiControllerApiService) GetForRangeUsingGET(ctx context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/logsene-reports/api/v3/apps/{appId}/usage/{from}/{to}"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/logsene-reports/api/v3/apps/{appID}/usage/{from}/{to}"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"from"+"}", fmt.Sprintf("%v", from), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"to"+"}", fmt.Sprintf("%v", to), -1)
 

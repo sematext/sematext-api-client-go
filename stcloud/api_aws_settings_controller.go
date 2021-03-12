@@ -22,17 +22,17 @@ var (
 	_ context.Context
 )
 
-type AwsSettingsControllerApiService service
+type AwsSettingsControllerAPIService service
 
 /*
-AwsSettingsControllerApiService Update App&#x27;s AWS CloudWatch settings
+AwsSettingsControllerAPIService Update App&#x27;s AWS CloudWatch settings
 Applicable only for AWS Apps
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
- * @param appId appId
+ * @param appID appID
 @return CloudWatchSettingsResponse
 */
-func (a *AwsSettingsControllerApiService) UpdateUsingPUT1(ctx context.Context, body CloudWatchSettings, appId int64) (CloudWatchSettingsResponse, *http.Response, error) {
+func (a *AwsSettingsControllerAPIService) UpdateUsingPUT1(ctx context.Context, body CloudWatchSettings, appID int64) (CloudWatchSettingsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -42,8 +42,8 @@ func (a *AwsSettingsControllerApiService) UpdateUsingPUT1(ctx context.Context, b
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/aws"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/aws"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

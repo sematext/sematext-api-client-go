@@ -4,7 +4,7 @@ All URIs are relative to */*
 
 | Method                                                                 | HTTP request                          | Description     |
 | ---------------------------------------------------------------------- | ------------------------------------- | --------------- |
-| [**CreateLogseneApplication**](LogsAppApi.md#CreateLogseneApplication) | **Post** /logsene-reports/api/v3/apps | Create Logs App |
+| [**CreateLogseneApplication**](LogsAppAPI.md#CreateLogseneApplication) | **Post** /logsene-reports/api/v3/apps | Create Logs App |
 
 # **CreateLogseneApplication**
 > AppsResponse CreateLogseneApplication(ctx, body)

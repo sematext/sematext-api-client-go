@@ -29,7 +29,7 @@ type SavedQueriesAPIService service
 /*
 DeleteSavedQueryUsingDELETE delete saved query
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param updateableQueryId updateableQueryId
+ * @param updateableQueryID updateableQueryID
 
 @return GenericAPIResponse
 */
@@ -43,8 +43,8 @@ func (a *SavedQueriesAPIService) DeleteSavedQueryUsingDELETE(ctx context.Context
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/savedQueries/{updateableQueryId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableQueryId"+"}", fmt.Sprintf("%v", updateableQueryID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/savedQueries/{updateableQueryID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableQueryID"+"}", fmt.Sprintf("%v", updateableQueryID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -334,7 +334,7 @@ func (a *SavedQueriesAPIService) SaveQueryUsingPOST(ctx context.Context, savedQu
 SaveQueryUsingPUT Update saved query
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param savedQueryDto savedQueryDto
- * @param updateableQueryId updateableQueryId
+ * @param updateableQueryID updateableQueryID
 
 @return GenericAPIResponse
 */
@@ -348,8 +348,8 @@ func (a *SavedQueriesAPIService) SaveQueryUsingPUT(ctx context.Context, savedQue
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/savedQueries/{updateableQueryId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableQueryId"+"}", fmt.Sprintf("%v", updateableQueryID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/savedQueries/{updateableQueryID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableQueryID"+"}", fmt.Sprintf("%v", updateableQueryID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

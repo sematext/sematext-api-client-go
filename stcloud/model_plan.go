@@ -15,7 +15,7 @@ type Plan struct {
 	DefaultTrialPlan   bool    `json:"defaultTrialPlan,omitempty"`
 	Free               bool    `json:"free,omitempty"`
 	FreeTrialDays      int64   `json:"freeTrialDays,omitempty"`
-	Id                 int64   `json:"id,omitempty"`
+	ID                 int64   `json:"id,omitempty"`
 	MaxAlerts          int64   `json:"maxAlerts,omitempty"`
 	MaxDailyEvents     int64   `json:"maxDailyEvents,omitempty"`
 	Name               string  `json:"name,omitempty"`

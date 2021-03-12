@@ -24,26 +24,26 @@ var (
 	_ context.Context
 )
 
-type AppsApiService service
+type AppsAPIService service
 
 /*
-AppsApiService delete
+AppsAPIService delete
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param anyStateAppId anyStateAppId
-@return GenericMapBasedApiResponse
+ * @param anyStateAppID anyStateAppID
+@return GenericMapBasedAPIResponse
 */
-func (a *AppsApiService) DeleteUsingDELETE1(ctx context.Context, anyStateAppId int64) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *AppsAPIService) DeleteUsingDELETE1(ctx context.Context, anyStateAppID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Delete")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedApiResponse
+		localVarReturnValue GenericMapBasedAPIResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppId"+"}", fmt.Sprintf("%v", anyStateAppId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppID"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -109,7 +109,7 @@ func (a *AppsApiService) DeleteUsingDELETE1(ctx context.Context, anyStateAppId i
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedApiResponse
+			var v GenericMapBasedAPIResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -125,11 +125,11 @@ func (a *AppsApiService) DeleteUsingDELETE1(ctx context.Context, anyStateAppId i
 }
 
 /*
-AppsApiService Get all App types supported for the account identified with apiKey
+AppsAPIService Get all App types supported for the account identified with apiKey
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return AppTypesResponse
 */
-func (a *AppsApiService) GetAppTypesUsingGET(ctx context.Context) (AppTypesResponse, *http.Response, error) {
+func (a *AppsAPIService) GetAppTypesUsingGET(ctx context.Context) (AppTypesResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -221,12 +221,12 @@ func (a *AppsApiService) GetAppTypesUsingGET(ctx context.Context) (AppTypesRespo
 }
 
 /*
-AppsApiService Gets defails for one particular App
+AppsAPIService Gets defails for one particular App
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param anyStateAppId anyStateAppId
+ * @param anyStateAppID anyStateAppID
 @return AppResponse
 */
-func (a *AppsApiService) GetUsingGET(ctx context.Context, anyStateAppId int64) (AppResponse, *http.Response, error) {
+func (a *AppsAPIService) GetUsingGET(ctx context.Context, anyStateAppID int64) (AppResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -236,8 +236,8 @@ func (a *AppsApiService) GetUsingGET(ctx context.Context, anyStateAppId int64) (
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppId"+"}", fmt.Sprintf("%v", anyStateAppId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppID"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -319,18 +319,18 @@ func (a *AppsApiService) GetUsingGET(ctx context.Context, anyStateAppId int64) (
 }
 
 /*
-AppsApiService Invite guests to an app
+AppsAPIService Invite guests to an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body For &#x60;app&#x60; and &#x60;apps&#x60; fields only &#x60;id&#x60; needs to be populated.Other fields can be left empty or with default values
-@return GenericMapBasedApiResponse
+@return GenericMapBasedAPIResponse
 */
-func (a *AppsApiService) InviteAppGuestsUsingPOST(ctx context.Context, body Invitation) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *AppsAPIService) InviteAppGuestsUsingPOST(ctx context.Context, body Invitation) (GenericMapBasedAPIResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedApiResponse
+		localVarReturnValue GenericMapBasedAPIResponse
 	)
 
 	// create path and map variables
@@ -402,7 +402,7 @@ func (a *AppsApiService) InviteAppGuestsUsingPOST(ctx context.Context, body Invi
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedApiResponse
+			var v GenericMapBasedAPIResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -418,11 +418,11 @@ func (a *AppsApiService) InviteAppGuestsUsingPOST(ctx context.Context, body Invi
 }
 
 /*
-AppsApiService Get all users of apps accessible to this account
+AppsAPIService Get all users of apps accessible to this account
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return AppsResponse
 */
-func (a *AppsApiService) ListAppsUsersUsingGET1(ctx context.Context) (AppsResponse, *http.Response, error) {
+func (a *AppsAPIService) ListAppsUsersUsingGET1(ctx context.Context) (AppsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -514,11 +514,11 @@ func (a *AppsApiService) ListAppsUsersUsingGET1(ctx context.Context) (AppsRespon
 }
 
 /*
-AppsApiService Get all apps accessible by account identified with apiKey
+AppsAPIService Get all apps accessible by account identified with apiKey
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return AppsResponse
 */
-func (a *AppsApiService) ListUsingGET(ctx context.Context) (AppsResponse, *http.Response, error) {
+func (a *AppsAPIService) ListUsingGET(ctx context.Context) (AppsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -610,20 +610,20 @@ func (a *AppsApiService) ListUsingGET(ctx context.Context) (AppsResponse, *http.
 }
 
 /*
-AppsApiService Update description of the app
+AppsAPIService Update description of the app
 App can be in any state
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param anyStateAppId App Id
- * @param optional nil or *AppsApiUpdateDescriptionUsingPUT1Opts - Optional Parameters:
+ * @param anyStateAppID App ID
+ * @param optional nil or *AppsAPIUpdateDescriptionUsingPUT1Opts - Optional Parameters:
      * @param "Body" (optional.Interface of AppDescription) -  Update Details
 @return AppResponse
 */
 
-type AppsApiUpdateDescriptionUsingPUT1Opts struct {
+type AppsAPIUpdateDescriptionUsingPUT1Opts struct {
 	Body optional.Interface
 }
 
-func (a *AppsApiService) UpdateDescriptionUsingPUT1(ctx context.Context, anyStateAppId int64, localVarOptionals *AppsApiUpdateDescriptionUsingPUT1Opts) (AppResponse, *http.Response, error) {
+func (a *AppsAPIService) UpdateDescriptionUsingPUT1(ctx context.Context, anyStateAppID int64, localVarOptionals *AppsAPIUpdateDescriptionUsingPUT1Opts) (AppResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -633,8 +633,8 @@ func (a *AppsApiService) UpdateDescriptionUsingPUT1(ctx context.Context, anyStat
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppId}/description"
-	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppId"+"}", fmt.Sprintf("%v", anyStateAppId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppID}/description"
+	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppID"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -722,14 +722,14 @@ func (a *AppsApiService) UpdateDescriptionUsingPUT1(ctx context.Context, anyStat
 }
 
 /*
-AppsApiService Update app
+AppsAPIService Update app
 App can be in any state
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
- * @param anyStateAppId App Id
+ * @param anyStateAppID App ID
 @return AppResponse
 */
-func (a *AppsApiService) UpdateUsingPUT3(ctx context.Context, body UpdateAppInfo, anyStateAppId int64) (AppResponse, *http.Response, error) {
+func (a *AppsAPIService) UpdateUsingPUT3(ctx context.Context, body UpdateAppInfo, anyStateAppID int64) (AppResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -739,8 +739,8 @@ func (a *AppsApiService) UpdateUsingPUT3(ctx context.Context, body UpdateAppInfo
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppId"+"}", fmt.Sprintf("%v", anyStateAppId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{anyStateAppID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"anyStateAppID"+"}", fmt.Sprintf("%v", anyStateAppID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

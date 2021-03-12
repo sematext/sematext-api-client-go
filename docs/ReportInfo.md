@@ -4,7 +4,7 @@
 | Name           | Type                          | Description                             | Notes                        |
 | -------------- | ----------------------------- | --------------------------------------- | ---------------------------- |
 | **Addresses**  | **string**                    | Comma separated list of email addresses | [optional] [default to null] |
-| **AppId**      | **int64**                     |                                         | [optional] [default to null] |
+| **AppID**      | **int64**                     |                                         | [optional] [default to null] |
 | **EndDate**    | [**time.Time**](time.Time.md) |                                         | [optional] [default to null] |
 | **Filters**    | **string**                    |                                         | [optional] [default to null] |
 | **ReportName** | **string**                    |                                         | [optional] [default to null] |

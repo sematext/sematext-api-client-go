@@ -21,15 +21,15 @@ var (
 	_ context.Context
 )
 
-type LogsAppApiService service
+type LogsAppAPIService service
 
 /*
-LogsAppApiService Create Logs App
+LogsAppAPIService Create Logs App
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body Details of the application to be created
 @return AppsResponse
 */
-func (a *LogsAppApiService) CreateLogseneApplication(ctx context.Context, body CreateAppInfo) (AppsResponse, *http.Response, error) {
+func (a *LogsAppAPIService) CreateLogseneApplication(ctx context.Context, body CreateAppInfo) (AppsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}

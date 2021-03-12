@@ -9,7 +9,7 @@
 package stcloud
 
 type BillingInfo struct {
-	CreditCardId  int64  `json:"creditCardId,omitempty"`
+	CreditCardID  int64  `json:"creditCardId,omitempty"`
 	PaymentMethod string `json:"paymentMethod,omitempty"`
-	PlanId        int64  `json:"planId,omitempty"`
+	PlanID        int64  `json:"planId,omitempty"`
 }

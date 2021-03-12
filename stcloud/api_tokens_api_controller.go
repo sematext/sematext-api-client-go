@@ -22,16 +22,16 @@ var (
 	_ context.Context
 )
 
-type TokensApiControllerApiService service
+type TokensAPIControllerAPIService service
 
 /*
-TokensApiControllerApiService Create new app token
+TokensAPIControllerAPIService Create new app token
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
- * @param appId appId
+ * @param appID appID
 @return TokenResponse
 */
-func (a *TokensApiControllerApiService) CreateAppToken1(ctx context.Context, body CreateTokenDto, appId int64) (TokenResponse, *http.Response, error) {
+func (a *TokensAPIControllerAPIService) CreateAppToken1(ctx context.Context, body CreateTokenDto, appID int64) (TokenResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -41,8 +41,8 @@ func (a *TokensApiControllerApiService) CreateAppToken1(ctx context.Context, bod
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -126,25 +126,25 @@ func (a *TokensApiControllerApiService) CreateAppToken1(ctx context.Context, bod
 }
 
 /*
-TokensApiControllerApiService Delete app token
+TokensAPIControllerAPIService Delete app token
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
- * @param tokenId tokenId
-@return GenericMapBasedApiResponse
+ * @param appID appID
+ * @param tokenID tokenID
+@return GenericMapBasedAPIResponse
 */
-func (a *TokensApiControllerApiService) DeleteAppToken(ctx context.Context, appId int64, tokenId int64) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *TokensAPIControllerAPIService) DeleteAppToken(ctx context.Context, appID int64, tokenID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Delete")
 		localVarPostBody    interface{}
 		localVarFileName    string
 		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedApiResponse
+		localVarReturnValue GenericMapBasedAPIResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens/{tokenId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"tokenId"+"}", fmt.Sprintf("%v", tokenId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens/{tokenID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tokenID"+"}", fmt.Sprintf("%v", tokenID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -210,7 +210,7 @@ func (a *TokensApiControllerApiService) DeleteAppToken(ctx context.Context, appI
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedApiResponse
+			var v GenericMapBasedAPIResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -226,12 +226,12 @@ func (a *TokensApiControllerApiService) DeleteAppToken(ctx context.Context, appI
 }
 
 /*
-TokensApiControllerApiService Get app available tokens
+TokensAPIControllerAPIService Get app available tokens
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
+ * @param appID appID
 @return TokensResponse
 */
-func (a *TokensApiControllerApiService) GetAppTokens1(ctx context.Context, appId int64) (TokensResponse, *http.Response, error) {
+func (a *TokensAPIControllerAPIService) GetAppTokens1(ctx context.Context, appID int64) (TokensResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -241,8 +241,8 @@ func (a *TokensApiControllerApiService) GetAppTokens1(ctx context.Context, appId
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -324,13 +324,13 @@ func (a *TokensApiControllerApiService) GetAppTokens1(ctx context.Context, appId
 }
 
 /*
-TokensApiControllerApiService Regenerate app token)
+TokensAPIControllerAPIService Regenerate app token)
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appId appId
- * @param tokenId tokenId
+ * @param appID appID
+ * @param tokenID tokenID
 @return TokenResponse
 */
-func (a *TokensApiControllerApiService) RegenerateAppToken(ctx context.Context, appId int64, tokenId int64) (TokenResponse, *http.Response, error) {
+func (a *TokensAPIControllerAPIService) RegenerateAppToken(ctx context.Context, appID int64, tokenID int64) (TokenResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Post")
 		localVarPostBody    interface{}
@@ -340,9 +340,9 @@ func (a *TokensApiControllerApiService) RegenerateAppToken(ctx context.Context, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens/{tokenId}/regenerate"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"tokenId"+"}", fmt.Sprintf("%v", tokenId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens/{tokenID}/regenerate"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tokenID"+"}", fmt.Sprintf("%v", tokenID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -424,14 +424,14 @@ func (a *TokensApiControllerApiService) RegenerateAppToken(ctx context.Context, 
 }
 
 /*
-TokensApiControllerApiService Update app token (enable/disable or name)
+TokensAPIControllerAPIService Update app token (enable/disable or name)
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
- * @param appId appId
- * @param tokenId tokenId
+ * @param appID appID
+ * @param tokenID tokenID
 @return TokenResponse
 */
-func (a *TokensApiControllerApiService) UpdateAppToken(ctx context.Context, body UpdateTokenDto, appId int64, tokenId int64) (TokenResponse, *http.Response, error) {
+func (a *TokensAPIControllerAPIService) UpdateAppToken(ctx context.Context, body UpdateTokenDto, appID int64, tokenID int64) (TokenResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Put")
 		localVarPostBody    interface{}
@@ -441,9 +441,9 @@ func (a *TokensApiControllerApiService) UpdateAppToken(ctx context.Context, body
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens/{tokenId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"tokenId"+"}", fmt.Sprintf("%v", tokenId), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens/{tokenID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tokenID"+"}", fmt.Sprintf("%v", tokenID), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

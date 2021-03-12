@@ -1,4 +1,4 @@
-# GenericMapBasedApiResponse
+# GenericMapBasedAPIResponse
 
 ## Properties
 | Name        | Type                               | Description | Notes                        |

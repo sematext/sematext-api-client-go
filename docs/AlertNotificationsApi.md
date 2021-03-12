@@ -4,11 +4,11 @@ All URIs are relative to */*
 
 | Method                                                                                                        | HTTP request                                                 | Description                        |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- |
-| [**GetAlertNotificationsForAppUsingPOST1**](AlertNotificationsApi.md#GetAlertNotificationsForAppUsingPOST1)   | **Post** /users-web/api/v3/apps/{appId}/notifications/alerts | Get alert notifications for an app |
-| [**GetAlertNotificationsForUserUsingPOST1**](AlertNotificationsApi.md#GetAlertNotificationsForUserUsingPOST1) | **Post** /users-web/api/v3/notifications/alerts              | Get alert notifications for a user |
+| [**GetAlertNotificationsForAppUsingPOST1**](AlertNotificationsAPI.md#GetAlertNotificationsForAppUsingPOST1)   | **Post** /users-web/api/v3/apps/{appID}/notifications/alerts | Get alert notifications for an app |
+| [**GetAlertNotificationsForUserUsingPOST1**](AlertNotificationsAPI.md#GetAlertNotificationsForUserUsingPOST1) | **Post** /users-web/api/v3/notifications/alerts              | Get alert notifications for a user |
 
 # **GetAlertNotificationsForAppUsingPOST1**
-> NotificationsResponse GetAlertNotificationsForAppUsingPOST1(ctx, body, appId)
+> NotificationsResponse GetAlertNotificationsForAppUsingPOST1(ctx, body, appID)
 Get alert notifications for an app
 
 Default value of interval is 1d
@@ -19,7 +19,7 @@ Default value of interval is 1d
 | --------- | ----------------------------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**                                         | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**AlertNotificationRequest**](AlertNotificationRequest.md) | Time Interval                                                               |
-| **appId** | **int64**                                                   | appId                                                                       |
+| **appID** | **int64**                                                   | appID                                                                       |
 
 ### Return type
 
