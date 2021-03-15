@@ -8,10 +8,6 @@ default: build
 build: fmtcheck
 	go install ./...
 
-sweep:
-	@echo "WARNING: This will destroy infrastructure. Use only in development accounts."
-	go test $(TEST) -v -sweep=$(SWEEP) $(SWEEPARGS)
-
 test: fmtcheck
 	go test $(TEST) -timeout=30s -parallel=4
 
@@ -61,10 +57,6 @@ lint:
 		-S019 \
 		./$(PKG_NAME)
 
-tools:
-	GO111MODULE=on go install github.com/client9/misspell/cmd/misspell
-	GO111MODULE=on go install github.com/golangci/golangci-lint/cmd/golangci-lint
-
 test-compile:
 	@if [ "$(TEST)" = "./..." ]; then \
 		echo "ERROR: Set TEST to a specific package. For example,"; \
@@ -73,4 +65,4 @@ test-compile:
 	fi
 	go test -c $(TEST) $(TESTARGS)
 
-.PHONY: build sweep test testacc fmt fmtcheck lint tools test-compile depscheck
+.PHONY: build test testacc fmt fmtcheck lint tools test-compile depscheck
