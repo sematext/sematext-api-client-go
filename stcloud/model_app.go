@@ -8,7 +8,6 @@
  */
 package stcloud
 
-//App TODO Godoc Comment
 type App struct {
 	AjaxThreshold         int64                 `json:"ajaxThreshold,omitempty"`
 	AppType               string                `json:"appType,omitempty"`

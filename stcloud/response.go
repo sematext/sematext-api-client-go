@@ -12,7 +12,6 @@ import (
 	"net/http"
 )
 
-// APIResponse TODO godoc comment
 type APIResponse struct {
 	*http.Response `json:"-"`
 	Message        string `json:"message,omitempty"`
@@ -30,14 +29,12 @@ type APIResponse struct {
 	Payload []byte `json:"-"`
 }
 
-// NewAPIResponse TODO godoc comment
 func NewAPIResponse(r *http.Response) *APIResponse {
 
 	response := &APIResponse{Response: r}
 	return response
 }
 
-// NewAPIResponseWithError TODO godoc comment
 func NewAPIResponseWithError(errorMessage string) *APIResponse {
 
 	response := &APIResponse{Message: errorMessage}

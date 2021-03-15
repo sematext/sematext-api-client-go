@@ -29,7 +29,7 @@ type TagAPIControllerAPIService service
 /*
 TagAPIControllerAPIService Gets tag names for the given application identifiers appearing in the given time frame.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param addIDs addIDs
+ * @param appIDs appIDs
  * @param optional nil or *TagAPIControllerAPIGetTagNamesUsingGETOpts - Optional Parameters:
      * @param "From" (optional.Int64) -  from
      * @param "To" (optional.Int64) -  to
@@ -49,7 +49,7 @@ type TagAPIControllerAPIGetTagNamesUsingGETOpts struct {
 	Rum     optional.Bool
 }
 
-func (a *TagAPIControllerAPIService) GetTagNamesUsingGET(ctx context.Context, addIDs string, localVarOptionals *TagAPIControllerAPIGetTagNamesUsingGETOpts) (TagNamesResponse, *http.Response, error) {
+func (a *TagAPIControllerAPIService) GetTagNamesUsingGET(ctx context.Context, appIDs string, localVarOptionals *TagAPIControllerAPIGetTagNamesUsingGETOpts) (TagNamesResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -59,8 +59,8 @@ func (a *TagAPIControllerAPIService) GetTagNamesUsingGET(ctx context.Context, ad
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{addIDs}/tagNames"
-	localVarPath = strings.Replace(localVarPath, "{"+"addIDs"+"}", fmt.Sprintf("%v", addIDs), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIDs}/tagNames"
+	localVarPath = strings.Replace(localVarPath, "{"+"appIDs"+"}", fmt.Sprintf("%v", appIDs), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -162,7 +162,7 @@ func (a *TagAPIControllerAPIService) GetTagNamesUsingGET(ctx context.Context, ad
 /*
 TagAPIControllerAPIService Gets values for specified tags for the given application identifiers appearing in the given time frame.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param addIDs addIDs
+ * @param appIDs appIDs
  * @param tag tag
  * @param optional nil or *TagAPIControllerAPIGetUsingGET2Opts - Optional Parameters:
      * @param "From" (optional.Int64) -  from
@@ -183,7 +183,7 @@ type TagAPIControllerAPIGetUsingGET2Opts struct {
 	Rum     optional.Bool
 }
 
-func (a *TagAPIControllerAPIService) GetUsingGET2(ctx context.Context, addIDs string, tag []string, localVarOptionals *TagAPIControllerAPIGetUsingGET2Opts) (map[string]Dimension, *http.Response, error) {
+func (a *TagAPIControllerAPIService) GetUsingGET2(ctx context.Context, appIDs string, tag []string, localVarOptionals *TagAPIControllerAPIGetUsingGET2Opts) (map[string]Dimension, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -193,8 +193,8 @@ func (a *TagAPIControllerAPIService) GetUsingGET2(ctx context.Context, addIDs st
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{addIDs}/metrics/filters"
-	localVarPath = strings.Replace(localVarPath, "{"+"addIDs"+"}", fmt.Sprintf("%v", addIDs), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIDs}/metrics/filters"
+	localVarPath = strings.Replace(localVarPath, "{"+"appIDs"+"}", fmt.Sprintf("%v", appIDs), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -297,7 +297,7 @@ func (a *TagAPIControllerAPIService) GetUsingGET2(ctx context.Context, addIDs st
 /*
 TagAPIControllerAPIService Gets values for specified tags for the given application identifiers appearing in the given time frame.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param addIDs addIDs
+ * @param appIDs appIDs
  * @param tag tag
  * @param optional nil or *TagAPIControllerAPIGetUsingGET3Opts - Optional Parameters:
      * @param "From" (optional.Int64) -  from
@@ -318,7 +318,7 @@ type TagAPIControllerAPIGetUsingGET3Opts struct {
 	Rum     optional.Bool
 }
 
-func (a *TagAPIControllerAPIService) GetUsingGET3(ctx context.Context, addIDs string, tag []string, localVarOptionals *TagAPIControllerAPIGetUsingGET3Opts) (map[string]Dimension, *http.Response, error) {
+func (a *TagAPIControllerAPIService) GetUsingGET3(ctx context.Context, appIDs string, tag []string, localVarOptionals *TagAPIControllerAPIGetUsingGET3Opts) (map[string]Dimension, *http.Response, error) {
 	var (
 		localVarHttpMethod  = strings.ToUpper("Get")
 		localVarPostBody    interface{}
@@ -328,8 +328,8 @@ func (a *TagAPIControllerAPIService) GetUsingGET3(ctx context.Context, addIDs st
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{addIDs}/tags"
-	localVarPath = strings.Replace(localVarPath, "{"+"addIDs"+"}", fmt.Sprintf("%v", addIDs), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIDs}/tags"
+	localVarPath = strings.Replace(localVarPath, "{"+"appIDs"+"}", fmt.Sprintf("%v", appIDs), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

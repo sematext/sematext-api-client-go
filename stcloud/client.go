@@ -23,6 +23,7 @@ import (
 	"path/filepath"
 	"reflect"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 	"unicode/utf8"
@@ -98,6 +99,10 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TokensAPIControllerAPI = (*TokensAPIControllerAPIService)(&c.common)
 
 	return c
+}
+
+func atoi(in string) (int, error) {
+	return strconv.Atoi(in)
 }
 
 // selectHeaderContentType select a content type from the available list.
