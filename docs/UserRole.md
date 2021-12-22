@@ -1,6 +1,7 @@
 # UserRole
 
 ## Properties
+
 | Name           | Type       | Description | Notes                        |
 | -------------- | ---------- | ----------- | ---------------------------- |
 | **Role**       | **string** |             | [optional] [default to null] |

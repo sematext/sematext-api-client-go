@@ -9,10 +9,10 @@
 package stcloud
 
 type Invoice struct {
-	AllCharges  []ChargesDetailsResponseDto `json:"allCharges,omitempty"`
-	InvoiceDate string                      `json:"invoiceDate,omitempty"`
-	InvoiceID   string                      `json:"invoiceId,omitempty"`
-	Period      string                      `json:"period,omitempty"`
-	Service     string                      `json:"service,omitempty"`
-	TotalAmount float64                     `json:"totalAmount,omitempty"`
+	AllCharges []ChargesDetailsResponseDto `json:"allCharges,omitempty"`
+	InvoiceDate string `json:"invoiceDate,omitempty"`
+	InvoiceId string `json:"invoiceId,omitempty"`
+	Period string `json:"period,omitempty"`
+	Service string `json:"service,omitempty"`
+	TotalAmount float64 `json:"totalAmount,omitempty"`
 }

@@ -1,6 +1,7 @@
 # MailReportResponse
 
 ## Properties
+
 | Name        | Type                                                                       | Description | Notes                        |
 | ----------- | -------------------------------------------------------------------------- | ----------- | ---------------------------- |
 | **Data**    | [***MailReportResponseResponseEntry**](MailReportResponseResponseEntry.md) |             | [optional] [default to null] |

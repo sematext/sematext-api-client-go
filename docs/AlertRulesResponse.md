@@ -1,6 +1,7 @@
 # AlertRulesResponse
 
 ## Properties
+
 | Name        | Type                                                       | Description | Notes                        |
 | ----------- | ---------------------------------------------------------- | ----------- | ---------------------------- |
 | **Data**    | [***AlertRulesResponseEntry**](AlertRulesResponseEntry.md) |             | [optional] [default to null] |

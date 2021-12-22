@@ -1,6 +1,7 @@
 # FilterValue
 
 ## Properties
+
 | Name           | Type         | Description | Notes                        |
 | -------------- | ------------ | ----------- | ---------------------------- |
 | **AggType**    | **string**   |             | [optional] [default to null] |

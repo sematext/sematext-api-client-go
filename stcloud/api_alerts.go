@@ -1,3 +1,4 @@
+
 /*
  * Sematext Cloud API
  *
@@ -10,11 +11,11 @@ package stcloud
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
+	"fmt"
 )
 
 // Linger please
@@ -22,20 +23,19 @@ var (
 	_ context.Context
 )
 
-type AlertsAPIService service
-
+type AlertsApiService service
 /*
-AlertsAPIService Create alert rule
+AlertsApiService Create alert rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
 @return AlertRuleResponse
 */
-func (a *AlertsAPIService) CreateAlertUsingPOST(ctx context.Context, body AlertRule) (AlertRuleResponse, *http.Response, error) {
+func (a *AlertsApiService) CreateAlertUsingPOST(ctx context.Context, body AlertRule) (AlertRuleResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue AlertRuleResponse
 	)
 
@@ -75,7 +75,7 @@ func (a *AlertsAPIService) CreateAlertUsingPOST(ctx context.Context, body AlertR
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -96,51 +96,50 @@ func (a *AlertsAPIService) CreateAlertUsingPOST(ctx context.Context, body AlertR
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v AlertRuleResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-AlertsAPIService Delete alert rule
+AlertsApiService Delete alert rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param updateableAlertID updateableAlertID
-@return GenericMapBasedAPIResponse
+ * @param updateableAlertId updateableAlertId
+@return GenericMapBasedApiResponse
 */
-func (a *AlertsAPIService) DeleteAlertRuleUsingDELETE(ctx context.Context, updateableAlertID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
+func (a *AlertsApiService) DeleteAlertRuleUsingDELETE1(ctx context.Context, updateableAlertId int64) (GenericMapBasedApiResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Delete")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedAPIResponse
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue GenericMapBasedApiResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertID"+"}", fmt.Sprintf("%v", updateableAlertID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertId"+"}", fmt.Sprintf("%v", updateableAlertId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -173,7 +172,7 @@ func (a *AlertsAPIService) DeleteAlertRuleUsingDELETE(ctx context.Context, updat
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -194,51 +193,50 @@ func (a *AlertsAPIService) DeleteAlertRuleUsingDELETE(ctx context.Context, updat
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedAPIResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			var v GenericMapBasedApiResponse
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-AlertsAPIService Disable alert rule
+AlertsApiService Disable alert rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param updateableAlertID updateableAlertID
-@return GenericMapBasedAPIResponse
+ * @param updateableAlertId updateableAlertId
+@return GenericMapBasedApiResponse
 */
-func (a *AlertsAPIService) DisableAlertRuleUsingPUT(ctx context.Context, updateableAlertID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
+func (a *AlertsApiService) DisableAlertRuleUsingPUT(ctx context.Context, updateableAlertId int64) (GenericMapBasedApiResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedAPIResponse
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue GenericMapBasedApiResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertID}/disable"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertID"+"}", fmt.Sprintf("%v", updateableAlertID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertId}/disable"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertId"+"}", fmt.Sprintf("%v", updateableAlertId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -271,7 +269,7 @@ func (a *AlertsAPIService) DisableAlertRuleUsingPUT(ctx context.Context, updatea
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -292,51 +290,50 @@ func (a *AlertsAPIService) DisableAlertRuleUsingPUT(ctx context.Context, updatea
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedAPIResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			var v GenericMapBasedApiResponse
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-AlertsAPIService Enable alert rule
+AlertsApiService Enable alert rule
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param updateableAlertID updateableAlertID
-@return GenericMapBasedAPIResponse
+ * @param updateableAlertId updateableAlertId
+@return GenericMapBasedApiResponse
 */
-func (a *AlertsAPIService) EnableAlertRuleUsingPUT(ctx context.Context, updateableAlertID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
+func (a *AlertsApiService) EnableAlertRuleUsingPUT(ctx context.Context, updateableAlertId int64) (GenericMapBasedApiResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedAPIResponse
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue GenericMapBasedApiResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertID}/enable"
-	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertID"+"}", fmt.Sprintf("%v", updateableAlertID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/alerts/{updateableAlertId}/enable"
+	localVarPath = strings.Replace(localVarPath, "{"+"updateableAlertId"+"}", fmt.Sprintf("%v", updateableAlertId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -369,7 +366,7 @@ func (a *AlertsAPIService) EnableAlertRuleUsingPUT(ctx context.Context, updateab
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -390,51 +387,50 @@ func (a *AlertsAPIService) EnableAlertRuleUsingPUT(ctx context.Context, updateab
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedAPIResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			var v GenericMapBasedApiResponse
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-AlertsAPIService Get alert rules for an app
+AlertsApiService Get alert rules for an app
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appID appID
+ * @param appId appId
 @return AlertRulesResponse
 */
-func (a *AlertsAPIService) GetAlertRulesForAppUsingGET(ctx context.Context, appID int64) (AlertRulesResponse, *http.Response, error) {
+func (a *AlertsApiService) GetAlertRulesForAppUsingGET1(ctx context.Context, appId int64) (AlertRulesResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue AlertRulesResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/alerts"
-	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/alerts"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -467,7 +463,7 @@ func (a *AlertsAPIService) GetAlertRulesForAppUsingGET(ctx context.Context, appI
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -488,26 +484,26 @@ func (a *AlertsAPIService) GetAlertRulesForAppUsingGET(ctx context.Context, appI
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v AlertRulesResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

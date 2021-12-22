@@ -9,8 +9,8 @@
 package stcloud
 
 type AppResponse struct {
-	Data    *AppResponseEntry `json:"data,omitempty"`
-	Errors  []ModelError      `json:"errors,omitempty"`
-	Message string            `json:"message,omitempty"`
-	Success bool              `json:"success,omitempty"`
+	Data *AppResponseEntry `json:"data,omitempty"`
+	Errors []ModelError `json:"errors,omitempty"`
+	Message string `json:"message,omitempty"`
+	Success bool `json:"success,omitempty"`
 }

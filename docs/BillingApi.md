@@ -4,11 +4,12 @@ All URIs are relative to */*
 
 | Method                                                                       | HTTP request                                                       | Description            |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------- |
-| [**GetDetailedInvoiceUsingGET**](BillingAPI.md#GetDetailedInvoiceUsingGET)   | **Get** /users-web/api/v3/billing/invoice/{service}/{year}/{month} | Get invoice details    |
-| [**ListAvailablePlansUsingGET1**](BillingAPI.md#ListAvailablePlansUsingGET1) | **Get** /users-web/api/v3/billing/availablePlans                   | Get available plans    |
-| [**UpdatePlanUsingPUT1**](BillingAPI.md#UpdatePlanUsingPUT1)                 | **Put** /users-web/api/v3/billing/info/{appID}                     | Update plan for an app |
+| [**GetDetailedInvoiceUsingGET**](BillingApi.md#GetDetailedInvoiceUsingGET)   | **Get** /users-web/api/v3/billing/invoice/{service}/{year}/{month} | Get invoice details    |
+| [**ListAvailablePlansUsingGET1**](BillingApi.md#ListAvailablePlansUsingGET1) | **Get** /users-web/api/v3/billing/availablePlans                   | Get available plans    |
+| [**UpdatePlanUsingPUT**](BillingApi.md#UpdatePlanUsingPUT)                   | **Put** /users-web/api/v3/billing/info/{appId}                     | Update plan for an app |
 
 # **GetDetailedInvoiceUsingGET**
+
 > InvoiceResponse GetDetailedInvoiceUsingGET(ctx, service, year, month)
 Get invoice details
 
@@ -31,12 +32,13 @@ Get invoice details
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ListAvailablePlansUsingGET1**
+
 > PlansResponse ListAvailablePlansUsingGET1(ctx, optional)
 Get available plans
 
@@ -45,13 +47,14 @@ Get available plans
 | Name         | Type                                           | Description                                                                 | Notes                |
 | ------------ | ---------------------------------------------- | --------------------------------------------------------------------------- | -------------------- |
 | **ctx**      | **context.Context**                            | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **optional** | ***BillingAPIListAvailablePlansUsingGET1Opts** | optional parameters                                                         | nil if no parameters |
+| **optional** | ***BillingApiListAvailablePlansUsingGET1Opts** | optional parameters                                                         | nil if no parameters |
 
 ### Optional Parameters
-Optional parameters are passed through a pointer to a BillingAPIListAvailablePlansUsingGET1Opts struct
+
+Optional parameters are passed through a pointer to a BillingApiListAvailablePlansUsingGET1Opts struct
 | Name              | Type                | Description   | Notes |
 | ----------------- | ------------------- | ------------- | ----- |
-| **integrationID** | **optional.Int64**  | integrationID |
+| **integrationId** | **optional.Int64**  | integrationId |
 | **appType**       | **optional.String** | appType       |
 
 ### Return type
@@ -64,13 +67,14 @@ Optional parameters are passed through a pointer to a BillingAPIListAvailablePla
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdatePlanUsingPUT1**
-> UpdatePlanResponse UpdatePlanUsingPUT1(ctx, body, appID)
+# **UpdatePlanUsingPUT**
+
+> UpdatePlanResponse UpdatePlanUsingPUT(ctx, body, appId)
 Update plan for an app
 
 ### Required Parameters
@@ -79,7 +83,7 @@ Update plan for an app
 | --------- | --------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**               | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**BillingInfo**](BillingInfo.md) | dto                                                                         |
-| **appID** | **int64**                         | appID                                                                       |
+| **appId** | **int64**                         | appId                                                                       |
 
 ### Return type
 
@@ -91,7 +95,7 @@ Update plan for an app
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

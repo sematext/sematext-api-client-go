@@ -1,6 +1,7 @@
 # AppTypesResponseEntry
 
 ## Properties
+
 | Name         | Type         | Description | Notes                        |
 | ------------ | ------------ | ----------- | ---------------------------- |
 | **AppTypes** | **[]string** |             | [optional] [default to null] |

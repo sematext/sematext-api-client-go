@@ -1,6 +1,7 @@
 # DayUsageData
 
 ## Properties
+
 | Name                           | Type        | Description | Notes                        |
 | ------------------------------ | ----------- | ----------- | ---------------------------- |
 | **CountDailyDataPoints**       | **int32**   |             | [optional] [default to null] |
@@ -11,7 +12,7 @@
 | **FixedMonthlyPrice**          | **float64** |             | [optional] [default to null] |
 | **FixedMonthlyPricePerHour**   | **float64** |             | [optional] [default to null] |
 | **FreeContainersPerHost**      | **int32**   |             | [optional] [default to null] |
-| **ID**                         | **int64**   |             | [optional] [default to null] |
+| **Id**                         | **int64**   |             | [optional] [default to null] |
 | **KiloDpmOveragePricePerHour** | **float64** |             | [optional] [default to null] |
 | **PlanType**                   | **string**  |             | [optional] [default to null] |
 | **PricePerContainerHostHour**  | **float64** |             | [optional] [default to null] |

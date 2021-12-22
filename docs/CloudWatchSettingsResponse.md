@@ -1,6 +1,7 @@
 # CloudWatchSettingsResponse
 
 ## Properties
+
 | Name        | Type                                                                       | Description | Notes                        |
 | ----------- | -------------------------------------------------------------------------- | ----------- | ---------------------------- |
 | **Data**    | [***CloudWatchSettingsResponseEntry**](CloudWatchSettingsResponseEntry.md) |             | [optional] [default to null] |

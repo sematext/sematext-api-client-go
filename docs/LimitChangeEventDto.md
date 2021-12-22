@@ -1,6 +1,7 @@
 # LimitChangeEventDto
 
 ## Properties
+
 | Name          | Type                          | Description | Notes                        |
 | ------------- | ----------------------------- | ----------- | ---------------------------- |
 | **EventTime** | [**time.Time**](time.Time.md) |             | [optional] [default to null] |

@@ -1,6 +1,7 @@
 # AppTypesResponse
 
 ## Properties
+
 | Name        | Type                                                   | Description | Notes                        |
 | ----------- | ------------------------------------------------------ | ----------- | ---------------------------- |
 | **Data**    | [***AppTypesResponseEntry**](AppTypesResponseEntry.md) |             | [optional] [default to null] |

@@ -1,11 +1,12 @@
 # CreateAppInfo
 
 ## Properties
+
 | Name              | Type                               | Description | Notes                        |
 | ----------------- | ---------------------------------- | ----------- | ---------------------------- |
 | **AppType**       | **string**                         |             | [optional] [default to null] |
 | **DiscountCode**  | **string**                         |             | [optional] [default to null] |
-| **InitialPlanID** | **int64**                          |             | [optional] [default to null] |
+| **InitialPlanId** | **int64**                          |             | [optional] [default to null] |
 | **MetaData**      | [***AppMetadata**](AppMetadata.md) |             | [optional] [default to null] |
 | **Name**          | **string**                         |             | [optional] [default to null] |
 

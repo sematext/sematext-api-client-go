@@ -1,6 +1,7 @@
 # PlansResponseEntry
 
 ## Properties
+
 | Name               | Type                  | Description | Notes                        |
 | ------------------ | --------------------- | ----------- | ---------------------------- |
 | **AvailablePlans** | [**[]Plan**](Plan.md) |             | [optional] [default to null] |

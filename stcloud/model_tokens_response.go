@@ -9,8 +9,8 @@
 package stcloud
 
 type TokensResponse struct {
-	Data    *TokensResponseEntry `json:"data,omitempty"`
-	Errors  []ModelError         `json:"errors,omitempty"`
-	Message string               `json:"message,omitempty"`
-	Success bool                 `json:"success,omitempty"`
+	Data *TokensResponseEntry `json:"data,omitempty"`
+	Errors []ModelError `json:"errors,omitempty"`
+	Message string `json:"message,omitempty"`
+	Success bool `json:"success,omitempty"`
 }

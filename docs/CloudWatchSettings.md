@@ -1,6 +1,7 @@
 # CloudWatchSettings
 
 ## Properties
+
 | Name               | Type       | Description | Notes                        |
 | ------------------ | ---------- | ----------- | ---------------------------- |
 | **AccessKey**      | **string** |             | [optional] [default to null] |

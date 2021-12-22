@@ -9,11 +9,11 @@
 package stcloud
 
 type AlertNotification struct {
-	AppName      string `json:"appName,omitempty"`
-	AppType      string `json:"appType,omitempty"`
-	BackToNormal bool   `json:"backToNormal,omitempty"`
-	CreateTime   string `json:"createTime,omitempty"`
-	Sent         bool   `json:"sent,omitempty"`
-	Text         string `json:"text,omitempty"`
-	When         string `json:"when,omitempty"`
+	AppName string `json:"appName,omitempty"`
+	AppType string `json:"appType,omitempty"`
+	BackToNormal bool `json:"backToNormal,omitempty"`
+	CreateTime string `json:"createTime,omitempty"`
+	Sent bool `json:"sent,omitempty"`
+	Text string `json:"text,omitempty"`
+	When string `json:"when,omitempty"`
 }

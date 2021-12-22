@@ -1,6 +1,7 @@
 # Dimension
 
 ## Properties
+
 | Name       | Type         | Description | Notes             |
 | ---------- | ------------ | ----------- | ----------------- |
 | **Name**   | **string**   |             | [default to null] |

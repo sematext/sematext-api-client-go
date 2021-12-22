@@ -1,3 +1,4 @@
+
 /*
  * Sematext Cloud API
  *
@@ -10,11 +11,11 @@ package stcloud
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
+	"fmt"
 )
 
 // Linger please
@@ -22,28 +23,27 @@ var (
 	_ context.Context
 )
 
-type LogsUsageAPIControllerAPIService service
-
+type LogsUsageApiControllerApiService service
 /*
-LogsUsageAPIControllerAPIService getForRange
+LogsUsageApiControllerApiService getForRange
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appID appID
+ * @param appId appId
  * @param from from
  * @param to to
 @return UsageResponse
 */
-func (a *LogsUsageAPIControllerAPIService) GetForRangeUsingGET(ctx context.Context, appID int64, from int64, to int64) (UsageResponse, *http.Response, error) {
+func (a *LogsUsageApiControllerApiService) GetForRangeUsingGET(ctx context.Context, appId int64, from int64, to int64) (UsageResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue UsageResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/logsene-reports/api/v3/apps/{appID}/usage/{from}/{to}"
-	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/logsene-reports/api/v3/apps/{appId}/usage/{from}/{to}"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"from"+"}", fmt.Sprintf("%v", from), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"to"+"}", fmt.Sprintf("%v", to), -1)
 
@@ -78,7 +78,7 @@ func (a *LogsUsageAPIControllerAPIService) GetForRangeUsingGET(ctx context.Conte
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -99,26 +99,26 @@ func (a *LogsUsageAPIControllerAPIService) GetForRangeUsingGET(ctx context.Conte
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v UsageResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

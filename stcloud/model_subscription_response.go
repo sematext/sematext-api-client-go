@@ -9,8 +9,8 @@
 package stcloud
 
 type SubscriptionResponse struct {
-	Data    *SubscriptionResponseEntry `json:"data,omitempty"`
-	Errors  []ModelError               `json:"errors,omitempty"`
-	Message string                     `json:"message,omitempty"`
-	Success bool                       `json:"success,omitempty"`
+	Data *SubscriptionResponseEntry `json:"data,omitempty"`
+	Errors []ModelError `json:"errors,omitempty"`
+	Message string `json:"message,omitempty"`
+	Success bool `json:"success,omitempty"`
 }

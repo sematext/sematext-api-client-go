@@ -1,6 +1,7 @@
 # UsageMultiResponseEntry
 
 ## Properties
+
 | Name      | Type                         | Description | Notes                        |
 | --------- | ---------------------------- | ----------- | ---------------------------- |
 | **Usage** | [***UsageDto**](UsageDto.md) |             | [optional] [default to null] |

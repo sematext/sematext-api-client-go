@@ -1,6 +1,7 @@
 # UserInfo
 
 ## Properties
+
 | Name          | Type       | Description | Notes                        |
 | ------------- | ---------- | ----------- | ---------------------------- |
 | **LoginName** | **string** |             | [optional] [default to null] |

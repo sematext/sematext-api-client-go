@@ -642,7 +642,7 @@ func (app *App) IsArchived() bool {
 }
 
 // ExtractApp - TODO Doc Comment
-func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
+func (genericAPIResponse *GenericApiResponse) ExtractApp() (*App, error) {
 
 	// TODO - Shift this to TFP?
 
@@ -666,14 +666,14 @@ func (genericAPIResponse *GenericAPIResponse) ExtractApp() (*App, error) {
 
 	} else {
 
-		return nil, fmt.Errorf("Unexpected missing apps or app field in API response")
+		return nil, fmt.Errorf("unexpected missing apps or app field in API response")
 
 	}
 
 }
 
 // ExtractAppTokens - TODO Doc Comment
-func (genericAPIResponse *GenericAPIResponse) ExtractAppTokens() (*[]TokenResponseEntry, error) {
+func (genericAPIResponse *GenericApiResponse) ExtractAppTokens() (*[]TokenResponseEntry, error) {
 
 	// TODO - Shift this to TFP?
 
@@ -687,6 +687,6 @@ func (genericAPIResponse *GenericAPIResponse) ExtractAppTokens() (*[]TokenRespon
 		mapstructure.Decode(appTokenField, appTokenList)
 		return &appTokenList, nil
 	}
-	return nil, fmt.Errorf("Unexpected missing tokens field in API response")
+	return nil, fmt.Errorf("unexpected missing tokens field in API response")
 
 }

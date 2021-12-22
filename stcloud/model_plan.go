@@ -9,17 +9,17 @@
 package stcloud
 
 type Plan struct {
-	AppType            string  `json:"appType,omitempty"`
-	Custom             bool    `json:"custom,omitempty"`
+	AppType string `json:"appType,omitempty"`
+	Custom bool `json:"custom,omitempty"`
 	DataRetentionHours float64 `json:"dataRetentionHours,omitempty"`
-	DefaultTrialPlan   bool    `json:"defaultTrialPlan,omitempty"`
-	Free               bool    `json:"free,omitempty"`
-	FreeTrialDays      int64   `json:"freeTrialDays,omitempty"`
-	ID                 int64   `json:"id,omitempty"`
-	MaxAlerts          int64   `json:"maxAlerts,omitempty"`
-	MaxDailyEvents     int64   `json:"maxDailyEvents,omitempty"`
-	Name               string  `json:"name,omitempty"`
-	PlanScheme         string  `json:"planScheme,omitempty"`
-	SematextService    string  `json:"sematextService,omitempty"`
-	TrialPlan          bool    `json:"trialPlan,omitempty"`
+	DefaultTrialPlan bool `json:"defaultTrialPlan,omitempty"`
+	Free bool `json:"free,omitempty"`
+	FreeTrialDays int64 `json:"freeTrialDays,omitempty"`
+	Id int64 `json:"id,omitempty"`
+	MaxAlerts int64 `json:"maxAlerts,omitempty"`
+	MaxDailyEvents int64 `json:"maxDailyEvents,omitempty"`
+	Name string `json:"name,omitempty"`
+	PlanScheme string `json:"planScheme,omitempty"`
+	SematextService string `json:"sematextService,omitempty"`
+	TrialPlan bool `json:"trialPlan,omitempty"`
 }
