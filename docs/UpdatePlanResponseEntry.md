@@ -1,6 +1,7 @@
 # UpdatePlanResponseEntry
 
 ## Properties
+
 | Name        | Type                                                   | Description | Notes                        |
 | ----------- | ------------------------------------------------------ | ----------- | ---------------------------- |
 | **Billing** | [***UpdatePlanResponseDto**](UpdatePlanResponseDto.md) |             | [optional] [default to null] |

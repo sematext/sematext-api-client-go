@@ -9,24 +9,24 @@
 package stcloud
 
 type DayUsageData struct {
-	CountDailyDataPoints       int32   `json:"countDailyDataPoints,omitempty"`
-	Day                        string  `json:"day,omitempty"`
-	Discount                   float64 `json:"discount,omitempty"`
-	DpmPerContainerHostQuota   int64   `json:"dpmPerContainerHostQuota,omitempty"`
-	DpmPerHostQuota            int64   `json:"dpmPerHostQuota,omitempty"`
-	FixedMonthlyPrice          float64 `json:"fixedMonthlyPrice,omitempty"`
-	FixedMonthlyPricePerHour   float64 `json:"fixedMonthlyPricePerHour,omitempty"`
-	FreeContainersPerHost      int32   `json:"freeContainersPerHost,omitempty"`
-	ID                         int64   `json:"id,omitempty"`
+	CountDailyDataPoints int32 `json:"countDailyDataPoints,omitempty"`
+	Day string `json:"day,omitempty"`
+	Discount float64 `json:"discount,omitempty"`
+	DpmPerContainerHostQuota int64 `json:"dpmPerContainerHostQuota,omitempty"`
+	DpmPerHostQuota int64 `json:"dpmPerHostQuota,omitempty"`
+	FixedMonthlyPrice float64 `json:"fixedMonthlyPrice,omitempty"`
+	FixedMonthlyPricePerHour float64 `json:"fixedMonthlyPricePerHour,omitempty"`
+	FreeContainersPerHost int32 `json:"freeContainersPerHost,omitempty"`
+	Id int64 `json:"id,omitempty"`
 	KiloDpmOveragePricePerHour float64 `json:"kiloDpmOveragePricePerHour,omitempty"`
-	PlanType                   string  `json:"planType,omitempty"`
-	PricePerContainerHostHour  float64 `json:"pricePerContainerHostHour,omitempty"`
-	PricePerContainerHour      float64 `json:"pricePerContainerHour,omitempty"`
-	PricePerServerHour         float64 `json:"pricePerServerHour,omitempty"`
-	SumNumberOfContainerHosts  int32   `json:"sumNumberOfContainerHosts,omitempty"`
-	SumNumberOfContainers      int32   `json:"sumNumberOfContainers,omitempty"`
-	SumNumberOfServers         int32   `json:"sumNumberOfServers,omitempty"`
-	UsageAmount                float64 `json:"usageAmount,omitempty"`
-	UsedPlan                   string  `json:"usedPlan,omitempty"`
-	UserDiscount               float64 `json:"userDiscount,omitempty"`
+	PlanType string `json:"planType,omitempty"`
+	PricePerContainerHostHour float64 `json:"pricePerContainerHostHour,omitempty"`
+	PricePerContainerHour float64 `json:"pricePerContainerHour,omitempty"`
+	PricePerServerHour float64 `json:"pricePerServerHour,omitempty"`
+	SumNumberOfContainerHosts int32 `json:"sumNumberOfContainerHosts,omitempty"`
+	SumNumberOfContainers int32 `json:"sumNumberOfContainers,omitempty"`
+	SumNumberOfServers int32 `json:"sumNumberOfServers,omitempty"`
+	UsageAmount float64 `json:"usageAmount,omitempty"`
+	UsedPlan string `json:"usedPlan,omitempty"`
+	UserDiscount float64 `json:"userDiscount,omitempty"`
 }

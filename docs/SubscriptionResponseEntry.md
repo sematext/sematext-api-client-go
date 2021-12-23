@@ -1,6 +1,7 @@
 # SubscriptionResponseEntry
 
 ## Properties
+
 | Name             | Type                                 | Description | Notes                        |
 | ---------------- | ------------------------------------ | ----------- | ---------------------------- |
 | **Subscription** | [***Subscription**](Subscription.md) |             | [optional] [default to null] |

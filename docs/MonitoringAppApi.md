@@ -4,9 +4,10 @@ All URIs are relative to */*
 
 | Method                                                                 | HTTP request                      | Description           |
 | ---------------------------------------------------------------------- | --------------------------------- | --------------------- |
-| [**CreateSpmApplication1**](MonitoringAppAPI.md#CreateSpmApplication1) | **Post** /spm-reports/api/v3/apps | Create Monitoring App |
+| [**CreateSpmApplication1**](MonitoringAppApi.md#CreateSpmApplication1) | **Post** /spm-reports/api/v3/apps | Create Monitoring App |
 
 # **CreateSpmApplication1**
+
 > AppsResponse CreateSpmApplication1(ctx, body)
 Create Monitoring App
 
@@ -27,7 +28,7 @@ Create Monitoring App
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

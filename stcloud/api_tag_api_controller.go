@@ -1,3 +1,4 @@
+
 /*
  * Sematext Cloud API
  *
@@ -10,12 +11,11 @@ package stcloud
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-
+	"fmt"
 	"github.com/antihax/optional"
 )
 
@@ -24,13 +24,12 @@ var (
 	_ context.Context
 )
 
-type TagAPIControllerAPIService service
-
+type TagApiControllerApiService service
 /*
-TagAPIControllerAPIService Gets tag names for the given application identifiers appearing in the given time frame.
+TagApiControllerApiService Gets tag names for the given application identifiers appearing in the given time frame.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appIDs appIDs
- * @param optional nil or *TagAPIControllerAPIGetTagNamesUsingGETOpts - Optional Parameters:
+ * @param appIds appIds
+ * @param optional nil or *TagApiControllerApiGetTagNamesUsingGET1Opts - Optional Parameters:
      * @param "From" (optional.Int64) -  from
      * @param "To" (optional.Int64) -  to
      * @param "Metrics" (optional.Bool) -  metrics
@@ -40,27 +39,27 @@ TagAPIControllerAPIService Gets tag names for the given application identifiers 
 @return TagNamesResponse
 */
 
-type TagAPIControllerAPIGetTagNamesUsingGETOpts struct {
-	From    optional.Int64
-	To      optional.Int64
-	Metrics optional.Bool
-	Logs    optional.Bool
-	Events  optional.Bool
-	Rum     optional.Bool
+type TagApiControllerApiGetTagNamesUsingGET1Opts struct {
+    From optional.Int64
+    To optional.Int64
+    Metrics optional.Bool
+    Logs optional.Bool
+    Events optional.Bool
+    Rum optional.Bool
 }
 
-func (a *TagAPIControllerAPIService) GetTagNamesUsingGET(ctx context.Context, appIDs string, localVarOptionals *TagAPIControllerAPIGetTagNamesUsingGETOpts) (TagNamesResponse, *http.Response, error) {
+func (a *TagApiControllerApiService) GetTagNamesUsingGET1(ctx context.Context, appIds string, localVarOptionals *TagApiControllerApiGetTagNamesUsingGET1Opts) (TagNamesResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue TagNamesResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIDs}/tagNames"
-	localVarPath = strings.Replace(localVarPath, "{"+"appIDs"+"}", fmt.Sprintf("%v", appIDs), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIds}/tagNames"
+	localVarPath = strings.Replace(localVarPath, "{"+"appIds"+"}", fmt.Sprintf("%v", appIds), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -111,7 +110,7 @@ func (a *TagAPIControllerAPIService) GetTagNamesUsingGET(ctx context.Context, ap
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -132,39 +131,38 @@ func (a *TagAPIControllerAPIService) GetTagNamesUsingGET(ctx context.Context, ap
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v TagNamesResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-TagAPIControllerAPIService Gets values for specified tags for the given application identifiers appearing in the given time frame.
+TagApiControllerApiService Gets values for specified tags for the given application identifiers appearing in the given time frame.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appIDs appIDs
+ * @param appIds appIds
  * @param tag tag
- * @param optional nil or *TagAPIControllerAPIGetUsingGET2Opts - Optional Parameters:
+ * @param optional nil or *TagApiControllerApiGetUsingGET2Opts - Optional Parameters:
      * @param "From" (optional.Int64) -  from
      * @param "To" (optional.Int64) -  to
      * @param "Metrics" (optional.Bool) -  metrics
@@ -174,27 +172,27 @@ TagAPIControllerAPIService Gets values for specified tags for the given applicat
 @return map[string]Dimension
 */
 
-type TagAPIControllerAPIGetUsingGET2Opts struct {
-	From    optional.Int64
-	To      optional.Int64
-	Metrics optional.Bool
-	Logs    optional.Bool
-	Events  optional.Bool
-	Rum     optional.Bool
+type TagApiControllerApiGetUsingGET2Opts struct {
+    From optional.Int64
+    To optional.Int64
+    Metrics optional.Bool
+    Logs optional.Bool
+    Events optional.Bool
+    Rum optional.Bool
 }
 
-func (a *TagAPIControllerAPIService) GetUsingGET2(ctx context.Context, appIDs string, tag []string, localVarOptionals *TagAPIControllerAPIGetUsingGET2Opts) (map[string]Dimension, *http.Response, error) {
+func (a *TagApiControllerApiService) GetUsingGET2(ctx context.Context, appIds string, tag []string, localVarOptionals *TagApiControllerApiGetUsingGET2Opts) (map[string]Dimension, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue map[string]Dimension
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIDs}/metrics/filters"
-	localVarPath = strings.Replace(localVarPath, "{"+"appIDs"+"}", fmt.Sprintf("%v", appIDs), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIds}/metrics/filters"
+	localVarPath = strings.Replace(localVarPath, "{"+"appIds"+"}", fmt.Sprintf("%v", appIds), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -246,7 +244,7 @@ func (a *TagAPIControllerAPIService) GetUsingGET2(ctx context.Context, appIDs st
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -267,39 +265,38 @@ func (a *TagAPIControllerAPIService) GetUsingGET2(ctx context.Context, appIDs st
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]Dimension
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-TagAPIControllerAPIService Gets values for specified tags for the given application identifiers appearing in the given time frame.
+TagApiControllerApiService Gets values for specified tags for the given application identifiers appearing in the given time frame.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appIDs appIDs
+ * @param appIds appIds
  * @param tag tag
- * @param optional nil or *TagAPIControllerAPIGetUsingGET3Opts - Optional Parameters:
+ * @param optional nil or *TagApiControllerApiGetUsingGET3Opts - Optional Parameters:
      * @param "From" (optional.Int64) -  from
      * @param "To" (optional.Int64) -  to
      * @param "Metrics" (optional.Bool) -  metrics
@@ -309,27 +306,27 @@ TagAPIControllerAPIService Gets values for specified tags for the given applicat
 @return map[string]Dimension
 */
 
-type TagAPIControllerAPIGetUsingGET3Opts struct {
-	From    optional.Int64
-	To      optional.Int64
-	Metrics optional.Bool
-	Logs    optional.Bool
-	Events  optional.Bool
-	Rum     optional.Bool
+type TagApiControllerApiGetUsingGET3Opts struct {
+    From optional.Int64
+    To optional.Int64
+    Metrics optional.Bool
+    Logs optional.Bool
+    Events optional.Bool
+    Rum optional.Bool
 }
 
-func (a *TagAPIControllerAPIService) GetUsingGET3(ctx context.Context, appIDs string, tag []string, localVarOptionals *TagAPIControllerAPIGetUsingGET3Opts) (map[string]Dimension, *http.Response, error) {
+func (a *TagApiControllerApiService) GetUsingGET3(ctx context.Context, appIds string, tag []string, localVarOptionals *TagApiControllerApiGetUsingGET3Opts) (map[string]Dimension, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue map[string]Dimension
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIDs}/tags"
-	localVarPath = strings.Replace(localVarPath, "{"+"appIDs"+"}", fmt.Sprintf("%v", appIDs), -1)
+	localVarPath := a.client.cfg.BasePath + "/spm-reports/api/v3/apps/{appIds}/tags"
+	localVarPath = strings.Replace(localVarPath, "{"+"appIds"+"}", fmt.Sprintf("%v", appIds), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -381,7 +378,7 @@ func (a *TagAPIControllerAPIService) GetUsingGET3(ctx context.Context, appIDs st
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -402,26 +399,26 @@ func (a *TagAPIControllerAPIService) GetUsingGET3(ctx context.Context, appIDs st
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]Dimension
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

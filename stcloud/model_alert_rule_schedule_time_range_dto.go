@@ -9,6 +9,6 @@
 package stcloud
 
 type AlertRuleScheduleTimeRangeDto struct {
-	End   string `json:"end,omitempty"`
+	End string `json:"end,omitempty"`
 	Start string `json:"start,omitempty"`
 }

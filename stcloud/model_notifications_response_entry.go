@@ -9,7 +9,7 @@
 package stcloud
 
 type NotificationsResponseEntry struct {
-	End           string              `json:"end,omitempty"`
+	End string `json:"end,omitempty"`
 	Notifications []AlertNotification `json:"notifications,omitempty"`
-	Start         string              `json:"start,omitempty"`
+	Start string `json:"start,omitempty"`
 }

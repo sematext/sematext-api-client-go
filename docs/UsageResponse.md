@@ -1,6 +1,7 @@
 # UsageResponse
 
 ## Properties
+
 | Name        | Type                                             | Description | Notes                        |
 | ----------- | ------------------------------------------------ | ----------- | ---------------------------- |
 | **Data**    | [***UsageResponseEntry**](UsageResponseEntry.md) |             | [optional] [default to null] |

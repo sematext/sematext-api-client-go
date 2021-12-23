@@ -1,6 +1,7 @@
 # CloudWatchSettingsResponseEntry
 
 ## Properties
+
 | Name    | Type                                             | Description | Notes                        |
 | ------- | ------------------------------------------------ | ----------- | ---------------------------- |
 | **Aws** | [***CloudWatchSettings**](CloudWatchSettings.md) |             | [optional] [default to null] |

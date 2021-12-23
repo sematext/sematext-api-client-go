@@ -9,13 +9,13 @@
 package stcloud
 
 type UpdateAppInfo struct {
-	Description        string  `json:"description,omitempty"`
-	IgnorePercentage   float64 `json:"ignorePercentage,omitempty"`
-	MaxEvents          int64   `json:"maxEvents,omitempty"`
-	MaxLimitMB         int64   `json:"maxLimitMB,omitempty"`
-	Name               string  `json:"name,omitempty"`
-	Sampling           bool    `json:"sampling,omitempty"`
-	SamplingPercentage int32   `json:"samplingPercentage,omitempty"`
-	Staggering         bool    `json:"staggering,omitempty"`
-	Status             string  `json:"status,omitempty"`
+	Description string `json:"description,omitempty"`
+	IgnorePercentage float64 `json:"ignorePercentage,omitempty"`
+	MaxEvents int64 `json:"maxEvents,omitempty"`
+	MaxLimitMB int64 `json:"maxLimitMB,omitempty"`
+	Name string `json:"name,omitempty"`
+	Sampling bool `json:"sampling,omitempty"`
+	SamplingPercentage int32 `json:"samplingPercentage,omitempty"`
+	Staggering bool `json:"staggering,omitempty"`
+	Status string `json:"status,omitempty"`
 }

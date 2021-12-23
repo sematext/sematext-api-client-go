@@ -1,6 +1,7 @@
 # BasicAuthMethodDto
 
 ## Properties
+
 | Name         | Type       | Description | Notes                        |
 | ------------ | ---------- | ----------- | ---------------------------- |
 | **AuthType** | **string** |             | [optional] [default to null] |

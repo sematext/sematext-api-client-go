@@ -1,6 +1,7 @@
 # PlansResponse
 
 ## Properties
+
 | Name        | Type                                             | Description | Notes                        |
 | ----------- | ------------------------------------------------ | ----------- | ---------------------------- |
 | **Data**    | [***PlansResponseEntry**](PlansResponseEntry.md) |             | [optional] [default to null] |

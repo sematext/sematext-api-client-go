@@ -1,6 +1,7 @@
 # AppsResponseEntry
 
 ## Properties
+
 | Name     | Type                | Description | Notes                        |
 | -------- | ------------------- | ----------- | ---------------------------- |
 | **Apps** | [**[]App**](App.md) |             | [optional] [default to null] |

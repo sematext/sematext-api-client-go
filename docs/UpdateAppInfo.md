@@ -1,6 +1,7 @@
 # UpdateAppInfo
 
 ## Properties
+
 | Name                   | Type        | Description | Notes                        |
 | ---------------------- | ----------- | ----------- | ---------------------------- |
 | **Description**        | **string**  |             | [optional] [default to null] |

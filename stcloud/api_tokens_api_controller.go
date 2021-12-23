@@ -1,3 +1,4 @@
+
 /*
  * Sematext Cloud API
  *
@@ -10,11 +11,11 @@ package stcloud
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
+	"fmt"
 )
 
 // Linger please
@@ -22,27 +23,26 @@ var (
 	_ context.Context
 )
 
-type TokensAPIControllerAPIService service
-
+type TokensApiControllerApiService service
 /*
-TokensAPIControllerAPIService Create new app token
+TokensApiControllerApiService Create new app token
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
- * @param appID appID
+ * @param appId appId
 @return TokenResponse
 */
-func (a *TokensAPIControllerAPIService) CreateAppToken1(ctx context.Context, body CreateTokenDto, appID int64) (TokenResponse, *http.Response, error) {
+func (a *TokensApiControllerApiService) CreateAppToken1(ctx context.Context, body CreateTokenDto, appId int64) (TokenResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue TokenResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens"
-	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -77,7 +77,7 @@ func (a *TokensAPIControllerAPIService) CreateAppToken1(ctx context.Context, bod
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -98,53 +98,52 @@ func (a *TokensAPIControllerAPIService) CreateAppToken1(ctx context.Context, bod
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v TokenResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-TokensAPIControllerAPIService Delete app token
+TokensApiControllerApiService Delete app token
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appID appID
- * @param tokenID tokenID
-@return GenericMapBasedAPIResponse
+ * @param appId appId
+ * @param tokenId tokenId
+@return GenericMapBasedApiResponse
 */
-func (a *TokensAPIControllerAPIService) DeleteAppToken(ctx context.Context, appID int64, tokenID int64) (GenericMapBasedAPIResponse, *http.Response, error) {
+func (a *TokensApiControllerApiService) DeleteAppToken1(ctx context.Context, appId int64, tokenId int64) (GenericMapBasedApiResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Delete")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GenericMapBasedAPIResponse
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue GenericMapBasedApiResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens/{tokenID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"tokenID"+"}", fmt.Sprintf("%v", tokenID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens/{tokenId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tokenId"+"}", fmt.Sprintf("%v", tokenId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -177,7 +176,7 @@ func (a *TokensAPIControllerAPIService) DeleteAppToken(ctx context.Context, appI
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -198,51 +197,50 @@ func (a *TokensAPIControllerAPIService) DeleteAppToken(ctx context.Context, appI
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v GenericMapBasedAPIResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			var v GenericMapBasedApiResponse
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-TokensAPIControllerAPIService Get app available tokens
+TokensApiControllerApiService Get app available tokens
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appID appID
+ * @param appId appId
 @return TokensResponse
 */
-func (a *TokensAPIControllerAPIService) GetAppTokens1(ctx context.Context, appID int64) (TokensResponse, *http.Response, error) {
+func (a *TokensApiControllerApiService) GetAppTokens(ctx context.Context, appId int64) (TokensResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue TokensResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens"
-	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -275,7 +273,7 @@ func (a *TokensAPIControllerAPIService) GetAppTokens1(ctx context.Context, appID
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -296,53 +294,52 @@ func (a *TokensAPIControllerAPIService) GetAppTokens1(ctx context.Context, appID
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v TokensResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-TokensAPIControllerAPIService Regenerate app token)
+TokensApiControllerApiService Regenerate app token)
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param appID appID
- * @param tokenID tokenID
+ * @param appId appId
+ * @param tokenId tokenId
 @return TokenResponse
 */
-func (a *TokensAPIControllerAPIService) RegenerateAppToken(ctx context.Context, appID int64, tokenID int64) (TokenResponse, *http.Response, error) {
+func (a *TokensApiControllerApiService) RegenerateAppToken1(ctx context.Context, appId int64, tokenId int64) (TokenResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue TokenResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens/{tokenID}/regenerate"
-	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"tokenID"+"}", fmt.Sprintf("%v", tokenID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens/{tokenId}/regenerate"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tokenId"+"}", fmt.Sprintf("%v", tokenId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -375,7 +372,7 @@ func (a *TokensAPIControllerAPIService) RegenerateAppToken(ctx context.Context, 
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -396,54 +393,53 @@ func (a *TokensAPIControllerAPIService) RegenerateAppToken(ctx context.Context, 
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v TokenResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
-TokensAPIControllerAPIService Update app token (enable/disable or name)
+TokensApiControllerApiService Update app token (enable/disable or name)
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
- * @param appID appID
- * @param tokenID tokenID
+ * @param appId appId
+ * @param tokenId tokenId
 @return TokenResponse
 */
-func (a *TokensAPIControllerAPIService) UpdateAppToken(ctx context.Context, body UpdateTokenDto, appID int64, tokenID int64) (TokenResponse, *http.Response, error) {
+func (a *TokensApiControllerApiService) UpdateAppToken1(ctx context.Context, body UpdateTokenDto, appId int64, tokenId int64) (TokenResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue TokenResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/tokens/{tokenID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"tokenID"+"}", fmt.Sprintf("%v", tokenID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/tokens/{tokenId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tokenId"+"}", fmt.Sprintf("%v", tokenId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -478,7 +474,7 @@ func (a *TokensAPIControllerAPIService) UpdateAppToken(ctx context.Context, body
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -499,26 +495,26 @@ func (a *TokensAPIControllerAPIService) UpdateAppToken(ctx context.Context, body
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v TokenResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

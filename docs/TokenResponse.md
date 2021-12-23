@@ -1,6 +1,7 @@
 # TokenResponse
 
 ## Properties
+
 | Name        | Type                                             | Description | Notes                        |
 | ----------- | ------------------------------------------------ | ----------- | ---------------------------- |
 | **Data**    | [***TokenResponseEntry**](TokenResponseEntry.md) |             | [optional] [default to null] |

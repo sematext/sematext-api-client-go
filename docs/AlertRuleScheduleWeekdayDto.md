@@ -1,6 +1,7 @@
 # AlertRuleScheduleWeekdayDto
 
 ## Properties
+
 | Name          | Type                                                                    | Description | Notes                        |
 | ------------- | ----------------------------------------------------------------------- | ----------- | ---------------------------- |
 | **Day**       | **string**                                                              |             | [optional] [default to null] |

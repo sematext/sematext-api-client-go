@@ -2,26 +2,28 @@
 
 All URIs are relative to */*
 
-| Method                                                                | HTTP request                                              | Description                                                                                             |
-| --------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| [**GetTagNamesUsingGET**](TagAPIControllerAPI.md#GetTagNamesUsingGET) | **Get** /spm-reports/api/v3/apps/{appIDs}/tagNames        | Gets tag names for the given application identifiers appearing in the given time frame.                 |
-| [**GetUsingGET2**](TagAPIControllerAPI.md#GetUsingGET2)               | **Get** /spm-reports/api/v3/apps/{appIDs}/metrics/filters | Gets values for specified tags for the given application identifiers appearing in the given time frame. |
-| [**GetUsingGET3**](TagAPIControllerAPI.md#GetUsingGET3)               | **Get** /spm-reports/api/v3/apps/{appIDs}/tags            | Gets values for specified tags for the given application identifiers appearing in the given time frame. |
+| Method                                                                  | HTTP request                                              | Description                                                                                             |
+| ----------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [**GetTagNamesUsingGET1**](TagApiControllerApi.md#GetTagNamesUsingGET1) | **Get** /spm-reports/api/v3/apps/{appIds}/tagNames        | Gets tag names for the given application identifiers appearing in the given time frame.                 |
+| [**GetUsingGET2**](TagApiControllerApi.md#GetUsingGET2)                 | **Get** /spm-reports/api/v3/apps/{appIds}/metrics/filters | Gets values for specified tags for the given application identifiers appearing in the given time frame. |
+| [**GetUsingGET3**](TagApiControllerApi.md#GetUsingGET3)                 | **Get** /spm-reports/api/v3/apps/{appIds}/tags            | Gets values for specified tags for the given application identifiers appearing in the given time frame. |
 
-# **GetTagNamesUsingGET**
-> TagNamesResponse GetTagNamesUsingGET(ctx, appIDs, optional)
+# **GetTagNamesUsingGET1**
+
+> TagNamesResponse GetTagNamesUsingGET1(ctx, appIds, optional)
 Gets tag names for the given application identifiers appearing in the given time frame.
 
 ### Required Parameters
 
-| Name         | Type                                            | Description                                                                 | Notes                |
-| ------------ | ----------------------------------------------- | --------------------------------------------------------------------------- | -------------------- |
-| **ctx**      | **context.Context**                             | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appIDs**   | **string**                                      | appIDs                                                                      |
-| **optional** | ***TagAPIControllerAPIGetTagNamesUsingGETOpts** | optional parameters                                                         | nil if no parameters |
+| Name         | Type                                             | Description                                                                 | Notes                |
+| ------------ | ------------------------------------------------ | --------------------------------------------------------------------------- | -------------------- |
+| **ctx**      | **context.Context**                              | context for authentication, logging, cancellation, deadlines, tracing, etc. |
+| **appIds**   | **string**                                       | appIds                                                                      |
+| **optional** | ***TagApiControllerApiGetTagNamesUsingGET1Opts** | optional parameters                                                         | nil if no parameters |
 
 ### Optional Parameters
-Optional parameters are passed through a pointer to a TagAPIControllerAPIGetTagNamesUsingGETOpts struct
+
+Optional parameters are passed through a pointer to a TagApiControllerApiGetTagNamesUsingGET1Opts struct
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 
@@ -42,13 +44,14 @@ Optional parameters are passed through a pointer to a TagAPIControllerAPIGetTagN
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsingGET2**
-> map[string]Dimension GetUsingGET2(ctx, appIDs, tag, optional)
+
+> map[string]Dimension GetUsingGET2(ctx, appIds, tag, optional)
 Gets values for specified tags for the given application identifiers appearing in the given time frame.
 
 ### Required Parameters
@@ -56,15 +59,15 @@ Gets values for specified tags for the given application identifiers appearing i
 | Name         | Type                                     | Description                                                                 | Notes                |
 | ------------ | ---------------------------------------- | --------------------------------------------------------------------------- | -------------------- |
 | **ctx**      | **context.Context**                      | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appIDs**   | **string**                               | appIDs                                                                      |
+| **appIds**   | **string**                               | appIds                                                                      |
 | **tag**      | [**[]string**](string.md)                | tag                                                                         |
-| **optional** | ***TagAPIControllerAPIGetUsingGET2Opts** | optional parameters                                                         | nil if no parameters |
+| **optional** | ***TagApiControllerApiGetUsingGET2Opts** | optional parameters                                                         | nil if no parameters |
 
 ### Optional Parameters
-Optional parameters are passed through a pointer to a TagAPIControllerAPIGetUsingGET2Opts struct
+
+Optional parameters are passed through a pointer to a TagApiControllerApiGetUsingGET2Opts struct
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-
 
  **from** | **optional.Int64**| from |
  **to** | **optional.Int64**| to |
@@ -83,13 +86,14 @@ Optional parameters are passed through a pointer to a TagAPIControllerAPIGetUsin
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsingGET3**
-> map[string]Dimension GetUsingGET3(ctx, appIDs, tag, optional)
+
+> map[string]Dimension GetUsingGET3(ctx, appIds, tag, optional)
 Gets values for specified tags for the given application identifiers appearing in the given time frame.
 
 ### Required Parameters
@@ -97,15 +101,15 @@ Gets values for specified tags for the given application identifiers appearing i
 | Name         | Type                                     | Description                                                                 | Notes                |
 | ------------ | ---------------------------------------- | --------------------------------------------------------------------------- | -------------------- |
 | **ctx**      | **context.Context**                      | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appIDs**   | **string**                               | appIDs                                                                      |
+| **appIds**   | **string**                               | appIds                                                                      |
 | **tag**      | [**[]string**](string.md)                | tag                                                                         |
-| **optional** | ***TagAPIControllerAPIGetUsingGET3Opts** | optional parameters                                                         | nil if no parameters |
+| **optional** | ***TagApiControllerApiGetUsingGET3Opts** | optional parameters                                                         | nil if no parameters |
 
 ### Optional Parameters
-Optional parameters are passed through a pointer to a TagAPIControllerAPIGetUsingGET3Opts struct
+
+Optional parameters are passed through a pointer to a TagApiControllerApiGetUsingGET3Opts struct
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-
 
  **from** | **optional.Int64**| from |
  **to** | **optional.Int64**| to |
@@ -124,7 +128,7 @@ Optional parameters are passed through a pointer to a TagAPIControllerAPIGetUsin
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

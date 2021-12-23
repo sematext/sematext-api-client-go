@@ -1,6 +1,7 @@
 # EventDto
 
 ## Properties
+
 | Name      | Type                               | Description | Notes                        |
 | --------- | ---------------------------------- | ----------- | ---------------------------- |
 | **From**  | [***interface{}**](interface{}.md) |             | [optional] [default to null] |

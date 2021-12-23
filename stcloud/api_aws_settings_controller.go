@@ -1,3 +1,4 @@
+
 /*
  * Sematext Cloud API
  *
@@ -10,11 +11,11 @@ package stcloud
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
+	"fmt"
 )
 
 // Linger please
@@ -22,28 +23,27 @@ var (
 	_ context.Context
 )
 
-type AwsSettingsControllerAPIService service
-
+type AwsSettingsControllerApiService service
 /*
-AwsSettingsControllerAPIService Update App&#x27;s AWS CloudWatch settings
+AwsSettingsControllerApiService Update App&#x27;s AWS CloudWatch settings
 Applicable only for AWS Apps
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body dto
- * @param appID appID
+ * @param appId appId
 @return CloudWatchSettingsResponse
 */
-func (a *AwsSettingsControllerAPIService) UpdateUsingPUT1(ctx context.Context, body CloudWatchSettings, appID int64) (CloudWatchSettingsResponse, *http.Response, error) {
+func (a *AwsSettingsControllerApiService) UpdateUsingPUT1(ctx context.Context, body CloudWatchSettings, appId int64) (CloudWatchSettingsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue CloudWatchSettingsResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appID}/aws"
-	localVarPath = strings.Replace(localVarPath, "{"+"appID"+"}", fmt.Sprintf("%v", appID), -1)
+	localVarPath := a.client.cfg.BasePath + "/users-web/api/v3/apps/{appId}/aws"
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", fmt.Sprintf("%v", appId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -78,7 +78,7 @@ func (a *AwsSettingsControllerAPIService) UpdateUsingPUT1(ctx context.Context, b
 				key = auth.Key
 			}
 			localVarHeaderParams["Authorization"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -99,26 +99,26 @@ func (a *AwsSettingsControllerAPIService) UpdateUsingPUT1(ctx context.Context, b
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v CloudWatchSettingsResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

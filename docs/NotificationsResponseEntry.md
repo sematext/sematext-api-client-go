@@ -1,6 +1,7 @@
 # NotificationsResponseEntry
 
 ## Properties
+
 | Name              | Type                                            | Description | Notes                        |
 | ----------------- | ----------------------------------------------- | ----------- | ---------------------------- |
 | **End**           | **string**                                      |             | [optional] [default to null] |

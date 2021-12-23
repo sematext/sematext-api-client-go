@@ -9,9 +9,9 @@
 package stcloud
 
 // Generic wrapper class for all API responses
-type GenericAPIResponse struct {
-	Data    *interface{} `json:"data,omitempty"`
-	Errors  []ModelError `json:"errors,omitempty"`
-	Message string       `json:"message,omitempty"`
-	Success bool         `json:"success,omitempty"`
+type GenericApiResponse struct {
+	Data *interface{} `json:"data,omitempty"`
+	Errors []ModelError `json:"errors,omitempty"`
+	Message string `json:"message,omitempty"`
+	Success bool `json:"success,omitempty"`
 }

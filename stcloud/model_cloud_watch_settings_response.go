@@ -9,8 +9,8 @@
 package stcloud
 
 type CloudWatchSettingsResponse struct {
-	Data    *CloudWatchSettingsResponseEntry `json:"data,omitempty"`
-	Errors  []ModelError                     `json:"errors,omitempty"`
-	Message string                           `json:"message,omitempty"`
-	Success bool                             `json:"success,omitempty"`
+	Data *CloudWatchSettingsResponseEntry `json:"data,omitempty"`
+	Errors []ModelError `json:"errors,omitempty"`
+	Message string `json:"message,omitempty"`
+	Success bool `json:"success,omitempty"`
 }

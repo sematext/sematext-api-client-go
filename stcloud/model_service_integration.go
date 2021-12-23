@@ -9,16 +9,16 @@
 package stcloud
 
 type ServiceIntegration struct {
-	AppTypeID           int64  `json:"appTypeId,omitempty"`
-	AppTypeName         string `json:"appTypeName,omitempty"`
-	DisplayName         string `json:"displayName,omitempty"`
-	Enabled             bool   `json:"enabled,omitempty"`
-	ExternalProductID   int64  `json:"externalProductId,omitempty"`
+	AppTypeId int64 `json:"appTypeId,omitempty"`
+	AppTypeName string `json:"appTypeName,omitempty"`
+	DisplayName string `json:"displayName,omitempty"`
+	Enabled bool `json:"enabled,omitempty"`
+	ExternalProductId int64 `json:"externalProductId,omitempty"`
 	ExternalProductName string `json:"externalProductName,omitempty"`
-	ID                  int64  `json:"id,omitempty"`
-	IntegrationType     string `json:"integrationType,omitempty"`
-	Ordinal             int32  `json:"ordinal,omitempty"`
-	ParentIntegrationID int64  `json:"parentIntegrationId,omitempty"`
-	SematextService     string `json:"sematextService,omitempty"`
-	Visible             bool   `json:"visible,omitempty"`
+	Id int64 `json:"id,omitempty"`
+	IntegrationType string `json:"integrationType,omitempty"`
+	Ordinal int32 `json:"ordinal,omitempty"`
+	ParentIntegrationId int64 `json:"parentIntegrationId,omitempty"`
+	SematextService string `json:"sematextService,omitempty"`
+	Visible bool `json:"visible,omitempty"`
 }
