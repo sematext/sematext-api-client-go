@@ -2,13 +2,14 @@
 
 All URIs are relative to */*
 
-| Method                                                                                                        | HTTP request                                                 | Description                        |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- |
-| [**GetAlertNotificationsForAppUsingPOST1**](AlertNotificationsAPI.md#GetAlertNotificationsForAppUsingPOST1)   | **Post** /users-web/api/v3/apps/{appID}/notifications/alerts | Get alert notifications for an app |
-| [**GetAlertNotificationsForUserUsingPOST1**](AlertNotificationsAPI.md#GetAlertNotificationsForUserUsingPOST1) | **Post** /users-web/api/v3/notifications/alerts              | Get alert notifications for a user |
+| Method                                                                                                      | HTTP request                                                 | Description                        |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- |
+| [**GetAlertNotificationsForAppUsingPOST**](AlertNotificationsApi.md#GetAlertNotificationsForAppUsingPOST)   | **Post** /users-web/api/v3/apps/{appId}/notifications/alerts | Get alert notifications for an app |
+| [**GetAlertNotificationsForUserUsingPOST**](AlertNotificationsApi.md#GetAlertNotificationsForUserUsingPOST) | **Post** /users-web/api/v3/notifications/alerts              | Get alert notifications for a user |
 
-# **GetAlertNotificationsForAppUsingPOST1**
-> NotificationsResponse GetAlertNotificationsForAppUsingPOST1(ctx, body, appID)
+# **GetAlertNotificationsForAppUsingPOST**
+
+> NotificationsResponse GetAlertNotificationsForAppUsingPOST(ctx, body, appId)
 Get alert notifications for an app
 
 Default value of interval is 1d
@@ -19,7 +20,7 @@ Default value of interval is 1d
 | --------- | ----------------------------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**                                         | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**AlertNotificationRequest**](AlertNotificationRequest.md) | Time Interval                                                               |
-| **appID** | **int64**                                                   | appID                                                                       |
+| **appId** | **int64**                                                   | appId                                                                       |
 
 ### Return type
 
@@ -31,13 +32,14 @@ Default value of interval is 1d
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetAlertNotificationsForUserUsingPOST1**
-> NotificationsResponse GetAlertNotificationsForUserUsingPOST1(ctx, body)
+# **GetAlertNotificationsForUserUsingPOST**
+
+> NotificationsResponse GetAlertNotificationsForUserUsingPOST(ctx, body)
 Get alert notifications for a user
 
 Default value of interval is 1d
@@ -59,7 +61,7 @@ Default value of interval is 1d
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

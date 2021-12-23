@@ -4,19 +4,20 @@ All URIs are relative to */*
 
 | Method                                                                     | HTTP request                                                          | Description                              |
 | -------------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------- |
-| [**CreateForAppUsingPOST1**](SubscriptionsAPI.md#CreateForAppUsingPOST1)   | **Post** /users-web/api/v3/apps/{appID}/subscription                  | Create App subscription                  |
-| [**CreateForDashUsingPOST1**](SubscriptionsAPI.md#CreateForDashUsingPOST1) | **Post** /users-web/api/v3/dashboards/{dashID}/subscription           | Create dashboard subscription            |
-| [**DeleteUsingDELETE3**](SubscriptionsAPI.md#DeleteUsingDELETE3)           | **Delete** /users-web/api/v3/subscriptions/{updateableSubscriptionID} | Delete subscription                      |
-| [**ListUsingGET3**](SubscriptionsAPI.md#ListUsingGET3)                     | **Get** /users-web/api/v3/apps/{appID}/subscriptions                  | Get subscriptions for an App             |
-| [**ListUsingGET5**](SubscriptionsAPI.md#ListUsingGET5)                     | **Get** /users-web/api/v3/subscriptions                               | Get current account&#x27;s subscriptions |
-| [**SendAppReportUsingPOST**](SubscriptionsAPI.md#SendAppReportUsingPOST)   | **Post** /users-web/api/v3/apps/{appID}/report/send                   | Email an App report                      |
-| [**SendDashReportUsingPOST**](SubscriptionsAPI.md#SendDashReportUsingPOST) | **Post** /users-web/api/v3/dashboards/{dashID}/report/send            | Email a dashboard report                 |
-| [**ToggleEnabledUsingPUT1**](SubscriptionsAPI.md#ToggleEnabledUsingPUT1)   | **Put** /users-web/api/v3/subscriptions/{updateableSubscriptionID}    | Toggle subscription status               |
-| [**UpdateForAppUsingPUT1**](SubscriptionsAPI.md#UpdateForAppUsingPUT1)     | **Put** /users-web/api/v3/apps/{appID}/subscription                   | Update App subscription                  |
-| [**UpdateForDashUsingPUT1**](SubscriptionsAPI.md#UpdateForDashUsingPUT1)   | **Put** /users-web/api/v3/dashboards/{dashID}/subscription            | Update dashboard subscription            |
+| [**CreateForAppUsingPOST**](SubscriptionsApi.md#CreateForAppUsingPOST)     | **Post** /users-web/api/v3/apps/{appId}/subscription                  | Create App subscription                  |
+| [**CreateForDashUsingPOST1**](SubscriptionsApi.md#CreateForDashUsingPOST1) | **Post** /users-web/api/v3/dashboards/{dashId}/subscription           | Create dashboard subscription            |
+| [**DeleteUsingDELETE2**](SubscriptionsApi.md#DeleteUsingDELETE2)           | **Delete** /users-web/api/v3/subscriptions/{updateableSubscriptionId} | Delete subscription                      |
+| [**ListUsingGET3**](SubscriptionsApi.md#ListUsingGET3)                     | **Get** /users-web/api/v3/apps/{appId}/subscriptions                  | Get subscriptions for an App             |
+| [**ListUsingGET5**](SubscriptionsApi.md#ListUsingGET5)                     | **Get** /users-web/api/v3/subscriptions                               | Get current account&#x27;s subscriptions |
+| [**SendAppReportUsingPOST**](SubscriptionsApi.md#SendAppReportUsingPOST)   | **Post** /users-web/api/v3/apps/{appId}/report/send                   | Email an App report                      |
+| [**SendDashReportUsingPOST**](SubscriptionsApi.md#SendDashReportUsingPOST) | **Post** /users-web/api/v3/dashboards/{dashId}/report/send            | Email a dashboard report                 |
+| [**ToggleEnabledUsingPUT1**](SubscriptionsApi.md#ToggleEnabledUsingPUT1)   | **Put** /users-web/api/v3/subscriptions/{updateableSubscriptionId}    | Toggle subscription status               |
+| [**UpdateForAppUsingPUT**](SubscriptionsApi.md#UpdateForAppUsingPUT)       | **Put** /users-web/api/v3/apps/{appId}/subscription                   | Update App subscription                  |
+| [**UpdateForDashUsingPUT1**](SubscriptionsApi.md#UpdateForDashUsingPUT1)   | **Put** /users-web/api/v3/dashboards/{dashId}/subscription            | Update dashboard subscription            |
 
-# **CreateForAppUsingPOST1**
-> SubscriptionResponse CreateForAppUsingPOST1(ctx, body, appID)
+# **CreateForAppUsingPOST**
+
+> SubscriptionResponse CreateForAppUsingPOST(ctx, body, appId)
 Create App subscription
 
 ### Required Parameters
@@ -25,7 +26,7 @@ Create App subscription
 | --------- | ----------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**                       | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**SubscriptionDto**](SubscriptionDto.md) | subscription                                                                |
-| **appID** | **int64**                                 | appID                                                                       |
+| **appId** | **int64**                                 | appId                                                                       |
 
 ### Return type
 
@@ -37,13 +38,14 @@ Create App subscription
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateForDashUsingPOST1**
-> SubscriptionResponse CreateForDashUsingPOST1(ctx, body, dashID)
+
+> SubscriptionResponse CreateForDashUsingPOST1(ctx, body, dashId)
 Create dashboard subscription
 
 ### Required Parameters
@@ -52,7 +54,7 @@ Create dashboard subscription
 | ---------- | ----------------------------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**    | **context.Context**                                         | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**   | [**SubscriptionDashboardDto**](SubscriptionDashboardDto.md) | subscription                                                                |
-| **dashID** | **int64**                                                   | dashID                                                                      |
+| **dashId** | **int64**                                                   | dashId                                                                      |
 
 ### Return type
 
@@ -64,13 +66,14 @@ Create dashboard subscription
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **DeleteUsingDELETE3**
-> GenericMapBasedAPIResponse DeleteUsingDELETE3(ctx, updateableSubscriptionID)
+# **DeleteUsingDELETE2**
+
+> GenericMapBasedApiResponse DeleteUsingDELETE2(ctx, updateableSubscriptionId)
 Delete subscription
 
 ### Required Parameters
@@ -78,11 +81,11 @@ Delete subscription
 | Name                         | Type                | Description                                                                 | Notes |
 | ---------------------------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**                      | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **updateableSubscriptionID** | **int64**           | updateableSubscriptionID                                                    |
+| **updateableSubscriptionId** | **int64**           | updateableSubscriptionId                                                    |
 
 ### Return type
 
-[**GenericMapBasedAPIResponse**](Generic Map Based API Response.md)
+[**GenericMapBasedApiResponse**](Generic Map Based Api Response.md)
 
 ### Authorization
 
@@ -90,13 +93,14 @@ Delete subscription
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ListUsingGET3**
-> SubscriptionsResponse ListUsingGET3(ctx, appID)
+
+> SubscriptionsResponse ListUsingGET3(ctx, appId)
 Get subscriptions for an App
 
 ### Required Parameters
@@ -104,7 +108,7 @@ Get subscriptions for an App
 | Name      | Type                | Description                                                                 | Notes |
 | --------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appID** | **int64**           | appID                                                                       |
+| **appId** | **int64**           | appId                                                                       |
 
 ### Return type
 
@@ -116,16 +120,18 @@ Get subscriptions for an App
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ListUsingGET5**
+
 > SubscriptionsResponse ListUsingGET5(ctx, )
 Get current account's subscriptions
 
 ### Required Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -138,13 +144,14 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SendAppReportUsingPOST**
-> MailReportResponse SendAppReportUsingPOST(ctx, body, appID)
+
+> MailReportResponse SendAppReportUsingPOST(ctx, body, appId)
 Email an App report
 
 ### Required Parameters
@@ -153,7 +160,7 @@ Email an App report
 | --------- | ------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**             | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**ReportInfo**](ReportInfo.md) | emailDto                                                                    |
-| **appID** | **int64**                       | appID                                                                       |
+| **appId** | **int64**                       | appId                                                                       |
 
 ### Return type
 
@@ -165,13 +172,14 @@ Email an App report
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SendDashReportUsingPOST**
-> MailReportResponse SendDashReportUsingPOST(ctx, body, dashID)
+
+> MailReportResponse SendDashReportUsingPOST(ctx, body, dashId)
 Email a dashboard report
 
 ### Required Parameters
@@ -180,7 +188,7 @@ Email a dashboard report
 | ---------- | ------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**    | **context.Context**             | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**   | [**ReportInfo**](ReportInfo.md) | emailDto                                                                    |
-| **dashID** | **int64**                       | dashID                                                                      |
+| **dashId** | **int64**                       | dashId                                                                      |
 
 ### Return type
 
@@ -192,13 +200,14 @@ Email a dashboard report
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ToggleEnabledUsingPUT1**
-> SubscriptionResponse ToggleEnabledUsingPUT1(ctx, body, updateableSubscriptionID)
+
+> SubscriptionResponse ToggleEnabledUsingPUT1(ctx, body, updateableSubscriptionId)
 Toggle subscription status
 
 ### Required Parameters
@@ -207,7 +216,7 @@ Toggle subscription status
 | ---------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**                      | **context.Context**                                   | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**                     | [**UpdateSubscriptionDto**](UpdateSubscriptionDto.md) | dto                                                                         |
-| **updateableSubscriptionID** | **int64**                                             | updateableSubscriptionID                                                    |
+| **updateableSubscriptionId** | **int64**                                             | updateableSubscriptionId                                                    |
 
 ### Return type
 
@@ -219,13 +228,14 @@ Toggle subscription status
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateForAppUsingPUT1**
-> SubscriptionResponse UpdateForAppUsingPUT1(ctx, body, appID)
+# **UpdateForAppUsingPUT**
+
+> SubscriptionResponse UpdateForAppUsingPUT(ctx, body, appId)
 Update App subscription
 
 ### Required Parameters
@@ -234,7 +244,7 @@ Update App subscription
 | --------- | ----------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**                       | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**SubscriptionDto**](SubscriptionDto.md) | subscription                                                                |
-| **appID** | **int64**                                 | appID                                                                       |
+| **appId** | **int64**                                 | appId                                                                       |
 
 ### Return type
 
@@ -246,13 +256,14 @@ Update App subscription
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateForDashUsingPUT1**
-> SubscriptionResponse UpdateForDashUsingPUT1(ctx, body, dashID)
+
+> SubscriptionResponse UpdateForDashUsingPUT1(ctx, body, dashId)
 Update dashboard subscription
 
 ### Required Parameters
@@ -261,7 +272,7 @@ Update dashboard subscription
 | ---------- | ----------------------------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**    | **context.Context**                                         | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**   | [**SubscriptionDashboardDto**](SubscriptionDashboardDto.md) | subscription                                                                |
-| **dashID** | **int64**                                                   | dashID                                                                      |
+| **dashId** | **int64**                                                   | dashId                                                                      |
 
 ### Return type
 
@@ -273,7 +284,7 @@ Update dashboard subscription
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

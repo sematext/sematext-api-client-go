@@ -1,14 +1,15 @@
 # SubscriptionDashboardDto
 
 ## Properties
+
 | Name            | Type                          | Description | Notes                        |
 | --------------- | ----------------------------- | ----------- | ---------------------------- |
 | **Addresses**   | **string**                    |             | [optional] [default to null] |
-| **DashboardID** | **int64**                     |             | [optional] [default to null] |
+| **DashboardId** | **int64**                     |             | [optional] [default to null] |
 | **Enable**      | **bool**                      |             | [optional] [default to null] |
 | **Filters**     | **string**                    |             | [optional] [default to null] |
 | **Frequency**   | **string**                    |             | [optional] [default to null] |
-| **ID**          | **int64**                     |             | [optional] [default to null] |
+| **Id**          | **int64**                     |             | [optional] [default to null] |
 | **ReportName**  | **string**                    |             | [optional] [default to null] |
 | **SendTime**    | [**time.Time**](time.Time.md) |             | [optional] [default to null] |
 | **Subject**     | **string**                    |             | [optional] [default to null] |

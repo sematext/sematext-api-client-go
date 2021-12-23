@@ -2,16 +2,17 @@
 
 All URIs are relative to */*
 
-| Method                                                                 | HTTP request                                                        | Description                               |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
-| [**CreateAppToken1**](TokensAPIControllerAPI.md#CreateAppToken1)       | **Post** /users-web/api/v3/apps/{appID}/tokens                      | Create new app token                      |
-| [**DeleteAppToken**](TokensAPIControllerAPI.md#DeleteAppToken)         | **Delete** /users-web/api/v3/apps/{appID}/tokens/{tokenID}          | Delete app token                          |
-| [**GetAppTokens1**](TokensAPIControllerAPI.md#GetAppTokens1)           | **Get** /users-web/api/v3/apps/{appID}/tokens                       | Get app available tokens                  |
-| [**RegenerateAppToken**](TokensAPIControllerAPI.md#RegenerateAppToken) | **Post** /users-web/api/v3/apps/{appID}/tokens/{tokenID}/regenerate | Regenerate app token)                     |
-| [**UpdateAppToken**](TokensAPIControllerAPI.md#UpdateAppToken)         | **Put** /users-web/api/v3/apps/{appID}/tokens/{tokenID}             | Update app token (enable/disable or name) |
+| Method                                                                   | HTTP request                                                        | Description                               |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------- | ----------------------------------------- |
+| [**CreateAppToken1**](TokensApiControllerApi.md#CreateAppToken1)         | **Post** /users-web/api/v3/apps/{appId}/tokens                      | Create new app token                      |
+| [**DeleteAppToken1**](TokensApiControllerApi.md#DeleteAppToken1)         | **Delete** /users-web/api/v3/apps/{appId}/tokens/{tokenId}          | Delete app token                          |
+| [**GetAppTokens**](TokensApiControllerApi.md#GetAppTokens)               | **Get** /users-web/api/v3/apps/{appId}/tokens                       | Get app available tokens                  |
+| [**RegenerateAppToken1**](TokensApiControllerApi.md#RegenerateAppToken1) | **Post** /users-web/api/v3/apps/{appId}/tokens/{tokenId}/regenerate | Regenerate app token)                     |
+| [**UpdateAppToken1**](TokensApiControllerApi.md#UpdateAppToken1)         | **Put** /users-web/api/v3/apps/{appId}/tokens/{tokenId}             | Update app token (enable/disable or name) |
 
 # **CreateAppToken1**
-> TokenResponse CreateAppToken1(ctx, body, appID)
+
+> TokenResponse CreateAppToken1(ctx, body, appId)
 Create new app token
 
 ### Required Parameters
@@ -20,7 +21,7 @@ Create new app token
 | --------- | --------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context**                     | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**  | [**CreateTokenDto**](CreateTokenDto.md) | dto                                                                         |
-| **appID** | **int64**                               | appID                                                                       |
+| **appId** | **int64**                               | appId                                                                       |
 
 ### Return type
 
@@ -32,13 +33,14 @@ Create new app token
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **DeleteAppToken**
-> GenericMapBasedAPIResponse DeleteAppToken(ctx, appId, tokenID)
+# **DeleteAppToken1**
+
+> GenericMapBasedApiResponse DeleteAppToken1(ctx, appId, tokenId)
 Delete app token
 
 ### Required Parameters
@@ -46,12 +48,12 @@ Delete app token
 | Name        | Type                | Description                                                                 | Notes |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**     | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appID**   | **int64**           | appID                                                                       |
-| **tokenID** | **int64**           | tokenID                                                                     |
+| **appId**   | **int64**           | appId                                                                       |
+| **tokenId** | **int64**           | tokenId                                                                     |
 
 ### Return type
 
-[**GenericMapBasedAPIResponse**](Generic Map Based API Response.md)
+[**GenericMapBasedApiResponse**](Generic Map Based Api Response.md)
 
 ### Authorization
 
@@ -59,13 +61,14 @@ Delete app token
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetAppTokens1**
-> TokensResponse GetAppTokens1(ctx, appID)
+# **GetAppTokens**
+
+> TokensResponse GetAppTokens(ctx, appId)
 Get app available tokens
 
 ### Required Parameters
@@ -73,7 +76,7 @@ Get app available tokens
 | Name      | Type                | Description                                                                 | Notes |
 | --------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**   | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appID** | **int64**           | appID                                                                       |
+| **appId** | **int64**           | appId                                                                       |
 
 ### Return type
 
@@ -85,13 +88,14 @@ Get app available tokens
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RegenerateAppToken**
-> TokenResponse RegenerateAppToken(ctx, appId, tokenID)
+# **RegenerateAppToken1**
+
+> TokenResponse RegenerateAppToken1(ctx, appId, tokenId)
 Regenerate app token)
 
 ### Required Parameters
@@ -99,8 +103,8 @@ Regenerate app token)
 | Name        | Type                | Description                                                                 | Notes |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**     | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc. |
-| **appID**   | **int64**           | appID                                                                       |
-| **tokenID** | **int64**           | tokenID                                                                     |
+| **appId**   | **int64**           | appId                                                                       |
+| **tokenId** | **int64**           | tokenId                                                                     |
 
 ### Return type
 
@@ -112,13 +116,14 @@ Regenerate app token)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateAppToken**
-> TokenResponse UpdateAppToken(ctx, body, appId, tokenID)
+# **UpdateAppToken1**
+
+> TokenResponse UpdateAppToken1(ctx, body, appId, tokenId)
 Update app token (enable/disable or name)
 
 ### Required Parameters
@@ -127,8 +132,8 @@ Update app token (enable/disable or name)
 | ----------- | --------------------------------------- | --------------------------------------------------------------------------- | ----- |
 | **ctx**     | **context.Context**                     | context for authentication, logging, cancellation, deadlines, tracing, etc. |
 | **body**    | [**UpdateTokenDto**](UpdateTokenDto.md) | dto                                                                         |
-| **appID**   | **int64**                               | appID                                                                       |
-| **tokenID** | **int64**                               | tokenID                                                                     |
+| **appId**   | **int64**                               | appId                                                                       |
+| **tokenId** | **int64**                               | tokenId                                                                     |
 
 ### Return type
 
@@ -140,7 +145,7 @@ Update app token (enable/disable or name)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
