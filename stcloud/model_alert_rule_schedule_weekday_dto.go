@@ -9,9 +9,9 @@
 package stcloud
 
 type AlertRuleScheduleWeekdayDto struct {
-	Day string `json:"day,omitempty"`
-	Index int32 `json:"index,omitempty"`
+	Day       string                          `json:"day,omitempty"`
+	Index     int32                           `json:"index,omitempty"`
 	Intervals []AlertRuleScheduleTimeRangeDto `json:"intervals,omitempty"`
-	Label string `json:"label,omitempty"`
-	Type_ string `json:"type,omitempty"`
+	Label     string                          `json:"label,omitempty"`
+	Type_     string                          `json:"type,omitempty"`
 }

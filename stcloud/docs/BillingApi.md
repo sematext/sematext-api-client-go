@@ -4,13 +4,13 @@ All URIs are relative to */*
 
 | Method                                                                       | HTTP request                                                       | Description            |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------- |
-| [**GetDetailedInvoiceUsingGET**](BillingApi.md#GetDetailedInvoiceUsingGET)   | **Get** /users-web/api/v3/billing/invoice/{service}/{year}/{month} | Get invoice details    |
+| [**GetDetailedInvoiceUsingGET1**](BillingApi.md#GetDetailedInvoiceUsingGET1) | **Get** /users-web/api/v3/billing/invoice/{service}/{year}/{month} | Get invoice details    |
 | [**ListAvailablePlansUsingGET1**](BillingApi.md#ListAvailablePlansUsingGET1) | **Get** /users-web/api/v3/billing/availablePlans                   | Get available plans    |
-| [**UpdatePlanUsingPUT**](BillingApi.md#UpdatePlanUsingPUT)                   | **Put** /users-web/api/v3/billing/info/{appId}                     | Update plan for an app |
+| [**UpdatePlanUsingPUT1**](BillingApi.md#UpdatePlanUsingPUT1)                 | **Put** /users-web/api/v3/billing/info/{appId}                     | Update plan for an app |
 
-# **GetDetailedInvoiceUsingGET**
+# **GetDetailedInvoiceUsingGET1**
 
-> InvoiceResponse GetDetailedInvoiceUsingGET(ctx, service, year, month)
+> InvoiceResponse GetDetailedInvoiceUsingGET1(ctx, service, year, month)
 Get invoice details
 
 ### Required Parameters
@@ -72,9 +72,9 @@ Optional parameters are passed through a pointer to a BillingApiListAvailablePla
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdatePlanUsingPUT**
+# **UpdatePlanUsingPUT1**
 
-> UpdatePlanResponse UpdatePlanUsingPUT(ctx, body, appId)
+> UpdatePlanResponse UpdatePlanUsingPUT1(ctx, body, appId)
 Update plan for an app
 
 ### Required Parameters

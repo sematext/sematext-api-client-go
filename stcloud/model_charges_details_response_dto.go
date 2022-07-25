@@ -9,11 +9,11 @@
 package stcloud
 
 type ChargesDetailsResponseDto struct {
-	App *App `json:"app,omitempty"`
-	ChargeBase string `json:"chargeBase,omitempty"`
-	DayUsageData []DayUsageData `json:"dayUsageData,omitempty"`
-	MonthlyFeeAmount float64 `json:"monthlyFeeAmount,omitempty"`
+	App              *App                 `json:"app,omitempty"`
+	ChargeBase       string               `json:"chargeBase,omitempty"`
+	DayUsageData     []DayUsageData       `json:"dayUsageData,omitempty"`
+	MonthlyFeeAmount float64              `json:"monthlyFeeAmount,omitempty"`
 	PeriodFeePeriods []MinPeriodFeePeriod `json:"periodFeePeriods,omitempty"`
-	TotalAmount float64 `json:"totalAmount,omitempty"`
-	UsageAmount float64 `json:"usageAmount,omitempty"`
+	TotalAmount      float64              `json:"totalAmount,omitempty"`
+	UsageAmount      float64              `json:"usageAmount,omitempty"`
 }

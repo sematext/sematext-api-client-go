@@ -9,8 +9,8 @@
 package stcloud
 
 type UsageMultiResponse struct {
-	Data *UsageMultiResponseEntry `json:"data,omitempty"`
-	Errors []ModelError `json:"errors,omitempty"`
-	Message string `json:"message,omitempty"`
-	Success bool `json:"success,omitempty"`
+	Data    *UsageMultiResponseEntry `json:"data,omitempty"`
+	Errors  []ModelError             `json:"errors,omitempty"`
+	Message string                   `json:"message,omitempty"`
+	Success bool                     `json:"success,omitempty"`
 }

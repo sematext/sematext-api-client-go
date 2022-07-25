@@ -9,8 +9,8 @@
 package stcloud
 
 type AlertRuleResponse struct {
-	Data *AlertRuleResponseEntry `json:"data,omitempty"`
-	Errors []ModelError `json:"errors,omitempty"`
-	Message string `json:"message,omitempty"`
-	Success bool `json:"success,omitempty"`
+	Data    *AlertRuleResponseEntry `json:"data,omitempty"`
+	Errors  []ModelError            `json:"errors,omitempty"`
+	Message string                  `json:"message,omitempty"`
+	Success bool                    `json:"success,omitempty"`
 }

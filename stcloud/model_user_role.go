@@ -9,7 +9,7 @@
 package stcloud
 
 type UserRole struct {
-	Role string `json:"role,omitempty"`
+	Role       string `json:"role,omitempty"`
 	RoleStatus string `json:"roleStatus,omitempty"`
-	UserEmail string `json:"userEmail,omitempty"`
+	UserEmail  string `json:"userEmail,omitempty"`
 }

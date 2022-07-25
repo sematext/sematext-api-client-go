@@ -1,4 +1,4 @@
-# AlertRule
+*# AlertRule
 
 ## Properties
 
@@ -38,6 +38,7 @@
 | **NotificationEmails**                    | **[]string**                                                        |             | [optional] [default to null] |
 | **NotificationIntegrations**              | [**[]NotificationIntegration**](NotificationIntegration.md)         |             | [optional] [default to null] |
 | **NotificationsEnabled**                  | **bool**                                                            |             | [optional] [default to null] |
+| **Priority**                              | **string**                                                          |             | [optional] [default to null] |
 | **Query**                                 | **string**                                                          |             | [optional] [default to null] |
 | **ReportName**                            | **string**                                                          |             | [optional] [default to null] |
 | **RuleKey**                               | **int64**                                                           |             | [optional] [default to null] |
@@ -54,3 +55,5 @@
 | **ValueName**                             | **string**                                                          |             | [optional] [default to null] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+*

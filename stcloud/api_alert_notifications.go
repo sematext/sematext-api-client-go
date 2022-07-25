@@ -32,7 +32,7 @@ Default value of interval is 1d
  * @param appId appId
 @return NotificationsResponse
 */
-func (a *AlertNotificationsApiService) GetAlertNotificationsForAppUsingPOST(ctx context.Context, body AlertNotificationRequest, appId int64) (NotificationsResponse, *http.Response, error) {
+func (a *AlertNotificationsApiService) GetAlertNotificationsForAppUsingPOST1(ctx context.Context, body AlertNotificationRequest, appId int64) (NotificationsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -132,7 +132,7 @@ Default value of interval is 1d
  * @param body Time Interval
 @return NotificationsResponse
 */
-func (a *AlertNotificationsApiService) GetAlertNotificationsForUserUsingPOST(ctx context.Context, body AlertNotificationRequest) (NotificationsResponse, *http.Response, error) {
+func (a *AlertNotificationsApiService) GetAlertNotificationsForUserUsingPOST1(ctx context.Context, body AlertNotificationRequest) (NotificationsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}

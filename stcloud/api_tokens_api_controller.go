@@ -229,7 +229,7 @@ TokensApiControllerApiService Get app available tokens
  * @param appId appId
 @return TokensResponse
 */
-func (a *TokensApiControllerApiService) GetAppTokens(ctx context.Context, appId int64) (TokensResponse, *http.Response, error) {
+func (a *TokensApiControllerApiService) GetAppTokens1(ctx context.Context, appId int64) (TokensResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -327,7 +327,7 @@ TokensApiControllerApiService Regenerate app token)
  * @param tokenId tokenId
 @return TokenResponse
 */
-func (a *TokensApiControllerApiService) RegenerateAppToken1(ctx context.Context, appId int64, tokenId int64) (TokenResponse, *http.Response, error) {
+func (a *TokensApiControllerApiService) RegenerateAppToken(ctx context.Context, appId int64, tokenId int64) (TokenResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}

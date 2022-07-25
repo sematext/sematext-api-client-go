@@ -10,6 +10,6 @@ package stcloud
 
 type UserPermissions struct {
 	CanDelete bool `json:"canDelete,omitempty"`
-	CanEdit bool `json:"canEdit,omitempty"`
-	CanView bool `json:"canView,omitempty"`
+	CanEdit   bool `json:"canEdit,omitempty"`
+	CanView   bool `json:"canView,omitempty"`
 }

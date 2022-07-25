@@ -11,7 +11,7 @@ package stcloud
 type AlertNotificationRequest struct {
 	DefaultInterval int64 `json:"defaultInterval,omitempty"`
 	// End time of interval. Can be expressed as timestamp in milliseconds or UTC date in yyyy-MM-dd HH:mm:ss format
-	End string `json:"end,omitempty"`
+	End      string `json:"end,omitempty"`
 	Interval string `json:"interval,omitempty"`
 	// Start time of interval. Can be expressed as timestamp in milliseconds or UTC date in yyyy-MM-dd HH:mm:ss format
 	Start string `json:"start,omitempty"`

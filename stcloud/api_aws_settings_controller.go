@@ -32,7 +32,7 @@ Applicable only for AWS Apps
  * @param appId appId
 @return CloudWatchSettingsResponse
 */
-func (a *AwsSettingsControllerApiService) UpdateUsingPUT1(ctx context.Context, body CloudWatchSettings, appId int64) (CloudWatchSettingsResponse, *http.Response, error) {
+func (a *AwsSettingsControllerApiService) UpdateUsingPUT(ctx context.Context, body CloudWatchSettings, appId int64) (CloudWatchSettingsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}

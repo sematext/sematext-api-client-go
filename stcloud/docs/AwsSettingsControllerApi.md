@@ -2,13 +2,13 @@
 
 All URIs are relative to */*
 
-| Method                                                             | HTTP request                               | Description                               |
-| ------------------------------------------------------------------ | ------------------------------------------ | ----------------------------------------- |
-| [**UpdateUsingPUT1**](AwsSettingsControllerApi.md#UpdateUsingPUT1) | **Put** /users-web/api/v3/apps/{appId}/aws | Update App&#x27;s AWS CloudWatch settings |
+| Method                                                           | HTTP request                               | Description                               |
+| ---------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------- |
+| [**UpdateUsingPUT**](AwsSettingsControllerApi.md#UpdateUsingPUT) | **Put** /users-web/api/v3/apps/{appId}/aws | Update App&#x27;s AWS CloudWatch settings |
 
-# **UpdateUsingPUT1**
+# **UpdateUsingPUT**
 
-> CloudWatchSettingsResponse UpdateUsingPUT1(ctx, body, appId)
+> CloudWatchSettingsResponse UpdateUsingPUT(ctx, body, appId)
 Update App's AWS CloudWatch settings
 
 Applicable only for AWS Apps

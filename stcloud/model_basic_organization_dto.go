@@ -10,7 +10,7 @@ package stcloud
 
 type BasicOrganizationDto struct {
 	AuthMethods []BasicAuthMethodDto `json:"authMethods,omitempty"`
-	Name string `json:"name,omitempty"`
-	Status string `json:"status,omitempty"`
-	Uuid string `json:"uuid,omitempty"`
+	Name        string               `json:"name,omitempty"`
+	Status      string               `json:"status,omitempty"`
+	Uuid        string               `json:"uuid,omitempty"`
 }

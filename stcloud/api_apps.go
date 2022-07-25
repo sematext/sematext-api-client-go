@@ -223,7 +223,7 @@ AppsApiService Gets defails for one particular App
  * @param anyStateAppId anyStateAppId
 @return AppResponse
 */
-func (a *AppsApiService) GetUsingGET(ctx context.Context, anyStateAppId int64) (AppResponse, *http.Response, error) {
+func (a *AppsApiService) GetUsingGET1(ctx context.Context, anyStateAppId int64) (AppResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -320,7 +320,7 @@ AppsApiService Invite guests to an app
  * @param body For &#x60;app&#x60; and &#x60;apps&#x60; fields only &#x60;id&#x60; needs to be populated.Other fields can be left empty or with default values
 @return GenericMapBasedApiResponse
 */
-func (a *AppsApiService) InviteAppGuestsUsingPOST(ctx context.Context, body Invitation) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *AppsApiService) InviteAppGuestsUsingPOST1(ctx context.Context, body Invitation) (GenericMapBasedApiResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -512,7 +512,7 @@ AppsApiService Get all apps accessible by account identified with apiKey
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return AppsResponse
 */
-func (a *AppsApiService) ListUsingGET(ctx context.Context) (AppsResponse, *http.Response, error) {
+func (a *AppsApiService) ListUsingGET1(ctx context.Context) (AppsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -721,7 +721,7 @@ App can be in any state
  * @param anyStateAppId App Id
 @return AppResponse
 */
-func (a *AppsApiService) UpdateUsingPUT2(ctx context.Context, body UpdateAppInfo, anyStateAppId int64) (AppResponse, *http.Response, error) {
+func (a *AppsApiService) UpdateUsingPUT3(ctx context.Context, body UpdateAppInfo, anyStateAppId int64) (AppResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}

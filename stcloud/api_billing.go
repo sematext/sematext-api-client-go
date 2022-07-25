@@ -33,7 +33,7 @@ BillingApiService Get invoice details
  * @param month month
 @return InvoiceResponse
 */
-func (a *BillingApiService) GetDetailedInvoiceUsingGET(ctx context.Context, service string, year int32, month int32) (InvoiceResponse, *http.Response, error) {
+func (a *BillingApiService) GetDetailedInvoiceUsingGET1(ctx context.Context, service string, year int32, month int32) (InvoiceResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -243,7 +243,7 @@ BillingApiService Update plan for an app
  * @param appId appId
 @return UpdatePlanResponse
 */
-func (a *BillingApiService) UpdatePlanUsingPUT(ctx context.Context, body BillingInfo, appId int64) (UpdatePlanResponse, *http.Response, error) {
+func (a *BillingApiService) UpdatePlanUsingPUT1(ctx context.Context, body BillingInfo, appId int64) (UpdatePlanResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}

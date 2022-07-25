@@ -9,6 +9,6 @@
 package stcloud
 
 type UpdateTokenDto struct {
-	Enabled bool `json:"enabled,omitempty"`
-	Name string `json:"name,omitempty"`
+	Enabled bool   `json:"enabled,omitempty"`
+	Name    string `json:"name,omitempty"`
 }

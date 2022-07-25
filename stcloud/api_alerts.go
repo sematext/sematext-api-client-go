@@ -128,7 +128,7 @@ AlertsApiService Delete alert rule
  * @param updateableAlertId updateableAlertId
 @return GenericMapBasedApiResponse
 */
-func (a *AlertsApiService) DeleteAlertRuleUsingDELETE1(ctx context.Context, updateableAlertId int64) (GenericMapBasedApiResponse, *http.Response, error) {
+func (a *AlertsApiService) DeleteAlertRuleUsingDELETE(ctx context.Context, updateableAlertId int64) (GenericMapBasedApiResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
@@ -419,7 +419,7 @@ AlertsApiService Get alert rules for an app
  * @param appId appId
 @return AlertRulesResponse
 */
-func (a *AlertsApiService) GetAlertRulesForAppUsingGET1(ctx context.Context, appId int64) (AlertRulesResponse, *http.Response, error) {
+func (a *AlertsApiService) GetAlertRulesForAppUsingGET(ctx context.Context, appId int64) (AlertRulesResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}

@@ -8,9 +8,7 @@
  */
 package stcloud
 
-type InvoiceResponse struct {
-	Data    *InvoiceResponseEntry `json:"data,omitempty"`
-	Errors  []ModelError          `json:"errors,omitempty"`
-	Message string                `json:"message,omitempty"`
-	Success bool                  `json:"success,omitempty"`
+type TagsGrouped struct {
+	AppId int64                `json:"appId"`
+	Tags  map[string]Dimension `json:"tags"`
 }

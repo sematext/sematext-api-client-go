@@ -1,13 +1,14 @@
+# {{classname}}
 
 All URIs are relative to */*
 
-| Method                                                                        | HTTP request                                                 | Description                |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------- |
-| [**CreateAlertUsingPOST**](AlertsApi.md#CreateAlertUsingPOST)                 | **Post** /users-web/api/v3/alerts                            | Create alert rule          |
-| [**DeleteAlertRuleUsingDELETE1**](AlertsApi.md#DeleteAlertRuleUsingDELETE1)   | **Delete** /users-web/api/v3/alerts/{updateableAlertId}      | Delete alert rule          |
-| [**DisableAlertRuleUsingPUT**](AlertsApi.md#DisableAlertRuleUsingPUT)         | **Put** /users-web/api/v3/alerts/{updateableAlertId}/disable | Disable alert rule         |
-| [**EnableAlertRuleUsingPUT**](AlertsApi.md#EnableAlertRuleUsingPUT)           | **Put** /users-web/api/v3/alerts/{updateableAlertId}/enable  | Enable alert rule          |
-| [**GetAlertRulesForAppUsingGET1**](AlertsApi.md#GetAlertRulesForAppUsingGET1) | **Get** /users-web/api/v3/apps/{appId}/alerts                | Get alert rules for an app |
+| Method                                                                      | HTTP request                                                 | Description                |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------- |
+| [**CreateAlertUsingPOST**](AlertsApi.md#CreateAlertUsingPOST)               | **Post** /users-web/api/v3/alerts                            | Create alert rule          |
+| [**DeleteAlertRuleUsingDELETE**](AlertsApi.md#DeleteAlertRuleUsingDELETE)   | **Delete** /users-web/api/v3/alerts/{updateableAlertId}      | Delete alert rule          |
+| [**DisableAlertRuleUsingPUT**](AlertsApi.md#DisableAlertRuleUsingPUT)       | **Put** /users-web/api/v3/alerts/{updateableAlertId}/disable | Disable alert rule         |
+| [**EnableAlertRuleUsingPUT**](AlertsApi.md#EnableAlertRuleUsingPUT)         | **Put** /users-web/api/v3/alerts/{updateableAlertId}/enable  | Enable alert rule          |
+| [**GetAlertRulesForAppUsingGET**](AlertsApi.md#GetAlertRulesForAppUsingGET) | **Get** /users-web/api/v3/apps/{appId}/alerts                | Get alert rules for an app |
 
 # **CreateAlertUsingPOST**
 
@@ -36,9 +37,9 @@ Create alert rule
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **DeleteAlertRuleUsingDELETE1**
+# **DeleteAlertRuleUsingDELETE**
 
-> GenericMapBasedApiResponse DeleteAlertRuleUsingDELETE1(ctx, updateableAlertId)
+> GenericMapBasedApiResponse DeleteAlertRuleUsingDELETE(ctx, updateableAlertId)
 Delete alert rule
 
 ### Required Parameters
@@ -117,9 +118,9 @@ Enable alert rule
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetAlertRulesForAppUsingGET1**
+# **GetAlertRulesForAppUsingGET**
 
-> AlertRulesResponse GetAlertRulesForAppUsingGET1(ctx, appId)
+> AlertRulesResponse GetAlertRulesForAppUsingGET(ctx, appId)
 Get alert rules for an app
 
 ### Required Parameters

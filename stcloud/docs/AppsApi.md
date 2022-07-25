@@ -6,15 +6,14 @@ All URIs are relative to */*
 | ----------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------ |
 | [**DeleteUsingDELETE**](AppsApi.md#DeleteUsingDELETE)                   | **Delete** /users-web/api/v3/apps/{anyStateAppId}          | delete                                                             |
 | [**GetAppTypesUsingGET**](AppsApi.md#GetAppTypesUsingGET)               | **Get** /users-web/api/v3/apps/types                       | Get all App types supported for the account identified with apiKey |
-| [**GetUsingGET**](AppsApi.md#GetUsingGET)                               | **Get** /users-web/api/v3/apps/{anyStateAppId}             | Gets defails for one particular App                                |
-| [**InviteAppGuestsUsingPOST**](AppsApi.md#InviteAppGuestsUsingPOST)     | **Post** /users-web/api/v3/apps/guests                     | Invite guests to an app                                            |
+| [**GetUsingGET1**](AppsApi.md#GetUsingGET1)                             | **Get** /users-web/api/v3/apps/{anyStateAppId}             | Gets defails for one particular App                                |
+| [**InviteAppGuestsUsingPOST1**](AppsApi.md#InviteAppGuestsUsingPOST1)   | **Post** /users-web/api/v3/apps/guests                     | Invite guests to an app                                            |
 | [**ListAppsUsersUsingGET**](AppsApi.md#ListAppsUsersUsingGET)           | **Get** /users-web/api/v3/apps/users                       | Get all users of apps accessible to this account                   |
-| [**ListUsingGET**](AppsApi.md#ListUsingGET)                             | **Get** /users-web/api/v3/apps                             | Get all apps accessible by account identified with apiKey          |
+| [**ListUsingGET1**](AppsApi.md#ListUsingGET1)                           | **Get** /users-web/api/v3/apps                             | Get all apps accessible by account identified with apiKey          |
 | [**UpdateDescriptionUsingPUT1**](AppsApi.md#UpdateDescriptionUsingPUT1) | **Put** /users-web/api/v3/apps/{anyStateAppId}/description | Update description of the app                                      |
-| [**UpdateUsingPUT2**](AppsApi.md#UpdateUsingPUT2)                       | **Put** /users-web/api/v3/apps/{anyStateAppId}             | Update app                                                         |
+| [**UpdateUsingPUT3**](AppsApi.md#UpdateUsingPUT3)                       | **Put** /users-web/api/v3/apps/{anyStateAppId}             | Update app                                                         |
 
 # **DeleteUsingDELETE**
-
 > GenericMapBasedApiResponse DeleteUsingDELETE(ctx, anyStateAppId)
 delete
 
@@ -35,18 +34,16 @@ delete
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAppTypesUsingGET**
-
 > AppTypesResponse GetAppTypesUsingGET(ctx, )
 Get all App types supported for the account identified with apiKey
 
 ### Required Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -59,14 +56,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetUsingGET**
-
-> AppResponse GetUsingGET(ctx, anyStateAppId)
+# **GetUsingGET1**
+> AppResponse GetUsingGET1(ctx, anyStateAppId)
 Gets defails for one particular App
 
 ### Required Parameters
@@ -86,14 +82,13 @@ Gets defails for one particular App
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **InviteAppGuestsUsingPOST**
-
-> GenericMapBasedApiResponse InviteAppGuestsUsingPOST(ctx, body)
+# **InviteAppGuestsUsingPOST1**
+> GenericMapBasedApiResponse InviteAppGuestsUsingPOST1(ctx, body)
 Invite guests to an app
 
 ### Required Parameters
@@ -113,18 +108,16 @@ Invite guests to an app
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ListAppsUsersUsingGET**
-
 > AppsResponse ListAppsUsersUsingGET(ctx, )
 Get all users of apps accessible to this account
 
 ### Required Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -137,18 +130,16 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ListUsingGET**
-
-> AppsResponse ListUsingGET(ctx, )
+# **ListUsingGET1**
+> AppsResponse ListUsingGET1(ctx, )
 Get all apps accessible by account identified with apiKey
 
 ### Required Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -161,13 +152,12 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateDescriptionUsingPUT1**
-
 > AppResponse UpdateDescriptionUsingPUT1(ctx, anyStateAppId, optional)
 Update description of the app
 
@@ -182,12 +172,11 @@ App can be in any state
 | **optional**      | ***AppsApiUpdateDescriptionUsingPUT1Opts** | optional parameters                                                         | nil if no parameters |
 
 ### Optional Parameters
-
 Optional parameters are passed through a pointer to a AppsApiUpdateDescriptionUsingPUT1Opts struct
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 
- **body** | [**optional.Interface of AppDescription**](AppDescription.md)| Update Details |
+ **body** | [**optional.Interface of AppDescription**](AppDescription.md)| Update Details | 
 
 ### Return type
 
@@ -199,14 +188,13 @@ Optional parameters are passed through a pointer to a AppsApiUpdateDescriptionUs
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateUsingPUT2**
-
-> AppResponse UpdateUsingPUT2(ctx, body, anyStateAppId)
+# **UpdateUsingPUT3**
+> AppResponse UpdateUsingPUT3(ctx, body, anyStateAppId)
 Update app
 
 App can be in any state
@@ -229,7 +217,8 @@ App can be in any state
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

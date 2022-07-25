@@ -9,10 +9,10 @@
 package stcloud
 
 type DailyDto struct {
-	Day int64 `json:"day,omitempty"`
-	Failed int64 `json:"failed,omitempty"`
-	IngestedCount int64 `json:"ingestedCount,omitempty"`
+	Day            int64 `json:"day,omitempty"`
+	Failed         int64 `json:"failed,omitempty"`
+	IngestedCount  int64 `json:"ingestedCount,omitempty"`
 	IngestedVolume int64 `json:"ingestedVolume,omitempty"`
-	StoredCount int64 `json:"storedCount,omitempty"`
-	StoredVolume int64 `json:"storedVolume,omitempty"`
+	StoredCount    int64 `json:"storedCount,omitempty"`
+	StoredVolume   int64 `json:"storedVolume,omitempty"`
 }

@@ -9,10 +9,10 @@
 package stcloud
 
 type FilterValue struct {
-	AggType string `json:"aggType,omitempty"`
-	FilterName string `json:"filterName,omitempty"`
-	Key string `json:"key,omitempty"`
-	Label string `json:"label,omitempty"`
-	Name string `json:"name,omitempty"`
-	Values []string `json:"values,omitempty"`
+	AggType    string   `json:"aggType,omitempty"`
+	FilterName string   `json:"filterName,omitempty"`
+	Key        string   `json:"key,omitempty"`
+	Label      string   `json:"label,omitempty"`
+	Name       string   `json:"name,omitempty"`
+	Values     []string `json:"values,omitempty"`
 }

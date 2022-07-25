@@ -9,7 +9,7 @@
 package stcloud
 
 type EventDto struct {
-	From *interface{} `json:"from,omitempty"`
-	To *interface{} `json:"to,omitempty"`
-	Type_ string `json:"type,omitempty"`
+	From  *interface{} `json:"from,omitempty"`
+	To    *interface{} `json:"to,omitempty"`
+	Type_ string       `json:"type,omitempty"`
 }

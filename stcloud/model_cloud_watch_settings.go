@@ -9,8 +9,8 @@
 package stcloud
 
 type CloudWatchSettings struct {
-	AccessKey string `json:"accessKey,omitempty"`
+	AccessKey      string `json:"accessKey,omitempty"`
 	FetchFrequency string `json:"fetchFrequency,omitempty"`
-	Region string `json:"region,omitempty"`
-	SecretKey string `json:"secretKey,omitempty"`
+	Region         string `json:"region,omitempty"`
+	SecretKey      string `json:"secretKey,omitempty"`
 }

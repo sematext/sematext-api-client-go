@@ -9,6 +9,6 @@
 package stcloud
 
 type Dimension struct {
-	Name string `json:"name"`
+	Name   string   `json:"name"`
 	Values []string `json:"values"`
 }

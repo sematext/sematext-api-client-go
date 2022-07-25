@@ -9,7 +9,7 @@
 package stcloud
 
 type CreateTokenDto struct {
-	Name string `json:"name,omitempty"`
-	Readable bool `json:"readable,omitempty"`
-	Writeable bool `json:"writeable,omitempty"`
+	Name      string `json:"name,omitempty"`
+	Readable  bool   `json:"readable,omitempty"`
+	Writeable bool   `json:"writeable,omitempty"`
 }

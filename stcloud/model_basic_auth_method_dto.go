@@ -10,5 +10,5 @@ package stcloud
 
 type BasicAuthMethodDto struct {
 	AuthType string `json:"authType,omitempty"`
-	Uuid string `json:"uuid,omitempty"`
+	Uuid     string `json:"uuid,omitempty"`
 }

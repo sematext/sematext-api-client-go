@@ -11,8 +11,8 @@ package stcloud
 type AppMetadata struct {
 	AwsCloudWatchAccessKey string `json:"awsCloudWatchAccessKey,omitempty"`
 	AwsCloudWatchSecretKey string `json:"awsCloudWatchSecretKey,omitempty"`
-	AwsFetchFrequency string `json:"awsFetchFrequency,omitempty"`
-	AwsRegion string `json:"awsRegion,omitempty"`
+	AwsFetchFrequency      string `json:"awsFetchFrequency,omitempty"`
+	AwsRegion              string `json:"awsRegion,omitempty"`
 	// Comma separated list of AWS types monitored by created app
 	SubTypes []string `json:"subTypes,omitempty"`
 }

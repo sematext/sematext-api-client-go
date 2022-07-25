@@ -2,13 +2,13 @@
 
 All URIs are relative to */*
 
-| Method                                                                   | HTTP request                                                        | Description                               |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------- | ----------------------------------------- |
-| [**CreateAppToken1**](TokensApiControllerApi.md#CreateAppToken1)         | **Post** /users-web/api/v3/apps/{appId}/tokens                      | Create new app token                      |
-| [**DeleteAppToken1**](TokensApiControllerApi.md#DeleteAppToken1)         | **Delete** /users-web/api/v3/apps/{appId}/tokens/{tokenId}          | Delete app token                          |
-| [**GetAppTokens**](TokensApiControllerApi.md#GetAppTokens)               | **Get** /users-web/api/v3/apps/{appId}/tokens                       | Get app available tokens                  |
-| [**RegenerateAppToken1**](TokensApiControllerApi.md#RegenerateAppToken1) | **Post** /users-web/api/v3/apps/{appId}/tokens/{tokenId}/regenerate | Regenerate app token)                     |
-| [**UpdateAppToken1**](TokensApiControllerApi.md#UpdateAppToken1)         | **Put** /users-web/api/v3/apps/{appId}/tokens/{tokenId}             | Update app token (enable/disable or name) |
+| Method                                                                 | HTTP request                                                        | Description                               |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
+| [**CreateAppToken1**](TokensApiControllerApi.md#CreateAppToken1)       | **Post** /users-web/api/v3/apps/{appId}/tokens                      | Create new app token                      |
+| [**DeleteAppToken1**](TokensApiControllerApi.md#DeleteAppToken1)       | **Delete** /users-web/api/v3/apps/{appId}/tokens/{tokenId}          | Delete app token                          |
+| [**GetAppTokens1**](TokensApiControllerApi.md#GetAppTokens1)           | **Get** /users-web/api/v3/apps/{appId}/tokens                       | Get app available tokens                  |
+| [**RegenerateAppToken**](TokensApiControllerApi.md#RegenerateAppToken) | **Post** /users-web/api/v3/apps/{appId}/tokens/{tokenId}/regenerate | Regenerate app token)                     |
+| [**UpdateAppToken1**](TokensApiControllerApi.md#UpdateAppToken1)       | **Put** /users-web/api/v3/apps/{appId}/tokens/{tokenId}             | Update app token (enable/disable or name) |
 
 # **CreateAppToken1**
 
@@ -66,9 +66,9 @@ Delete app token
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetAppTokens**
+# **GetAppTokens1**
 
-> TokensResponse GetAppTokens(ctx, appId)
+> TokensResponse GetAppTokens1(ctx, appId)
 Get app available tokens
 
 ### Required Parameters
@@ -93,9 +93,9 @@ Get app available tokens
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RegenerateAppToken1**
+# **RegenerateAppToken**
 
-> TokenResponse RegenerateAppToken1(ctx, appId, tokenId)
+> TokenResponse RegenerateAppToken(ctx, appId, tokenId)
 Regenerate app token)
 
 ### Required Parameters
