@@ -1,6 +1,6 @@
 module github.com/sematext/sematext-api-client-go
 
-go 1.14
+go 1.17
 
 require (
 	github.com/antihax/optional v1.0.0
